@@ -1,274 +1,290 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll();
   
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   return (
     <>
       <FilmGrain />
       <Navbar />
 
-      <main ref={containerRef}>
-        {/* HERO - The Manifesto */}
-        <motion.section 
-          style={{ opacity: heroOpacity, scale: heroScale }}
-          className="h-screen flex items-center justify-center relative overflow-hidden fixed inset-0 z-0"
+      <main className="overflow-hidden">
+        {/* HERO - Full Impact */}
+        <section 
+          ref={heroRef}
+          className="h-screen relative flex items-center justify-center overflow-hidden"
         >
-          {/* Ambient glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px]" />
+          {/* Dynamic gradient background */}
+          <motion.div 
+            style={{ y: bgY }}
+            className="absolute inset-0 bg-gradient-to-br from-background via-card to-background"
+          />
           
-          <div className="text-center px-6 relative z-10">
+          {/* Animated accent lines */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              initial={{ x: '-100%', opacity: 0 }}
+              animate={{ x: '200%', opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 3, delay: 1, ease: "easeInOut" }}
+              className="absolute top-1/3 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent"
+            />
+            <motion.div
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: '-200%', opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 3, delay: 1.5, ease: "easeInOut" }}
+              className="absolute top-2/3 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
+            />
+          </div>
+
+          {/* Main content */}
+          <div className="relative z-10 text-center px-6 max-w-5xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              style={{ 
+                transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)` 
+              }}
+            >
+              <h1 className="text-[12vw] md:text-[10vw] lg:text-[8vw] font-serif font-medium text-foreground leading-[0.9] tracking-tight">
+                <motion.span
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  KRISHNA
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-primary"
+                >
+                  KUMAR
+                </motion.span>
+              </h1>
+            </motion.div>
+
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2, delay: 0.5 }}
-              className="text-muted-foreground text-sm tracking-[0.4em] uppercase mb-12"
-            >
-              Krishna Kumar
-            </motion.p>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 0.8, ease: [0.25, 0.1, 0, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-foreground leading-[1.1]"
+              transition={{ duration: 1, delay: 1 }}
+              className="mt-8 text-muted-foreground text-lg md:text-xl tracking-[0.2em] uppercase"
             >
-              Think Different.
-              <br />
-              <span className="text-muted-foreground/60">Move Different.</span>
-            </motion.h1>
+              Athlete • Strategist • Builder
+            </motion.p>
           </div>
 
           {/* Scroll indicator */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2"
+            transition={{ delay: 2 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
           >
+            <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">Scroll</span>
             <motion.div 
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-16 bg-gradient-to-b from-foreground/40 to-transparent"
+              animate={{ scaleY: [1, 1.5, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-px h-12 bg-gradient-to-b from-foreground/50 to-transparent origin-top"
             />
           </motion.div>
-        </motion.section>
-
-        {/* Spacer for fixed hero */}
-        <div className="h-screen" />
-
-        {/* SECTION 1 - The Single Word */}
-        <section className="min-h-screen flex items-center justify-center bg-background relative">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-20%" }}
-            transition={{ duration: 1.5 }}
-            className="text-center px-6"
-          >
-            <span className="text-[120px] md:text-[200px] lg:text-[280px] font-serif font-medium text-foreground/5 select-none leading-none">
-              Why
-            </span>
-          </motion.div>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="absolute bottom-24 left-1/2 -translate-x-1/2 text-muted-foreground text-center max-w-md px-6 text-lg font-light"
-          >
-            Most ask what. Few ask how.
-            <br />
-            <span className="text-foreground">The right question changes everything.</span>
-          </motion.p>
         </section>
 
-        {/* SECTION 2 - The Tension */}
-        <section className="min-h-screen bg-card relative overflow-hidden">
-          <div className="absolute inset-0 flex">
-            <div className="flex-1 flex items-center justify-center border-r border-border/10">
+        {/* SECTION 2 - The Statement */}
+        <section className="min-h-screen bg-card flex items-center relative">
+          <div className="max-w-7xl mx-auto px-6 py-32 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1 }}
-                className="text-center"
+                className="lg:col-span-7"
               >
-                <span className="text-6xl md:text-8xl font-serif text-foreground/10">Mind</span>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground leading-[1.1]">
+                  I don't believe in
+                  <br />
+                  <span className="text-muted-foreground/40">impossible.</span>
+                </h2>
               </motion.div>
-            </div>
-            <div className="flex-1 flex items-center justify-center">
+              
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="text-center"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="lg:col-span-5"
               >
-                <span className="text-6xl md:text-8xl font-serif text-foreground/10">Body</span>
+                <p className="text-muted-foreground text-lg font-light leading-relaxed">
+                  Every hurdle cleared. Every system built. Every limit pushed. 
+                  It all starts with refusing to accept the word "no."
+                </p>
+                <div className="mt-8 h-px w-24 bg-primary" />
               </motion.div>
             </div>
           </div>
-          
-          {/* Center convergence */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="text-center z-10"
-            >
-              <div className="w-px h-32 bg-gradient-to-b from-transparent via-primary to-transparent mx-auto mb-8" />
-              <span className="text-2xl md:text-3xl font-serif text-foreground">One System.</span>
-              <div className="w-px h-32 bg-gradient-to-b from-primary via-primary to-transparent mx-auto mt-8" />
-            </motion.div>
-          </div>
         </section>
 
-        {/* SECTION 3 - The Numbers That Don't Speak */}
-        <section className="py-40 bg-background">
-          <div className="max-w-6xl mx-auto px-6">
+        {/* SECTION 3 - The Disciplines */}
+        <section className="py-32 bg-background relative">
+          <div className="max-w-7xl mx-auto px-6">
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8"
-            >
-              {[
-                { number: "0.13", unit: "sec", context: "The time between thought and action." },
-                { number: "10K", unit: "hrs", context: "The myth. The reality is different." },
-                { number: "∞", unit: "", context: "What you become when limits dissolve." },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="text-center group"
-                >
-                  <div className="mb-6">
-                    <span className="text-6xl md:text-7xl font-serif text-foreground group-hover:text-primary transition-colors duration-500">
-                      {item.number}
-                    </span>
-                    <span className="text-xl text-muted-foreground ml-2">{item.unit}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground font-light tracking-wide">
-                    {item.context}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* SECTION 4 - The Philosophy Statement */}
-        <section className="py-48 bg-card relative">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <motion.blockquote
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight"
+              transition={{ duration: 0.8 }}
+              className="mb-20"
             >
-              "The people who are crazy enough to think they can
-              <span className="text-primary italic"> train the untrained</span>
-              —are the ones who do."
-            </motion.blockquote>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="mt-16"
-            >
-              <span className="text-muted-foreground text-sm tracking-[0.3em] uppercase">
-                — On cognitive gaming
-              </span>
+              <span className="text-primary text-sm tracking-[0.3em] uppercase">What I Do</span>
             </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-border/30">
+              {[
+                {
+                  num: "01",
+                  title: "Compete",
+                  desc: "110m Hurdles. Long Jump. The track is where discipline becomes instinct.",
+                  accent: "Athletics"
+                },
+                {
+                  num: "02", 
+                  title: "Build",
+                  desc: "Cognitive games that train the mind like weights train the body.",
+                  accent: "Technology"
+                },
+                {
+                  num: "03",
+                  title: "Lead",
+                  desc: "Turning chaos into clarity. Strategy that moves organizations forward.",
+                  accent: "Enterprise"
+                }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: i * 0.15 }}
+                  className="group border-b md:border-b-0 md:border-r last:border-r-0 border-border/30 p-10 md:p-12 hover:bg-card/50 transition-colors duration-500"
+                >
+                  <span className="text-6xl font-serif text-foreground/10 group-hover:text-primary/30 transition-colors duration-500">
+                    {item.num}
+                  </span>
+                  <h3 className="text-3xl font-serif text-foreground mt-6 mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground font-light mb-6">
+                    {item.desc}
+                  </p>
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-primary">
+                    {item.accent}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* SECTION 5 - The Three Words */}
-        <section className="py-40 bg-background">
-          <div className="max-w-5xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+        {/* SECTION 4 - The Quote */}
+        <section className="py-48 bg-card relative overflow-hidden">
+          {/* Large background text */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span className="text-[30vw] font-serif text-foreground/[0.02] leading-none">
+              KK
+            </span>
+          </div>
+
+          <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <motion.blockquote
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-0"
+              transition={{ duration: 1.2 }}
             >
+              <p className="text-3xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight">
+                "The hurdle is not an obstacle.
+                <br />
+                <span className="text-primary">It's a rhythm.</span>"
+              </p>
+            </motion.blockquote>
+          </div>
+        </section>
+
+        {/* SECTION 5 - Stats */}
+        <section className="py-32 bg-background">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
               {[
-                { word: "Prepare.", subtext: "Like the race is tomorrow." },
-                { word: "Execute.", subtext: "Like there's no tomorrow." },
-                { word: "Reflect.", subtext: "Like time is infinite." },
-              ].map((item, index) => (
+                { value: "10+", label: "Years of Training" },
+                { value: "50+", label: "Projects Delivered" },
+                { value: "∞", label: "Possibilities" },
+                { value: "1", label: "Mission" },
+              ].map((stat, i) => (
                 <motion.div
-                  key={index}
+                  key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.15 }}
-                  className="py-16 md:py-24 border-b md:border-b-0 md:border-r last:border-0 border-border/20 text-center group cursor-default"
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="text-center py-8"
                 >
-                  <h3 className="text-4xl md:text-5xl font-serif text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-                    {item.word}
-                  </h3>
-                  <p className="text-muted-foreground text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {item.subtext}
+                  <span className="text-5xl md:text-6xl font-serif text-foreground">
+                    {stat.value}
+                  </span>
+                  <p className="text-muted-foreground text-sm mt-4 tracking-wide">
+                    {stat.label}
                   </p>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* SECTION 6 - The Identity */}
-        <section className="py-48 bg-card border-t border-border/10">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              {/* Visual Element */}
+        {/* SECTION 6 - About Preview */}
+        <section className="py-32 bg-card">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Image/Visual */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
-                className="relative order-2 lg:order-1"
+                className="relative"
               >
-                <div className="aspect-[4/5] bg-background relative overflow-hidden">
-                  {/* Abstract representation instead of photo */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      {/* Concentric circles - representing focus */}
-                      <div className="w-64 h-64 md:w-80 md:h-80 border border-foreground/5 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                      <div className="w-48 h-48 md:w-60 md:h-60 border border-foreground/10 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                      <div className="w-32 h-32 md:w-40 md:h-40 border border-foreground/15 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                      <div className="w-16 h-16 md:w-20 md:h-20 border border-foreground/20 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                      <div className="w-3 h-3 bg-primary rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                    </div>
-                  </div>
-                  
-                  {/* Corner accents */}
-                  <div className="absolute top-0 left-0 w-16 h-px bg-foreground/20" />
-                  <div className="absolute top-0 left-0 w-px h-16 bg-foreground/20" />
-                  <div className="absolute bottom-0 right-0 w-16 h-px bg-foreground/20" />
-                  <div className="absolute bottom-0 right-0 w-px h-16 bg-foreground/20" />
+                <div className="aspect-square bg-background relative overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop"
+                    alt="Athletic discipline"
+                    className="w-full h-full object-cover noir-photo"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                 </div>
+                {/* Decorative frame */}
+                <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary/50" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary/50" />
               </motion.div>
 
               {/* Text */}
@@ -277,58 +293,67 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="order-1 lg:order-2"
               >
-                <p className="text-muted-foreground text-lg md:text-xl font-light leading-relaxed mb-8">
-                  Not a consultant. Not an athlete. Not a builder.
-                </p>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-10 leading-tight">
-                  A student of 
-                  <span className="italic text-primary"> performance.</span>
+                <span className="text-primary text-sm tracking-[0.3em] uppercase mb-6 block">
+                  The Story
+                </span>
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
+                  From the track to the boardroom.
                 </h2>
-                <p className="text-muted-foreground font-light leading-relaxed mb-12">
-                  Some see categories. Boxes to check. Roles to fill.
-                  <br /><br />
-                  I see one question asked in a thousand ways:
-                  <br />
-                  <span className="text-foreground">How do we become what we're capable of becoming?</span>
+                <p className="text-muted-foreground text-lg font-light leading-relaxed mb-6">
+                  Two worlds that seem far apart. But they share the same truth: 
+                  excellence isn't given. It's earned through relentless practice, 
+                  strategic thinking, and the courage to fail forward.
+                </p>
+                <p className="text-muted-foreground text-lg font-light leading-relaxed mb-10">
+                  This is my journey.
                 </p>
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-4 text-foreground text-sm tracking-[0.2em] uppercase group"
+                  className="inline-flex items-center gap-4 group"
                 >
-                  <span className="border-b border-foreground/40 pb-1 group-hover:border-foreground transition-colors">
-                    The full story
+                  <span className="text-foreground text-sm tracking-[0.2em] uppercase border-b border-foreground/30 pb-1 group-hover:border-primary group-hover:text-primary transition-colors">
+                    Read More
                   </span>
-                  <span className="w-8 h-px bg-foreground/40 group-hover:w-12 group-hover:bg-foreground transition-all duration-300" />
+                  <motion.span 
+                    className="text-primary"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
                 </Link>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 7 - The CTA */}
-        <section className="py-48 bg-background relative">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+        {/* SECTION 7 - CTA */}
+        <section className="py-48 bg-background relative overflow-hidden">
+          {/* Ambient glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+
+          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
             >
-              <p className="text-muted-foreground text-lg mb-8 font-light">
-                Ready to think differently?
-              </p>
-              <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-16">
-                Let's build something
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground mb-8 leading-tight">
+                Let's create
                 <br />
-                <span className="text-primary italic">extraordinary.</span>
+                <span className="text-primary">something bold.</span>
               </h2>
+              <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto">
+                Whether it's a new venture, a challenging problem, or just a conversation — 
+                I'm always ready for what's next.
+              </p>
               <Link
                 to="/contact"
-                className="inline-block px-12 py-5 border border-foreground/20 text-foreground text-sm tracking-[0.3em] uppercase hover:bg-foreground hover:text-background transition-all duration-500"
+                className="inline-block px-16 py-6 bg-primary text-primary-foreground font-medium tracking-[0.2em] uppercase hover:bg-primary/90 transition-colors"
               >
-                Start a conversation
+                Get in Touch
               </Link>
             </motion.div>
           </div>
