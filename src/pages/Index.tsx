@@ -84,10 +84,9 @@ const Index = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
               className="text-muted-foreground text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
             >
-              I build the conditions for extraordinary performance: calm under
-              pressure, crisp decisions, and products that earn devotion. From
-              elite sprint training to enterprise platforms, I shape momentum
-              that lasts.
+              Exploring the frontiers where athletic discipline meets cognitive
+              science. I build systems—for the mind, for the body, and for the
+              enterprise.
             </motion.p>
 
             <motion.div

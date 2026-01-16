@@ -1,53 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FadeInSection from "@/components/FadeInSection";
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Paradox of Preparation",
-    excerpt:
-      "Why the athletes who train the hardest often seem the most effortless. A meditation on invisible labor and visible grace.",
-    date: "December 2024",
-    category: "Philosophy",
-    image:
-      "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Cognitive Load & Decision Fatigue",
-    excerpt:
-      "Exploring how video games can serve as diagnostic tools for understanding our mental bandwidth and biases.",
-    date: "November 2024",
-    category: "Cognitive Science",
-    image:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Architecture of Resilience",
-    excerpt:
-      "What enterprise risk management teaches us about building anti-fragile systems—in business and in life.",
-    date: "October 2024",
-    category: "Strategy",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "The Rhythm Between Hurdles",
-    excerpt:
-      "Three steps, then leap. How the 110m hurdles became my framework for approaching any complex challenge.",
-    date: "September 2024",
-    category: "Athletics",
-    image:
-      "https://images.unsplash.com/photo-1544919982-b61976f0ba43?q=80&w=800&auto=format&fit=crop",
-  },
-];
+import { blogPosts } from "@/data/blogPosts";
 
 const Blog = () => {
   return (
@@ -76,75 +34,24 @@ const Blog = () => {
             </p>
           </motion.div>
 
-          {/* Featured Post */}
-          <FadeInSection className="mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="relative group overflow-hidden aspect-[4/3]">
-                <img
-                  src={blogPosts[0].image}
-                  alt={blogPosts[0].title}
-                  className="w-full h-full object-cover noir-photo group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="text-[10px] uppercase tracking-widest bg-background/80 px-3 py-1 text-foreground">
-                    Featured
-                  </span>
-                </div>
-              </div>
-              <div className="md:pl-8">
-                <span className="text-[10px] uppercase tracking-widest text-primary mb-4 block">
-                  {blogPosts[0].category}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
-                  {blogPosts[0].title}
-                </h2>
-                <p className="text-muted-foreground font-light text-lg mb-6 leading-relaxed">
-                  {blogPosts[0].excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground/50">
-                    {blogPosts[0].date}
-                  </span>
-                  <button className="group/btn inline-flex items-center gap-2 text-foreground text-sm tracking-widest uppercase hover:text-primary transition-colors">
-                    Read Article
-                    <ArrowRight
-                      size={14}
-                      className="group-hover/btn:translate-x-1 transition-transform"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* Divider */}
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mb-20" />
-
           {/* Post Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPosts.slice(1).map((post, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {blogPosts.map((post, index) => (
               <FadeInSection key={post.id} delay={index * 0.1}>
-                <article className="group cursor-pointer">
-                  <div className="relative overflow-hidden aspect-[4/3] mb-6">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover noir-photo group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-widest text-primary mb-2 block">
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="group block border border-border/30 bg-card/60 p-8 h-full hover:border-foreground/60 transition-colors"
+                >
+                  <span className="text-[10px] uppercase tracking-widest text-primary mb-3 block">
                     {post.category}
                   </span>
-                  <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-serif text-foreground mb-4 group-hover:text-primary transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground font-light text-sm leading-relaxed mb-4">
+                  <p className="text-muted-foreground font-light text-base leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <span className="text-xs text-muted-foreground/50">
-                    {post.date}
-                  </span>
-                </article>
+                </Link>
               </FadeInSection>
             ))}
           </div>
