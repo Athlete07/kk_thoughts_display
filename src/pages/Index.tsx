@@ -61,7 +61,7 @@ const Index = () => {
               <div className="flex items-center gap-3 justify-center">
                 <span className="w-1 h-1 bg-foreground rounded-full" />
                 <span className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground font-sans">
-                  A Study in Potential
+                  Krishna Kumar • Discipline in Motion
                 </span>
                 <span className="w-1 h-1 bg-foreground rounded-full" />
               </div>
@@ -73,9 +73,9 @@ const Index = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8 text-foreground text-balance"
             >
-              "Potential is not a destination.
+              Design the moment.
               <br />
-              It is a <span className="italic">practice</span>."
+              <span className="italic">Deliver</span> the leap.
             </motion.h1>
 
             <motion.p
@@ -84,15 +84,45 @@ const Index = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
               className="text-muted-foreground text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
             >
-              Exploring the frontiers where athletic discipline meets cognitive
-              science. I build systems—for the mind, for the body, and for the
-              enterprise.
+              I build the conditions for extraordinary performance: calm under
+              pressure, crisp decisions, and products that earn devotion. From
+              elite sprint training to enterprise platforms, I shape momentum
+              that lasts.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
+              className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center px-6 py-3 text-xs tracking-[0.3em] uppercase bg-foreground text-background hover:bg-foreground/90 transition-colors"
+              >
+                The Story
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 text-xs tracking-[0.3em] uppercase border border-foreground/30 text-foreground hover:border-foreground hover:text-foreground transition-colors"
+              >
+                Create Together
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
+              className="mt-8 text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+            >
+              Precision • Velocity • Trust
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
               className="mt-16"
             >
               <button
@@ -215,13 +245,13 @@ const Index = () => {
                   <div className="absolute -inset-4 border border-border/30 scale-95 group-hover:scale-100 transition-transform duration-500" />
                   <div className="aspect-[3/4] overflow-hidden bg-background relative">
                     <img
-                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop"
+                      src="/krishna.png"
                       className="w-full h-full object-cover noir-photo"
-                      alt="Krishna Kumar"
+                      alt="Krishna Kumar Yadlapalli"
                     />
                     <div className="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-background to-transparent w-full">
                       <span className="text-foreground font-serif italic text-lg">
-                        Krishna Kumar
+                        Krishna Kumar Yadlapalli
                       </span>
                     </div>
                   </div>

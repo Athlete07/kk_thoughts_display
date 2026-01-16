@@ -1,225 +1,117 @@
-import { useState } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import FadeInSection from "@/components/FadeInSection";
-import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. I'll respond soon.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
     <>
       <FilmGrain />
       <Navbar />
 
       <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Header */}
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-20 text-center"
+            className="mb-14"
           >
             <span className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6 block">
               Connect
             </span>
-            <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-8">
-              Let's Talk.
+            <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-6">
+              Let’s make
+              <br />
+              the next move.
             </h1>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-              Whether you're exploring a collaboration, have a question, or just
-              want to say hello—I'm listening.
+            <p className="text-xl text-muted-foreground font-light max-w-2xl">
+              One clear note is enough. No forms, no noise—just a direct line.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-            {/* Contact Info */}
-            <FadeInSection>
-              <div className="space-y-12">
+          <FadeInSection>
+            <div className="border border-border/30 bg-card/70 p-10">
+              <div className="flex items-start justify-between gap-6 flex-col md:flex-row">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-4 block">
-                    Direct Line
-                  </span>
-                  <a
-                    href="mailto:o0krissh0o@gmail.com"
-                    className="group flex items-center gap-4 text-xl text-foreground hover:text-primary transition-colors"
-                  >
-                    <Mail size={20} className="text-primary" />
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">
+                    Email
+                  </p>
+                  <p className="text-2xl font-light text-foreground">
                     o0krissh0o@gmail.com
-                  </a>
-                </div>
-
-                <div>
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-4 block">
-                    Location
-                  </span>
-                  <div className="flex items-center gap-4 text-xl text-foreground">
-                    <MapPin size={20} className="text-primary" />
-                    Bangalore, India • Global
-                  </div>
-                </div>
-
-                <div className="pt-8 border-t border-border/30">
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-6 block">
-                    Elsewhere
-                  </span>
-                  <div className="flex gap-6">
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest"
-                    >
-                      LinkedIn
-                    </a>
-                    <a
-                      href="https://twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest"
-                    >
-                      Twitter
-                    </a>
-                    <a
-                      href="https://researchgate.net"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest"
-                    >
-                      ResearchGate
-                    </a>
-                  </div>
-                </div>
-
-                <div className="bg-card border border-border/30 p-8 mt-12">
-                  <p className="font-quote italic text-lg text-foreground leading-relaxed">
-                    "The best conversations begin with genuine curiosity. I'm
-                    interested in ideas that challenge convention—whether in
-                    athletics, technology, or human potential."
                   </p>
-                  <p className="font-signature text-3xl text-foreground/80 mt-6 -rotate-2">
-                    Krishna Kumar
+                  <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
+                    Share what you’re building, why it matters, and your timing.
                   </p>
+                </div>
+                <a
+                  href="mailto:o0krissh0o@gmail.com?subject=Collaboration%20Inquiry"
+                  className="inline-flex items-center justify-center px-6 py-3 text-xs tracking-[0.3em] uppercase bg-foreground text-background hover:bg-foreground/90 transition-colors"
+                >
+                  Write a Note
+                </a>
+              </div>
+              <div className="mt-8 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
+                <Mail size={14} className="text-primary" />
+                Typical reply in 24–48 hours
+              </div>
+            </div>
+          </FadeInSection>
+
+          <FadeInSection delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+              <div className="border border-border/30 bg-background/60 p-8">
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-4 block">
+                  Location
+                </span>
+                <div className="flex items-center gap-3 text-foreground">
+                  <MapPin size={18} className="text-primary" />
+                  <span className="text-lg font-light">
+                    Bangalore, India
+                  </span>
                 </div>
               </div>
-            </FadeInSection>
-
-            {/* Contact Form */}
-            <FadeInSection delay={0.2}>
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 block"
+              <div className="border border-border/30 bg-background/60 p-8">
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-4 block">
+                  Elsewhere
+                </span>
+                <div className="space-y-3">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest"
                   >
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors"
-                    placeholder="How should I address you?"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 block"
+                    LinkedIn
+                    <span className="text-[10px]">Open</span>
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest"
                   >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors"
-                    placeholder="your@email.com"
-                  />
+                    Twitter
+                    <span className="text-[10px]">Open</span>
+                  </a>
                 </div>
+              </div>
+            </div>
+          </FadeInSection>
 
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 block"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors"
-                    placeholder="What's on your mind?"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 block"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full bg-transparent border-b border-border py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors resize-none"
-                    placeholder="Tell me more..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="group w-full bg-foreground text-background py-5 text-xs uppercase tracking-widest hover:bg-primary transition-colors flex items-center justify-center gap-3"
-                >
-                  Send Message
-                  <Send
-                    size={14}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </button>
-              </form>
-            </FadeInSection>
-          </div>
+          <FadeInSection delay={0.2}>
+            <div className="border border-border/30 bg-card/70 p-10 mt-10">
+              <p className="font-quote italic text-xl text-foreground leading-relaxed">
+                "The best conversations begin with genuine curiosity. I'm
+                interested in ideas that challenge convention—whether in
+                athletics, technology, or human potential."
+              </p>
+              <p className="font-signature text-3xl text-foreground/80 mt-6 -rotate-2">
+                Krishna Kumar Yadlapalli
+              </p>
+            </div>
+          </FadeInSection>
         </div>
       </main>
 

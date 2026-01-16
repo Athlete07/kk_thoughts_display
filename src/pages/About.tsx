@@ -5,30 +5,51 @@ import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import FadeInSection from "@/components/FadeInSection";
 
-const artifacts = [
+const principles = [
   {
-    src: "https://images.unsplash.com/photo-1599831295251-1d57564d2629?q=80&w=800&auto=format&fit=crop",
-    alt: "Stopwatch",
-    label: "Precision",
-    offset: false,
+    title: "Calm",
+    description: "Reduce noise so the next decision feels obvious.",
   },
   {
-    src: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
-    alt: "Notebook",
-    label: "Planning",
-    offset: true,
+    title: "Discipline",
+    description: "Build habits that hold under real pressure.",
   },
   {
-    src: "https://images.unsplash.com/photo-1516422867086-2df47e271239?q=80&w=800&auto=format&fit=crop",
-    alt: "Track Spikes",
-    label: "Grit",
-    offset: false,
+    title: "Results",
+    description: "Measure what changed and make it repeatable.",
+  },
+];
+
+const chapters = [
+  {
+    title: "Athlete",
+    description:
+      "The track taught me precision, timing, and how to win before the gun goes off.",
   },
   {
-    src: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=800&auto=format&fit=crop",
-    alt: "Strategy",
-    label: "Logic",
-    offset: true,
+    title: "Architect",
+    description:
+      "In enterprise work, I design systems that keep teams aligned and moving.",
+  },
+  {
+    title: "Builder",
+    description:
+      "Cognitive Gaming is my way of training the mind to decide well.",
+  },
+];
+
+const focusAreas = [
+  {
+    title: "ServiceNow",
+    description: "Clear systems that reduce friction at scale.",
+  },
+  {
+    title: "Agile Delivery",
+    description: "Execution that keeps momentum real.",
+  },
+  {
+    title: "Performance",
+    description: "Decision training for high-stakes teams.",
   },
 ];
 
@@ -55,230 +76,139 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-32 text-center relative pt-12"
+            className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center mb-24 pt-12"
           >
-            <span className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6 block">
-              The Narrative
-            </span>
-            <h1 className="text-5xl md:text-8xl font-serif text-foreground mb-12 leading-tight">
-              Identity is an <br />
-              <span className="italic text-muted-foreground">Action.</span>
-            </h1>
-
-            <div className="max-w-3xl mx-auto text-xl md:text-2xl font-light text-foreground leading-relaxed">
-              <p className="mb-8">
-                "I am not defined by a single title. I am the sum of my
-                disciplines. The athlete's grit, the strategist's vision, and
-                the architect's precision."
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6 block">
+                The Man
+              </span>
+              <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-6 leading-tight">
+                I design calm
+                <br />
+                in high‑pressure rooms.
+              </h1>
+              <p className="text-xl text-muted-foreground font-light leading-relaxed max-w-xl">
+                Athlete. Architect. Builder. My work is about making the next
+                decision feel clear and the outcome feel earned.
               </p>
+              <div className="mt-10 flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 text-xs tracking-[0.3em] uppercase bg-foreground text-background hover:bg-foreground/90 transition-colors"
+                >
+                  Start a Conversation
+                </Link>
+                <Link
+                  to="/blog"
+                  className="inline-flex items-center justify-center px-6 py-3 text-xs tracking-[0.3em] uppercase border border-foreground/30 text-foreground hover:border-foreground hover:text-foreground transition-colors"
+                >
+                  Read the Thinking
+                </Link>
+              </div>
             </div>
 
-            <div className="h-px w-24 bg-foreground/20 mx-auto mt-12" />
+            <div className="relative">
+              <div className="aspect-[3/4] overflow-hidden bg-card relative">
+                <img
+                  src="/krishna.png"
+                  className="w-full h-full object-cover noir-photo"
+                  alt="Krishna Kumar Yadlapalli"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 border border-border/30 bg-background/80 px-6 py-4">
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  Discipline in Motion
+                </p>
+                <p className="text-lg font-serif text-foreground">
+                  Krishna Kumar Yadlapalli
+                </p>
+              </div>
+            </div>
           </motion.div>
 
-          {/* CHAPTER 1: THE FORGE */}
-          <FadeInSection className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-40 items-center">
-            <div className="md:col-span-6 relative group">
-              <div className="aspect-[4/5] overflow-hidden bg-card relative shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
-                <img
-                  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop"
-                  className="w-full h-full object-cover noir-photo group-hover:scale-105 transition-transform duration-1000"
-                  alt="The Start Line"
-                />
-                <div className="absolute bottom-8 left-8 z-20">
-                  <span className="block text-4xl font-serif text-foreground mb-2">
-                    01
-                  </span>
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                    The Forge
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="md:col-span-6 md:pl-8">
-              <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-8">
-                The 110m Hurdles.
-              </h2>
-              <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
-                <p>
-                  The track was my first classroom. It taught me that{" "}
-                  <strong className="text-foreground">gravity is honest</strong>
-                  . In the 110m hurdles, you cannot fake technique. If you
-                  hesitate, you crash.
-                </p>
-                <p>
-                  This discipline forged my character. It taught me to love the
-                  monotony of practice. To respect the clock. To understand that
-                  "glory" is just a split-second byproduct of years of unseen
-                  labor.
-                </p>
-                <p className="text-foreground italic border-l border-primary pl-6 py-2 my-6">
-                  "I don't just run. I calculate rhythm under extreme pressure."
-                </p>
-                <p>
-                  Whether I am analyzing a business risk or coding a cognitive
-                  test, I bring this same "start-line intensity" to the table.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* CHAPTER 2: THE ARENA */}
-          <FadeInSection className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-40 items-center">
-            <div className="md:col-span-6 md:order-2 relative group">
-              <div className="aspect-[4/5] overflow-hidden bg-card relative shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
-                <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
-                  className="w-full h-full object-cover noir-photo group-hover:scale-105 transition-transform duration-1000"
-                  alt="Corporate Strategy"
-                />
-                <div className="absolute bottom-8 left-8 z-20">
-                  <span className="block text-4xl font-serif text-foreground mb-2">
-                    02
-                  </span>
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground">
-                    The Arena
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="md:col-span-6 md:order-1 md:pr-8">
-              <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-8">
-                The Art of Structure.
-              </h2>
-              <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
-                <p>
-                  The corporate landscape of{" "}
-                  <strong className="text-foreground">ServiceNow</strong>
-                  —specifically{" "}
-                  <strong className="text-foreground">
-                    Integrated Risk Management (IRM)
-                  </strong>{" "}
-                  and{" "}
-                  <strong className="text-foreground">
-                    Strategic Portfolio Management (SPM)
-                  </strong>
-                  —became my canvas.
-                </p>
-                <p>
-                  I do not view this as mere "consulting." I view it as the
-                  architecture of resilience. An enterprise is a living
-                  organism; risk is its pulse, and strategy is its intent.
-                </p>
-                <p>
-                  My craft involves harmonizing these forces. I look at chaotic
-                  regulatory environments and see patterns waiting to be
-                  resolved. I take the complexity of a global portfolio and
-                  sculpt it into a singular, flowing narrative of execution. It
-                  is about creating clarity where there was once confusion.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* CHAPTER 3: THE PASSION */}
-          <FadeInSection className="relative mb-40">
-            <div className="absolute inset-0 bg-card opacity-50 z-0" />
-            <div className="relative z-10 bg-background border border-border/30 p-8 md:p-20 text-center overflow-hidden group">
-              {/* Abstract Background */}
-              <div className="absolute top-0 left-0 w-full h-full opacity-20 group-hover:opacity-30 transition-opacity duration-700">
-                <img
-                  src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=1000&auto=format&fit=crop"
-                  className="w-full h-full object-cover grayscale"
-                  alt="Neural Network"
-                />
-              </div>
-
-              <span className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6 block relative z-10">
-                03 — The Synthesis
-              </span>
-              <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-10 relative z-10">
-                The Gym for the Mind.
-              </h2>
-
-              <div className="max-w-3xl mx-auto text-xl text-foreground font-light leading-relaxed relative z-10">
-                <p className="mb-8">
-                  "We track our steps. We track our calories. But we rarely
-                  track our thoughts."
-                </p>
-                <p className="text-muted-foreground text-lg">
-                  Cognitive Gaming is my answer to the unquantified mind. It is
-                  a space where failure is data, and reaction time is currency.
-                  I built this to help people understand their own operating
-                  systems—to see their biases, their strengths, and their
-                  potential in high-definition.
-                </p>
-              </div>
-            </div>
-          </FadeInSection>
-
-          {/* ARTIFACTS */}
-          <FadeInSection className="mb-40">
-            <div className="text-center mb-16">
+          {/* PRINCIPLES */}
+          <FadeInSection className="mb-24">
+            <div className="text-center mb-12">
               <span className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
-                Evidence of Process
+                Principles
               </span>
-              <h2 className="text-3xl font-serif text-foreground mt-4">
-                Artifacts of Discipline.
+              <h2 className="text-3xl md:text-5xl font-serif text-foreground mt-4">
+                What I stand for.
               </h2>
             </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {artifacts.map((artifact) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {principles.map((principle) => (
                 <div
-                  key={artifact.label}
-                  className={`group relative aspect-square bg-card overflow-hidden cursor-crosshair ${
-                    artifact.offset ? "mt-8 md:mt-0" : ""
-                  }`}
+                  key={principle.title}
+                  className="border border-border/30 bg-card/60 p-8"
                 >
-                  <img
-                    src={artifact.src}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 grayscale"
-                    alt={artifact.alt}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-background/60">
-                    <span className="text-xs font-mono uppercase tracking-widest text-foreground border border-border/30 px-3 py-1">
-                      {artifact.label}
-                    </span>
-                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
+                    {principle.title}
+                  </p>
+                  <p className="text-foreground text-sm leading-relaxed">
+                    {principle.description}
+                  </p>
                 </div>
               ))}
             </div>
+          </FadeInSection>
 
-            <div className="text-center mt-6">
-              <p className="text-[10px] text-muted-foreground italic">
-                "The tools change. The standard does not."
-              </p>
+          {/* CHAPTERS */}
+          <FadeInSection className="mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {chapters.map((chapter, index) => (
+                <div key={chapter.title} className="border-l border-border/30 pl-6">
+                  <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                    0{index + 1}
+                  </span>
+                  <h3 className="text-2xl font-serif text-foreground mt-4 mb-4">
+                    {chapter.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {chapter.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </FadeInSection>
 
-          {/* THE PROMISE */}
-          <FadeInSection className="max-w-3xl mx-auto text-center mb-32">
-            <div className="text-3xl text-primary mb-8">✦</div>
-            <h3 className="font-serif text-3xl text-foreground mb-10">
-              A Note on Trust
-            </h3>
-            <div className="space-y-8 text-xl font-quote italic text-foreground leading-relaxed">
-              <p>
-                "Trust is not a contract; it is a frequency. It is the quiet
-                understanding that comes from unwavering consistency."
-              </p>
-              <p>
-                "I share my journey here not to impress, but to connect. To find
-                those who also value depth over speed, and principle over
-                convenience. If you see a reflection of your own values in my
-                work, then we have already met."
-              </p>
+          {/* FOCUS */}
+          <FadeInSection className="mb-24">
+            <div className="text-center mb-12">
+              <span className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
+                Focus
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif text-foreground mt-4">
+                Where I do my best work.
+              </h2>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+              {focusAreas.map((area) => (
+                <div
+                  key={area.title}
+                  className="border border-border/30 bg-background/60 p-6"
+                >
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">
+                    {area.title}
+                  </p>
+                  <p className="text-foreground text-sm">{area.description}</p>
+                </div>
+              ))}
+            </div>
+          </FadeInSection>
 
-            <div className="mt-20">
+          {/* NOTE */}
+          <FadeInSection className="max-w-3xl mx-auto text-center mb-24">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4">
+              A Note
+            </p>
+            <p className="text-2xl md:text-3xl font-quote italic text-foreground leading-relaxed">
+              "Trust is built quietly—through consistency, clarity, and the
+              discipline to do the work when no one is watching."
+            </p>
+            <div className="mt-12">
               <p className="font-signature text-5xl text-foreground/90 transform -rotate-2">
                 Krishna Kumar
-              </p>
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground mt-4">
-                Bangalore • Global
               </p>
             </div>
           </FadeInSection>

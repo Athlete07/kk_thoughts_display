@@ -39,7 +39,7 @@ const Navbar = () => {
           to="/"
           className="font-serif text-sm tracking-[0.2em] text-foreground cursor-pointer z-50"
         >
-          KRISHNA KUMAR
+          KRISHNA KUMAR YADLAPALLI
         </Link>
 
         {/* Desktop Navigation */}
