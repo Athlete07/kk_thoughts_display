@@ -1,516 +1,260 @@
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { ChevronDown, Quote } from "lucide-react";
+import { motion } from "framer-motion";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HeroCanvas from "@/components/HeroCanvas";
+import DecisionPulse from "@/components/DecisionPulse";
+import DisciplineCard from "@/components/DisciplineCard";
+import FadeInSection from "@/components/FadeInSection";
+
+const disciplineCards = [
+  {
+    number: "01",
+    title: "The Start Line",
+    description:
+      'In the <strong class="text-foreground">110m Hurdles</strong>, the race is won before the gun goes off. It is about visualization and mental rehearsal. I apply this same preparation to every project I touch.',
+  },
+  {
+    number: "02",
+    title: "The Flight",
+    description:
+      'In <strong class="text-foreground">Long Jump</strong>, you must trust your momentum to carry you into the unknown. Innovation requires that same leap of faith—backed by thousands of hours of training.',
+  },
+  {
+    number: "03",
+    title: "The Finish",
+    description:
+      "Discipline is not about motivation. It is about doing what is required, even when the stadium is empty. That is the standard I hold for myself.",
+  },
+];
 
 const Index = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeGame, setActiveGame] = useState(0);
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll();
-  
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-
-  const games = [
-    { name: "REACTION", time: "187ms", desc: "Processing speed that separates good from elite" },
-    { name: "MEMORY", time: "32", desc: "Patterns recognized in milliseconds" },
-    { name: "FOCUS", time: "∞", desc: "Sustained attention under pressure" },
-    { name: "DECISION", time: "<0.3s", desc: "Choices made before others see options" },
-  ];
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 30,
-        y: (e.clientY / window.innerHeight - 0.5) * 30,
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveGame((prev) => (prev + 1) % games.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
       <FilmGrain />
       <Navbar />
 
-      <main className="overflow-hidden bg-background">
-        {/* HERO - Gaming First Impression */}
-        <section 
-          ref={heroRef}
-          className="h-screen relative flex items-center justify-center overflow-hidden"
-        >
-          {/* Animated grid background */}
-          <div className="absolute inset-0">
-            <motion.div style={{ y: bgY }} className="absolute inset-0">
-              {/* Grid lines */}
-              <div className="absolute inset-0 opacity-[0.03]"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
-                    linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '60px 60px'
-                }}
-              />
-            </motion.div>
-          </div>
+      <main>
+        {/* HERO SECTION */}
+        <header className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+          <HeroCanvas />
 
-          {/* Floating nodes */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(12)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 rounded-full bg-primary/40"
-                style={{
-                  left: `${10 + (i * 8)}%`,
-                  top: `${15 + (i % 3) * 25}%`,
-                }}
-                animate={{
-                  y: [0, -30, 0],
-                  opacity: [0.2, 0.8, 0.2],
-                }}
-                transition={{
-                  duration: 3 + (i * 0.3),
-                  repeat: Infinity,
-                  delay: i * 0.2,
-                }}
-              />
-            ))}
-          </div>
+          {/* Bottom Gradient */}
+          <div className="absolute bottom-0 left-0 w-full h-[50vh] gradient-fade-up z-10" />
 
-          {/* Main hero content */}
-          <motion.div 
-            style={{ scale }}
-            className="relative z-10 text-center px-6 max-w-6xl"
-          >
-            {/* Micro label */}
+          <div className="max-w-4xl w-full relative z-20 text-center mt-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="mb-8"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="inline-block mb-6"
             >
-              <span className="inline-flex items-center gap-3 text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
-                <span className="w-8 h-px bg-primary" />
-                Cognitive Performance
-                <span className="w-8 h-px bg-primary" />
-              </span>
-            </motion.div>
-
-            {/* Main headline with glitch aesthetic */}
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5 }}
-              className="relative"
-            >
-              <motion.span
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-[15vw] md:text-[12vw] lg:text-[10vw] font-serif font-medium text-foreground leading-[0.85] tracking-tight"
-                style={{ 
-                  transform: `translate(${mousePosition.x * 0.3}px, ${mousePosition.y * 0.3}px)` 
-                }}
-              >
-                GAME
-              </motion.span>
-              <motion.span
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-[15vw] md:text-[12vw] lg:text-[10vw] font-serif font-medium leading-[0.85] tracking-tight"
-                style={{ 
-                  transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)` 
-                }}
-              >
-                <span className="text-muted-foreground/30">YOUR</span>{" "}
-                <span className="text-primary">MIND</span>
-              </motion.span>
-            </motion.h1>
-
-            {/* Rotating game metrics */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5 }}
-              className="mt-12 h-16 relative"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeGame}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex flex-col items-center"
-                >
-                  <div className="flex items-baseline gap-4">
-                    <span className="text-4xl md:text-5xl font-mono text-primary font-light">
-                      {games[activeGame].time}
-                    </span>
-                    <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase">
-                      {games[activeGame].name}
-                    </span>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          >
-            <motion.div 
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border border-foreground/20 rounded-full flex justify-center pt-2"
-            >
-              <motion.div className="w-1 h-2 bg-primary rounded-full" />
-            </motion.div>
-          </motion.div>
-        </section>
-
-        {/* SECTION 2 - The Philosophy */}
-        <section className="min-h-screen bg-card relative flex items-center py-32">
-          <div className="max-w-7xl mx-auto px-6 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1 }}
-              >
-                <span className="text-primary text-[10px] tracking-[0.4em] uppercase mb-8 block">
-                  Philosophy
+              <div className="flex items-center gap-3 justify-center">
+                <span className="w-1 h-1 bg-foreground rounded-full" />
+                <span className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground font-sans">
+                  A Study in Potential
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-[1.1] mb-8">
-                  The brain is the
-                  <br />
-                  <span className="text-primary">ultimate muscle.</span>
-                </h2>
-                <p className="text-muted-foreground text-lg font-light leading-relaxed max-w-lg">
-                  Athletes train their bodies for years. Surgeons sharpen their hands. 
-                  But the mind—the command center of every decision, every reaction, 
-                  every breakthrough—often goes untrained.
-                </p>
-                <p className="text-muted-foreground text-lg font-light leading-relaxed max-w-lg mt-6">
-                  <span className="text-foreground">I build games that change this.</span>
-                </p>
-              </motion.div>
-
-              {/* Interactive brain visualization */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2 }}
-                className="relative aspect-square max-w-md mx-auto"
-              >
-                {/* Concentric circles */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {[1, 0.75, 0.5, 0.25].map((scale, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute border border-foreground/10 rounded-full"
-                      style={{ width: `${scale * 100}%`, height: `${scale * 100}%` }}
-                      animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                      transition={{ duration: 20 + i * 10, repeat: Infinity, ease: "linear" }}
-                    />
-                  ))}
-                  {/* Center pulse */}
-                  <motion.div
-                    className="w-4 h-4 bg-primary rounded-full"
-                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                </div>
-
-                {/* Floating labels */}
-                {[
-                  { text: "SPEED", pos: "top-0 left-1/2 -translate-x-1/2" },
-                  { text: "MEMORY", pos: "right-0 top-1/2 -translate-y-1/2" },
-                  { text: "LOGIC", pos: "bottom-0 left-1/2 -translate-x-1/2" },
-                  { text: "FOCUS", pos: "left-0 top-1/2 -translate-y-1/2" },
-                ].map((item, i) => (
-                  <motion.span
-                    key={i}
-                    className={`absolute ${item.pos} text-[9px] tracking-[0.3em] text-muted-foreground`}
-                    animate={{ opacity: [0.3, 1, 0.3] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                  >
-                    {item.text}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 3 - Game Categories */}
-        <section className="py-32 bg-background relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <span className="text-primary text-[10px] tracking-[0.4em] uppercase block mb-4">
-                Training Grounds
-              </span>
-              <h2 className="text-4xl md:text-5xl font-serif text-foreground">
-                Four pillars of cognitive power
-              </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/20">
-              {[
-                {
-                  icon: "⚡",
-                  title: "Reaction Training",
-                  desc: "Milliseconds matter. Train your neural pathways to fire faster than instinct.",
-                  metric: "187ms avg",
-                },
-                {
-                  icon: "🧠",
-                  title: "Memory Systems",
-                  desc: "Pattern recognition. Spatial recall. The architecture of remembering.",
-                  metric: "32 patterns",
-                },
-                {
-                  icon: "🎯",
-                  title: "Focus Chambers",
-                  desc: "Sustained attention in a world of distraction. Meditation meets competition.",
-                  metric: "∞ duration",
-                },
-                {
-                  icon: "⚖️",
-                  title: "Decision Arenas",
-                  desc: "Split-second choices under pressure. Strategy compressed into moments.",
-                  metric: "<0.3s",
-                },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: i * 0.1 }}
-                  className="group bg-card p-12 md:p-16 relative overflow-hidden hover:bg-card/80 transition-all duration-500"
-                >
-                  {/* Hover glow */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-                  </div>
-
-                  <span className="text-4xl mb-8 block">{item.icon}</span>
-                  <h3 className="text-2xl md:text-3xl font-serif text-foreground mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground font-light leading-relaxed mb-8">
-                    {item.desc}
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl font-mono text-primary">{item.metric}</span>
-                    <span className="text-[10px] tracking-widest text-muted-foreground uppercase">
-                      Benchmark
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 4 - The Quote / Manifesto */}
-        <section className="py-48 bg-card relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <span className="text-[40vw] font-serif text-foreground/[0.015] leading-none">
-              ⌘
-            </span>
-          </div>
-
-          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2 }}
-            >
-              <blockquote className="text-3xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight">
-                "Everyone practices the body.
-                <br />
-                <span className="text-primary">Champions train the mind."</span>
-              </blockquote>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* SECTION 5 - The Athlete Bridge */}
-        <section className="py-32 bg-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="lg:col-span-5"
-              >
-                <span className="text-primary text-[10px] tracking-[0.4em] uppercase mb-6 block">
-                  The Bridge
-                </span>
-                <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-8 leading-tight">
-                  Where track meets
-                  <br />
-                  <span className="text-muted-foreground/50">technology</span>
-                </h2>
-                <p className="text-muted-foreground text-lg font-light leading-relaxed mb-6">
-                  110m hurdles taught me something no book could: success lives in 
-                  the space between stimulus and response. The games I build compress 
-                  that space—training minds like athletics trains bodies.
-                </p>
-                <div className="flex gap-8 mt-10">
-                  <div>
-                    <span className="text-4xl font-serif text-foreground">10+</span>
-                    <p className="text-[10px] tracking-widest text-muted-foreground uppercase mt-2">
-                      Years Athletic
-                    </p>
-                  </div>
-                  <div>
-                    <span className="text-4xl font-serif text-primary">∞</span>
-                    <p className="text-[10px] tracking-widest text-muted-foreground uppercase mt-2">
-                      Games Built
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="lg:col-span-7 relative"
-              >
-                <div className="relative">
-                  {/* Main visual */}
-                  <div className="aspect-video bg-card relative overflow-hidden">
-                    <img
-                      src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop"
-                      alt="Athletic discipline"
-                      className="w-full h-full object-cover noir-photo opacity-80"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
-                  </div>
-                  {/* Overlay stats */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background to-transparent">
-                    <div className="flex justify-between text-[10px] tracking-widest uppercase text-muted-foreground">
-                      <span>110m Hurdles</span>
-                      <span>Long Jump</span>
-                      <span>Decathlon Training</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 6 - Live Metrics */}
-        <section className="py-24 bg-card border-y border-border/20">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { value: "< 200", unit: "ms", label: "Reaction Target" },
-                { value: "99.2", unit: "%", label: "Accuracy Rate" },
-                { value: "4.7", unit: "M", label: "Sessions Played" },
-                { value: "38", unit: "sec", label: "Avg Focus Time" },
-              ].map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl md:text-5xl font-mono text-foreground font-light">
-                      {stat.value}
-                    </span>
-                    <span className="text-lg text-primary">{stat.unit}</span>
-                  </div>
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-3">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 7 - CTA */}
-        <section className="py-48 bg-background relative overflow-hidden">
-          {/* Ambient elements */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none">
-            <motion.div
-              className="absolute inset-0 border border-primary/10 rounded-full"
-              animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.1, 0.3] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-          </div>
-
-          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-            >
-              <span className="text-primary text-[10px] tracking-[0.4em] uppercase mb-8 block">
-                Ready?
-              </span>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground mb-8 leading-tight">
-                Train different.
-                <br />
-                <span className="text-primary">Think faster.</span>
-              </h2>
-              <p className="text-muted-foreground text-lg mb-12 max-w-lg mx-auto">
-                Whether you're building the next game, training for competition, 
-                or just curious about cognitive performance—let's connect.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/contact"
-                  className="inline-block px-12 py-5 bg-primary text-primary-foreground font-medium tracking-[0.2em] uppercase hover:bg-primary/90 transition-colors"
-                >
-                  Start Training
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-block px-12 py-5 border border-foreground/20 text-foreground font-medium tracking-[0.2em] uppercase hover:border-primary hover:text-primary transition-colors"
-                >
-                  My Story
-                </Link>
+                <span className="w-1 h-1 bg-foreground rounded-full" />
               </div>
             </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8 text-foreground text-balance"
+            >
+              "Potential is not a destination.
+              <br />
+              It is a <span className="italic">practice</span>."
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
+              className="text-muted-foreground text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
+            >
+              Exploring the frontiers where athletic discipline meets cognitive
+              science. I build systems—for the mind, for the body, and for the
+              enterprise.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
+              className="mt-16"
+            >
+              <button
+                onClick={() => scrollToSection("passion")}
+                className="group inline-flex flex-col items-center gap-3 text-xs tracking-[0.3em] uppercase text-foreground/50 hover:text-foreground transition-colors"
+              >
+                Explore
+                <ChevronDown className="group-hover:translate-y-2 transition-transform duration-500" />
+              </button>
+            </motion.div>
+          </div>
+        </header>
+
+        {/* COGNITIVE GAMING SECTION */}
+        <section id="passion" className="py-32 relative bg-background">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <FadeInSection className="order-2 md:order-1 relative">
+              <DecisionPulse />
+              <div className="text-center mt-8">
+                <p className="text-[10px] text-muted-foreground tracking-widest uppercase">
+                  Fig 1. The Moment of Decision
+                </p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection className="order-1 md:order-2">
+              <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-8">
+                The Gym for the Mind.
+              </h2>
+              <div className="space-y-6 text-muted-foreground font-light text-lg leading-relaxed">
+                <p>
+                  We spend hours training our bodies, but how often do we train
+                  our decision-making?
+                </p>
+                <p>
+                  <strong className="text-foreground">Cognitive Gaming</strong>{" "}
+                  is not about high scores. It is about understanding how you
+                  think under pressure. It is a safe space to fail, to adapt,
+                  and to sharpen the most important tool you possess: your mind.
+                </p>
+                <p>
+                  I am passionate about building these digital playgrounds
+                  because I believe that if we can measure intuition, we can
+                  improve it. This is for the student, the athlete, the
+                  leader—anyone who wants to understand their own potential.
+                </p>
+              </div>
+            </FadeInSection>
+          </div>
+        </section>
+
+        {/* DISCIPLINE SECTION */}
+        <section
+          id="discipline"
+          className="py-32 bg-card relative overflow-hidden"
+        >
+          {/* Background Texture */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-foreground/5 to-transparent pointer-events-none" />
+
+          <div className="max-w-5xl mx-auto px-6 relative z-10">
+            <FadeInSection className="text-center mb-16">
+              <Quote className="w-8 h-8 text-foreground/20 mx-auto mb-6" />
+              <h2 className="text-3xl md:text-5xl font-serif leading-tight">
+                "The hurdle is not an obstacle.
+                <br /> It is a rhythm."
+              </h2>
+            </FadeInSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {disciplineCards.map((card, index) => (
+                <DisciplineCard
+                  key={card.number}
+                  {...card}
+                  delay={index * 0.1}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ARCHITECT SECTION */}
+        <section id="work" className="py-32 bg-background relative">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <FadeInSection>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4 block">
+                Professional Philosophy
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-8">
+                Strategist of Chaos.
+              </h2>
+              <p className="text-muted-foreground text-lg font-light leading-relaxed mb-10">
+                In the corporate world, I work as an architect of resilience.
+                Using frameworks like{" "}
+                <strong className="text-foreground">ServiceNow</strong> and{" "}
+                <strong className="text-foreground">Agile</strong>, I help
+                organizations find clarity in complexity.
+              </p>
+              <p className="text-muted-foreground text-lg font-light leading-relaxed">
+                But titles like "Product Manager" or "Consultant" are just
+                labels. My true role is to bring{" "}
+                <strong className="text-foreground">structure to vision</strong>
+                . To take a chaotic problem—whether it's a regulatory risk or a
+                product roadmap—and design a path forward.
+              </p>
+            </FadeInSection>
+
+            <FadeInSection className="mt-20">
+              <div className="h-px w-full max-w-xs mx-auto bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+            </FadeInSection>
+          </div>
+        </section>
+
+        {/* ABOUT TEASER SECTION */}
+        <section className="py-32 bg-card border-t border-border/20">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              {/* IMAGE */}
+              <FadeInSection className="relative group">
+                <Link to="/about">
+                  <div className="absolute -inset-4 border border-border/30 scale-95 group-hover:scale-100 transition-transform duration-500" />
+                  <div className="aspect-[3/4] overflow-hidden bg-background relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop"
+                      className="w-full h-full object-cover noir-photo"
+                      alt="Krishna Kumar"
+                    />
+                    <div className="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-background to-transparent w-full">
+                      <span className="text-foreground font-serif italic text-lg">
+                        Krishna Kumar
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </FadeInSection>
+
+              {/* TEXT */}
+              <FadeInSection>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
+                  About The Man
+                </span>
+                <h2 className="text-4xl font-serif text-foreground mb-8">
+                  More Than The Sum of Parts.
+                </h2>
+                <p className="text-muted-foreground font-light text-lg mb-8 leading-relaxed">
+                  Behind the strategies and the systems is a simple belief:{" "}
+                  <strong className="text-foreground">
+                    Excellence is a habit.
+                  </strong>
+                </p>
+                <p className="text-muted-foreground font-light text-lg mb-10 leading-relaxed">
+                  Whether I am analyzing a risk portfolio or training for a long
+                  jump, the internal monologue is identical. Discover the
+                  journey that shaped this philosophy.
+                </p>
+                <Link
+                  to="/about"
+                  className="text-foreground border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-colors text-sm tracking-widest uppercase"
+                >
+                  Read Full Story
+                </Link>
+              </FadeInSection>
+            </div>
           </div>
         </section>
       </main>
