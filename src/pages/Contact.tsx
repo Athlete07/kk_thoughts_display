@@ -21,10 +21,8 @@ const Contact = () => {
             <span className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6 block">
               Connect
             </span>
-            <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-6">
-              Let’s make
-              <br />
-              the next move.
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
+              Let’s make the next move.
             </h1>
             <p className="text-xl text-muted-foreground font-light max-w-2xl">
               One clear note is enough. No forms, no noise—just a direct line.
