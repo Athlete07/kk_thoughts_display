@@ -46,27 +46,12 @@ const Index = () => {
       <main>
         {/* HERO SECTION */}
         <header className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          <HeroCanvas />
+          {/* HeroCanvas removed for static hero background */}
 
           {/* Bottom Gradient */}
           <div className="absolute bottom-0 left-0 w-full h-[50vh] gradient-fade-up z-10" />
 
           <div className="max-w-4xl w-full relative z-20 text-center mt-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="inline-block mb-6"
-            >
-              <div className="flex items-center gap-3 justify-center">
-                <span className="w-1 h-1 bg-foreground rounded-full" />
-                <span className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground font-sans">
-                  Krishna Kumar • Discipline in Motion
-                </span>
-                <span className="w-1 h-1 bg-foreground rounded-full" />
-              </div>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
