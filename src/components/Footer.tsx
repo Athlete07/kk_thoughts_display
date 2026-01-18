@@ -6,7 +6,6 @@ const socialLinks = [
   { name: "Twitter", url: "#" },
   { name: "Instagram", url: "#" },
   { name: "LinkedIn", url: "#" },
-  { name: "GitHub", url: "#" },
 ];
 
 const Footer = () => {
@@ -26,7 +25,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Artist, creator, and technologist building at the intersection of poetry, gaming, athletics, and code.
+              Shayar. Cognitive game builder. Product person. Former state-level athlete.
             </p>
           </div>
 
@@ -34,13 +33,18 @@ const Footer = () => {
           <div className="md:text-center">
             <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-6 block">Navigate</span>
             <div className="flex flex-wrap md:justify-center gap-x-8 gap-y-3">
-              {["Poetry", "About", "Blog", "Contact"].map((link) => (
+              {[
+                { name: "Shayari", path: "/poetry" },
+                { name: "Games", path: "/gaming" },
+                { name: "About", path: "/about" },
+                { name: "Connect", path: "/contact" },
+              ].map((link) => (
                 <Link
-                  key={link}
-                  to={`/${link.toLowerCase()}`}
+                  key={link.name}
+                  to={link.path}
                   className="text-sm text-foreground hover:text-primary transition-colors"
                 >
-                  {link}
+                  {link.name}
                 </Link>
               ))}
             </div>
@@ -70,11 +74,11 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] text-muted-foreground tracking-widest uppercase">
-            © 2025 Krishna Kumar. Designed with intention.
+            © 2025 Krishna Kumar
           </p>
           <div className="flex items-center gap-6">
             <span className="text-[10px] text-muted-foreground/50 tracking-widest">
-              Poet • Gamer • Athlete • Technologist
+              Words • Games • Products
             </span>
           </div>
         </div>
