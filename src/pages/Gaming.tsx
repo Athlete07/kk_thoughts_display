@@ -1,92 +1,89 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Brain,
-  Cpu,
-  Gamepad2,
-  Network,
-  Sparkles,
-  Target,
-  Timer,
-  Zap,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Brain, Zap, Target, Lightbulb, Timer, Trophy, ArrowRight, Play } from "lucide-react";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FadeInSection from "@/components/FadeInSection";
 import FloatingOrbs from "@/components/FloatingOrbs";
-import TypewriterText from "@/components/TypewriterText";
+
+const cognitiveDomains = [
+  {
+    icon: Zap,
+    title: "Speed",
+    tagline: "Reaction in milliseconds",
+    description: "Training the mind to respond faster than conscious thought. Where instinct meets precision.",
+    color: "crimson",
+    athleteConnection: "The starting block. That split-second before the gun fires."
+  },
+  {
+    icon: Target,
+    title: "Focus",
+    tagline: "Undivided attention",
+    description: "Games that demand absolute presence. One distraction, one failure. Pure concentration.",
+    color: "electric",
+    athleteConnection: "110m hurdles. 10 barriers. Zero room for wandering thoughts."
+  },
+  {
+    icon: Brain,
+    title: "Memory",
+    tagline: "Pattern recognition",
+    description: "Retaining, recalling, connecting. Building mental architectures that expand capacity.",
+    color: "violet",
+    athleteConnection: "Remembering every stride pattern, every muscle memory."
+  },
+  {
+    icon: Lightbulb,
+    title: "Logic",
+    tagline: "Strategic reasoning",
+    description: "Problem-solving under pressure. Finding the path when there seems to be none.",
+    color: "emerald",
+    athleteConnection: "Calculating the approach. Adjusting mid-flight."
+  },
+];
 
 const gameLineup = [
   {
     title: "NeuroSprint",
     status: "Prototype",
-    focus: "Attention + Reaction",
-    desc: "High-velocity micro-challenges that sharpen focus and rhythm under pressure.",
+    domain: "Speed",
+    description: "High-velocity micro-challenges that sharpen reaction time under pressure. Inspired by the explosive start of a sprint race.",
   },
   {
     title: "Echo Maze",
-    status: "In Progress",
-    focus: "Memory + Spatial",
-    desc: "A resonant labyrinth that trains recall through pattern, sound, and motion.",
+    status: "In Development",
+    domain: "Memory",
+    description: "Pattern-based navigation that trains recall through spatial awareness and sequential memory.",
   },
   {
     title: "Signal Forge",
     status: "Concept",
-    focus: "Logic + Strategy",
-    desc: "Resource puzzles where every move programs the world you play inside.",
+    domain: "Logic",
+    description: "Strategic puzzles where every decision cascades. Think three moves ahead or fall behind.",
   },
   {
     title: "Flowline",
     status: "Prototype",
-    focus: "Calm + Regulation",
-    desc: "Breath-paced interactions that reward clarity and steady decision-making.",
+    domain: "Focus",
+    description: "Breath-paced interactions that reward sustained attention and calm under complexity.",
   },
 ];
 
-const pillars = [
+const philosophy = [
   {
-    icon: Brain,
-    title: "Cognition",
-    desc: "Games that train working memory, attention, and adaptive thinking.",
+    number: "01",
+    title: "Games as Training",
+    description: "Not entertainment. Not escapism. Cognitive games are deliberate practice for the mind—the same way track workouts train the body."
   },
   {
-    icon: Target,
-    title: "Precision",
-    desc: "Feedback loops built for skill growth, not empty dopamine.",
+    number: "02",
+    title: "Athlete's Mindset",
+    description: "From 110m hurdles to game design: the discipline of showing up, failing forward, and measuring progress in increments."
   },
   {
-    icon: Timer,
-    title: "Rhythm",
-    desc: "Sessions designed for short bursts or deep focus, your choice.",
-  },
-  {
-    icon: Sparkles,
-    title: "Delight",
-    desc: "Visuals, audio, and motion that feel alive and intentional.",
-  },
-];
-
-const systemLoop = [
-  {
-    title: "Sense",
-    desc: "Listen to player signals and in-game behavior.",
-    icon: Network,
-  },
-  {
-    title: "Challenge",
-    desc: "Present adaptive tasks tuned to the moment.",
-    icon: Zap,
-  },
-  {
-    title: "Adapt",
-    desc: "Balance difficulty and flow with smart pacing.",
-    icon: Cpu,
-  },
-  {
-    title: "Reflect",
-    desc: "Show insights that help players understand growth.",
-    icon: Brain,
+    number: "03",
+    title: "Intersection Design",
+    description: "Building at the crossroads of sport psychology, cognitive science, and game mechanics. Where no single discipline is enough."
   },
 ];
 
@@ -98,184 +95,319 @@ const Gaming = () => {
       <Navbar />
 
       <main className="relative">
-        {/* HERO */}
-        <header className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(236,201,75,0.12),_transparent_50%)]" />
-          <div className="absolute bottom-0 left-0 w-full h-[40vh] gradient-fade-up z-10" />
-
-          <div className="max-w-5xl w-full relative z-20 text-center">
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="mb-8 flex items-center justify-center gap-4 text-primary"
-            >
-              <Gamepad2 className="w-10 h-10 animate-float" />
-              <Brain className="w-12 h-12 animate-float" />
-              <Sparkles className="w-10 h-10 animate-float" />
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-primary text-sm tracking-[0.4em] uppercase mb-6"
-            >
-              Cognitive Gaming Platform
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-8 text-foreground"
-            >
-              I build games that <TypewriterText texts={["train focus", "shape memory", "spark flow"]} className="text-primary" />
-              <br />
-              <span className="italic font-quote">and feel like play, not homework.</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="text-muted-foreground text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed"
-            >
-              A multi-game platform that blends cognitive science, game design, and clean technology.
-              Every experience is tuned for attention, joy, and real-world carryover.
-            </motion.p>
-
+              animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 8, repeat: Infinity }}
+              className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-crimson/10 blur-[100px]"
+            />
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7 }}
-              className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 text-xs tracking-[0.3em] uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105"
-              >
-                Request a Demo
-              </Link>
-              <button
-                type="button"
-                onClick={() => document.getElementById("lineup")?.scrollIntoView({ behavior: "smooth" })}
-                className="inline-flex items-center justify-center px-8 py-4 text-xs tracking-[0.3em] uppercase border border-foreground/30 text-foreground hover:border-primary hover:text-primary transition-colors"
-              >
-                See the Games
-              </button>
-            </motion.div>
+              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+              className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-electric/10 blur-[80px]"
+            />
           </div>
-        </header>
 
-        {/* MANIFESTO */}
-        <section className="py-24 bg-card border-y border-border/20">
-          <FadeInSection className="max-w-4xl mx-auto px-6 text-center">
-            <p className="text-primary text-[10px] tracking-[0.4em] uppercase mb-6">Manifesto</p>
-            <p className="text-2xl md:text-4xl font-quote italic text-foreground leading-relaxed">
-              "Games can be more than distraction. They can be training grounds for clarity,
-              resilience, and a sharper self."
-            </p>
-            <p className="font-signature text-4xl text-primary/60 mt-8">Krishna Kumar</p>
-          </FadeInSection>
+          <div className="max-w-5xl mx-auto px-6 py-32 relative z-10 text-center">
+            <FadeInSection>
+              <span className="text-[10px] tracking-[0.4em] uppercase text-crimson mb-8 block">
+                Cognitive Game Design
+              </span>
+            </FadeInSection>
+
+            <FadeInSection delay={0.1}>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground leading-[0.9] mb-8">
+                Building Games
+                <span className="block text-gradient-crimson">for the Mind</span>
+              </h1>
+            </FadeInSection>
+
+            <FadeInSection delay={0.2}>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-12">
+                At the intersection of speed, focus, memory, and logic—games designed 
+                not to pass time, but to sharpen it. An athlete's discipline applied 
+                to cognitive training.
+              </p>
+            </FadeInSection>
+
+            <FadeInSection delay={0.3}>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => document.getElementById("domains")?.scrollIntoView({ behavior: "smooth" })}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-crimson text-background text-xs tracking-[0.2em] uppercase hover:bg-crimson/90 transition-colors"
+              >
+                <Play className="w-4 h-4" />
+                Explore the Domains
+              </motion.button>
+            </FadeInSection>
+          </div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-px h-16 bg-gradient-to-b from-crimson to-transparent"
+            />
+          </motion.div>
         </section>
 
-        {/* GAME LINEUP */}
-        <section id="lineup" className="py-24 bg-background relative">
-          <div className="max-w-6xl mx-auto px-6">
-            <FadeInSection className="text-center mb-16">
-              <span className="text-primary text-[10px] tracking-[0.4em] uppercase">Game Lineup</span>
-              <h2 className="text-3xl md:text-5xl font-serif text-foreground mt-4">
-                A Growing Universe of Challenges
-              </h2>
+        {/* The Four Domains */}
+        <section id="domains" className="relative py-32 bg-card overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background to-card" />
+          
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <FadeInSection>
+              <div className="text-center mb-20">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-4 block">
+                  The Framework
+                </span>
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground">
+                  Four Domains of Cognitive Gaming
+                </h2>
+              </div>
             </FadeInSection>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {gameLineup.map((game, index) => (
-                <FadeInSection key={game.title} delay={index * 0.1}>
-                  <div className="border border-border/30 bg-card/50 p-8 h-full group hover:border-primary/50 transition-colors">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="font-serif text-2xl text-foreground">{game.title}</h3>
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-primary">
+              {cognitiveDomains.map((domain, i) => (
+                <FadeInSection key={domain.title} delay={i * 0.1}>
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className="relative p-10 border border-border bg-background/50 group hover:border-border transition-all duration-500"
+                  >
+                    {/* Corner Accent */}
+                    <div className={`absolute top-0 left-0 w-16 h-px bg-${domain.color}/50`} />
+                    <div className={`absolute top-0 left-0 h-16 w-px bg-${domain.color}/50`} />
+
+                    <div className="flex items-start gap-6">
+                      <div className={`w-14 h-14 flex items-center justify-center border border-border group-hover:border-${domain.color}/50 transition-colors`}>
+                        <domain.icon className={`w-6 h-6 text-${domain.color}`} />
+                      </div>
+                      
+                      <div className="flex-1">
+                        <span className={`text-[10px] tracking-[0.3em] uppercase text-${domain.color} mb-2 block`}>
+                          {domain.tagline}
+                        </span>
+                        <h3 className="text-2xl font-serif text-foreground mb-3">
+                          {domain.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed mb-6">
+                          {domain.description}
+                        </p>
+                        
+                        {/* Athlete Connection */}
+                        <div className="pt-6 border-t border-border/50">
+                          <span className="text-[9px] tracking-[0.2em] uppercase text-muted-foreground">
+                            From the Track:
+                          </span>
+                          <p className="text-sm text-foreground/70 italic mt-2">
+                            "{domain.athleteConnection}"
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </FadeInSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* The Connection - Athletics to Gaming */}
+        <section className="relative py-32 bg-background overflow-hidden">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <FadeInSection>
+                <div>
+                  <span className="text-[10px] tracking-[0.4em] uppercase text-emerald mb-6 block">
+                    The Origin
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-8 leading-tight">
+                    From 110m Hurdles
+                    <span className="text-gradient-emerald block">to Cognitive Design</span>
+                  </h2>
+                  
+                  <div className="space-y-6 text-muted-foreground leading-relaxed">
+                    <p>
+                      As a state-level athlete in hurdles and long jump, I learned that 
+                      physical performance is only half the equation. The real battles 
+                      are won in the mind—in focus, reaction time, pattern recognition.
+                    </p>
+                    <p>
+                      Every hurdle demanded split-second calculations. Every jump required 
+                      perfect timing. The track taught me that cognitive sharpness isn't 
+                      optional—it's the difference between personal best and falling short.
+                    </p>
+                    <p className="text-foreground">
+                      Now I build games that train these exact abilities. Not for athletes 
+                      alone, but for anyone who believes their mind deserves the same 
+                      deliberate practice as their body.
+                    </p>
+                  </div>
+                </div>
+              </FadeInSection>
+
+              <FadeInSection delay={0.2}>
+                <div className="relative">
+                  <div className="aspect-[4/5] bg-card border border-border overflow-hidden">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-10">
+                      {/* Visual: Athletic to Digital */}
+                      <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="relative"
+                      >
+                        <Timer className="w-16 h-16 text-emerald/60 mb-8" />
+                      </motion.div>
+                      
+                      <div className="text-center">
+                        <div className="text-6xl font-display text-emerald/20 mb-2">110m</div>
+                        <p className="text-sm text-muted-foreground tracking-widest uppercase">
+                          Hurdles → Cognitive Games
+                        </p>
+                      </div>
+                      
+                      <div className="flex gap-8 mt-12">
+                        <div className="text-center">
+                          <div className="text-2xl font-display text-foreground">State</div>
+                          <p className="text-xs text-muted-foreground mt-1">Level Athlete</p>
+                        </div>
+                        <div className="w-px h-12 bg-border" />
+                        <div className="text-center">
+                          <div className="text-2xl font-display text-foreground">4</div>
+                          <p className="text-xs text-muted-foreground mt-1">Domains</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Offset Border */}
+                  <div className="absolute -bottom-4 -right-4 w-full h-full border border-emerald/30 -z-10" />
+                </div>
+              </FadeInSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Game Lineup */}
+        <section className="relative py-32 bg-card overflow-hidden">
+          <div className="max-w-6xl mx-auto px-6">
+            <FadeInSection>
+              <div className="text-center mb-16">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-4 block">
+                  The Games
+                </span>
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground">
+                  Current Lineup
+                </h2>
+              </div>
+            </FadeInSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {gameLineup.map((game, i) => (
+                <FadeInSection key={game.title} delay={i * 0.1}>
+                  <div className="p-8 border border-border bg-background/50 hover:border-crimson/30 transition-colors group">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-xl font-serif text-foreground group-hover:text-crimson transition-colors">
+                        {game.title}
+                      </h3>
+                      <span className="text-[9px] tracking-[0.2em] uppercase text-crimson/70 px-3 py-1 border border-crimson/30">
                         {game.status}
                       </span>
                     </div>
-                    <p className="text-muted-foreground text-sm mb-6">{game.desc}</p>
-                    <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-foreground/70">
-                      <Target className="w-4 h-4 text-primary" />
-                      {game.focus}
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {game.description}
+                    </p>
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+                      Domain: {game.domain}
+                    </span>
+                  </div>
+                </FadeInSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Philosophy */}
+        <section className="relative py-32 bg-background overflow-hidden">
+          <div className="max-w-5xl mx-auto px-6">
+            <FadeInSection>
+              <div className="text-center mb-20">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-violet mb-4 block">
+                  Design Philosophy
+                </span>
+                <h2 className="text-4xl md:text-5xl font-serif text-foreground">
+                  How I Build
+                </h2>
+              </div>
+            </FadeInSection>
+
+            <div className="space-y-0 border-t border-border">
+              {philosophy.map((item, i) => (
+                <FadeInSection key={item.number} delay={i * 0.1}>
+                  <motion.div
+                    whileHover={{ x: 10 }}
+                    className="py-12 border-b border-border group cursor-default"
+                  >
+                    <div className="flex items-start gap-8">
+                      <span className="text-4xl font-display text-muted-foreground/30 group-hover:text-violet transition-colors">
+                        {item.number}
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-violet transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </FadeInSection>
               ))}
             </div>
           </div>
         </section>
 
-        {/* PILLARS */}
-        <section className="py-24 bg-card relative overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6">
-            <FadeInSection className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-serif text-foreground">
-                Designed for Mind + Momentum
+        {/* CTA Section */}
+        <section className="relative py-32 bg-card overflow-hidden">
+          <motion.div
+            animate={{ opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 5, repeat: Infinity }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-crimson/5 blur-[120px]"
+          />
+
+          <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <FadeInSection>
+              <Trophy className="w-12 h-12 text-crimson/40 mx-auto mb-8" />
+              
+              <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
+                Interested in Cognitive Gaming?
               </h2>
+              
+              <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto">
+                Whether you're curious about the games or want to collaborate on 
+                cognitive training tools, I'd love to connect.
+              </p>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-crimson text-crimson text-xs tracking-[0.2em] uppercase hover:bg-crimson hover:text-background transition-all"
+              >
+                Get in Touch
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </FadeInSection>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {pillars.map((pillar, index) => (
-                <FadeInSection key={pillar.title} delay={index * 0.1}>
-                  <div className="border border-border/30 bg-background/40 p-6 h-full hover:border-primary/50 transition-colors">
-                    <pillar.icon className="w-7 h-7 text-primary mb-4" />
-                    <h3 className="font-serif text-lg text-foreground mb-3">{pillar.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{pillar.desc}</p>
-                  </div>
-                </FadeInSection>
-              ))}
-            </div>
           </div>
-        </section>
-
-        {/* SYSTEM LOOP */}
-        <section className="py-24 bg-background">
-          <div className="max-w-6xl mx-auto px-6">
-            <FadeInSection className="text-center mb-16">
-              <span className="text-primary text-[10px] tracking-[0.4em] uppercase">The Loop</span>
-              <h2 className="text-3xl md:text-5xl font-serif text-foreground mt-4">
-                Sense. Challenge. Adapt. Reflect.
-              </h2>
-            </FadeInSection>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {systemLoop.map((step, index) => (
-                <FadeInSection key={step.title} delay={index * 0.1}>
-                  <div className="border border-border/30 bg-card/50 p-6 h-full hover:border-primary/50 transition-colors">
-                    <step.icon className="w-7 h-7 text-primary mb-4" />
-                    <h3 className="font-serif text-lg text-foreground mb-3">{step.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
-                  </div>
-                </FadeInSection>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-24 bg-card border-t border-border/20">
-          <FadeInSection className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
-              Want to shape the next generation of cognitive games?
-            </h2>
-            <p className="text-muted-foreground mb-10">
-              I am building this platform with collaborators, researchers, and players who care about
-              meaningful play. Let's talk.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-primary text-primary-foreground text-xs tracking-[0.3em] uppercase hover:bg-primary/90 transition-all"
-            >
-              Start a Conversation
-            </Link>
-          </FadeInSection>
         </section>
       </main>
 

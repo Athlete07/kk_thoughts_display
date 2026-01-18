@@ -1,114 +1,91 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Feather, ArrowUpRight, Quote } from "lucide-react";
+import { Feather, ArrowRight } from "lucide-react";
 import FadeInSection from "./FadeInSection";
 import { featuredShayaris } from "@/data/shayaris";
 
 const PoetrySection = () => {
-  const displayShayaris = featuredShayaris.slice(0, 3);
+  const displayShayari = featuredShayaris[0]; // Show one featured shayari
 
   return (
-    <section className="relative min-h-screen bg-card overflow-hidden py-32">
-      {/* Background Elements */}
+    <section className="relative py-32 bg-card overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet/5 to-transparent" />
         <motion.div
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3] 
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-violet/5 blur-3xl"
+          animate={{ opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-violet/5 blur-[100px]"
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-20">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left - Featured Shayari */}
           <FadeInSection>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-2 h-2 bg-violet animate-pulse-soft" />
-              <span className="brand-tag text-violet">The Verse</span>
+            <div className="relative p-10 md:p-14 border border-violet/20 bg-background/30">
+              {/* Decorative */}
+              <Feather className="w-6 h-6 text-violet/40 mb-8" />
+              
+              {displayShayari && (
+                <>
+                  <h3 className="font-serif text-xl text-foreground mb-6">
+                    {displayShayari.title}
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {displayShayari.english.split('\n').slice(0, 4).map((line, i) => (
+                      <p key={i} className="font-quote text-lg md:text-xl text-muted-foreground italic leading-relaxed">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-10 pt-6 border-t border-border/30">
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-violet/60">
+                      {displayShayari.theme}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
-            
-            <h2 className="headline-display font-serif text-foreground">
-              Words that
-              <span className="block text-gradient-violet">Wound & Heal</span>
-            </h2>
           </FadeInSection>
 
+          {/* Right - Content */}
           <FadeInSection delay={0.2}>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Poetry is my first language. Before I learned to code or compete, 
-              I learned to feel—and feeling demanded to be written. These verses 
-              are fragments of a life lived intensely.
-            </p>
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1.5 h-1.5 bg-violet" />
+                <span className="text-[10px] tracking-[0.3em] uppercase text-violet">
+                  Shayari
+                </span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6 leading-tight">
+                Words before
+                <span className="text-gradient-violet block">everything else</span>
+              </h2>
+              
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Before code, before product specs, before cognitive frameworks—there 
+                were words. Shayari is where I think most clearly, feel most deeply. 
+                It's not a hobby; it's the truest form of expression I know.
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed mb-10">
+                Themes of solitude, rebellion, love found and lost. Written in 
+                the quiet hours when the noise fades and only truth remains.
+              </p>
+
+              <Link
+                to="/poetry"
+                className="inline-flex items-center gap-3 text-violet hover:text-foreground transition-colors group"
+              >
+                <span className="text-xs uppercase tracking-widest">Read the Collection</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </FadeInSection>
         </div>
-
-        {/* Featured Verse - Large */}
-        <FadeInSection>
-          <div className="relative border border-violet/30 bg-background/50 p-12 md:p-20 mb-16 group hover:border-violet/60 transition-all duration-500">
-            {/* Decorative Elements */}
-            <Quote className="absolute top-6 left-6 w-8 h-8 text-violet/20" />
-            <Quote className="absolute bottom-6 right-6 w-8 h-8 text-violet/20 rotate-180" />
-            
-            <div className="max-w-4xl mx-auto text-center">
-              <span className="brand-tag text-violet mb-8 block">Featured</span>
-              <p className="text-3xl md:text-5xl font-quote italic text-foreground leading-relaxed">
-                "I don't write to be understood.
-                <br />
-                <span className="text-violet">I write so that someday,</span>
-                <br />
-                someone feels less alone."
-              </p>
-              <div className="mt-12 flex items-center justify-center gap-4">
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-violet to-transparent" />
-                <span className="font-signature text-4xl text-foreground/70">Krishna Kumar</span>
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-violet to-transparent" />
-              </div>
-            </div>
-          </div>
-        </FadeInSection>
-
-        {/* Poetry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {displayShayaris.map((shayari, i) => (
-            <FadeInSection key={shayari.id} delay={i * 0.15}>
-              <motion.article
-                whileHover={{ y: -5 }}
-                className="shayari-card p-8 h-full group hover:border-violet/50 transition-all duration-500"
-              >
-                <Feather className="w-5 h-5 text-violet mb-6 opacity-60 group-hover:opacity-100 transition-opacity" />
-                
-                <h3 className="font-serif text-xl text-foreground mb-4 group-hover:text-violet transition-colors">
-                  {shayari.title}
-                </h3>
-                
-                <p className="font-quote text-lg text-muted-foreground leading-relaxed italic line-clamp-4">
-                  {shayari.english.split('\n').slice(0, 3).join(' / ')}
-                </p>
-
-                <div className="mt-8 pt-6 border-t border-border/50">
-                  <span className="text-xs uppercase tracking-widest text-violet/60">{shayari.theme}</span>
-                </div>
-              </motion.article>
-            </FadeInSection>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <FadeInSection delay={0.3}>
-          <div className="mt-16 text-center">
-            <Link
-              to="/poetry"
-              className="inline-flex items-center gap-3 text-violet hover:text-foreground transition-colors group"
-            >
-              <span className="text-sm uppercase tracking-widest">Enter the Poetry Collection</span>
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </Link>
-          </div>
-        </FadeInSection>
       </div>
     </section>
   );

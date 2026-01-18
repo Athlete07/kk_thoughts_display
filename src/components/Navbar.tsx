@@ -5,10 +5,10 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Poetry", path: "/poetry" },
+  { name: "Shayari", path: "/poetry" },
+  { name: "Games", path: "/gaming" },
   { name: "About", path: "/about" },
-  { name: "Blog", path: "/blog" },
-  { name: "Contact", path: "/contact" },
+  { name: "Connect", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -81,7 +81,7 @@ const Navbar = () => {
           >
             {/* Identity Tags */}
             <div className="absolute top-24 flex gap-6">
-              {["Poet", "Gamer", "Athlete", "Tech"].map((tag) => (
+              {["Shayar", "Builder", "Product"].map((tag) => (
                 <span key={tag} className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
                   {tag}
                 </span>
