@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Feather } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Gaming", path: "/gaming" },
   { name: "Poetry", path: "/poetry" },
-  { name: "The Artist", path: "/about" },
-  { name: "Reflections", path: "/blog" },
-  { name: "Connect", path: "/contact" },
+  { name: "About", path: "/about" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -30,29 +29,29 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-3 group z-50"
           >
-            <Feather className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
-            <span className="font-serif text-sm md:text-base tracking-[0.15em] text-foreground">
-              KRISHNA KUMAR
+            <div className="w-8 h-8 border border-primary flex items-center justify-center group-hover:bg-primary transition-colors">
+              <span className="font-display text-primary group-hover:text-background transition-colors text-lg">K</span>
+            </div>
+            <span className="hidden sm:block font-sans text-xs tracking-[0.25em] uppercase text-foreground">
+              Krishna Kumar
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 text-[11px] font-sans tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="hidden md:flex items-center gap-10 text-[10px] font-sans tracking-[0.2em] uppercase text-muted-foreground">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={`relative py-2 hover:text-foreground transition-colors duration-300 ${
-                  location.pathname === link.path
-                    ? "text-foreground"
-                    : ""
+                  location.pathname === link.path ? "text-foreground" : ""
                 }`}
               >
                 {link.name}
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-primary via-primary to-transparent"
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-primary"
                   />
                 )}
               </Link>
@@ -78,9 +77,18 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 bg-background/98 backdrop-blur-sm flex flex-col items-center justify-center"
+            className="fixed inset-0 z-30 bg-background flex flex-col items-center justify-center"
           >
-            <div className="flex flex-col items-center gap-6">
+            {/* Identity Tags */}
+            <div className="absolute top-24 flex gap-6">
+              {["Poet", "Gamer", "Athlete", "Tech"].map((tag) => (
+                <span key={tag} className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex flex-col items-center gap-8">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -91,7 +99,7 @@ const Navbar = () => {
                   <Link
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`font-serif text-3xl tracking-wider transition-colors ${
+                    className={`font-display text-5xl tracking-wider transition-colors ${
                       location.pathname === link.path
                         ? "text-primary"
                         : "text-foreground hover:text-primary"
@@ -103,14 +111,14 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Decorative element */}
+            {/* Signature */}
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5 }}
-              className="mt-12 font-signature text-4xl text-muted-foreground"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="absolute bottom-12 font-signature text-4xl text-muted-foreground/50"
             >
-              कृष्ण
+              KK
             </motion.div>
           </motion.div>
         )}

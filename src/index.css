@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Reenie+Beanie&family=Noto+Nastaliq+Urdu:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Reenie+Beanie&family=Noto+Nastaliq+Urdu:wght@400;500;600&family=Bebas+Neue&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,56 +6,61 @@
 
 @layer base {
   :root {
-    /* Core Palette - Artistic Midnight */
-    --background: 240 15% 4%; /* deep midnight #0a0a0f */
-    --foreground: 45 20% 95%; /* warm ivory #f7f5f0 */
+    /* Core Palette - Artistic Obsidian */
+    --background: 0 0% 3%; /* pure obsidian #080808 */
+    --foreground: 40 15% 96%; /* warm white #f8f6f3 */
 
-    --card: 240 12% 8%; /* midnight card #121218 */
-    --card-foreground: 45 20% 95%;
+    --card: 0 0% 6%; /* elevated surface */
+    --card-foreground: 40 15% 96%;
 
-    --popover: 240 12% 8%;
-    --popover-foreground: 45 20% 95%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 15% 96%;
 
-    --primary: 280 60% 65%; /* creative violet #a855f7 */
-    --primary-foreground: 240 15% 4%;
+    --primary: 42 100% 50%; /* electric amber #ffa500 */
+    --primary-foreground: 0 0% 3%;
 
-    --secondary: 240 12% 12%;
-    --secondary-foreground: 45 20% 95%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 40 15% 96%;
 
-    --muted: 240 10% 12%;
-    --muted-foreground: 45 10% 60%; /* warm grey */
+    --muted: 0 0% 12%;
+    --muted-foreground: 40 8% 55%;
 
-    --accent: 35 90% 55%; /* amber glow #f59e0b */
-    --accent-foreground: 240 15% 4%;
+    --accent: 280 80% 60%; /* creative violet #a855f7 */
+    --accent-foreground: 0 0% 3%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 45 20% 95%;
+    --destructive-foreground: 40 15% 96%;
 
-    --border: 240 10% 18%;
-    --input: 240 10% 18%;
-    --ring: 280 60% 65%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 42 100% 50%;
 
     --radius: 0rem;
 
-    /* Artistic Design Tokens */
-    --midnight: 240 15% 4%;
-    --ink: 240 12% 8%;
-    --ivory: 45 20% 95%;
-    --mist: 45 10% 60%;
-    --violet: 280 60% 65%;
-    --amber: 35 90% 55%;
-    --rose: 350 80% 65%;
-    --teal: 175 70% 45%;
+    /* Brand Identity Tokens */
+    --obsidian: 0 0% 3%;
+    --carbon: 0 0% 6%;
+    --steel: 0 0% 12%;
+    --smoke: 40 8% 55%;
+    --ivory: 40 15% 96%;
+    
+    /* Energy Colors */
+    --electric: 42 100% 50%;
+    --violet: 280 80% 60%;
+    --crimson: 0 85% 55%;
+    --emerald: 160 70% 45%;
+    --cyan: 190 90% 50%;
+    --gold: 45 100% 60%;
 
-    /* Sidebar (kept for compatibility) */
-    --sidebar-background: 240 15% 4%;
-    --sidebar-foreground: 45 10% 60%;
-    --sidebar-primary: 280 60% 65%;
-    --sidebar-primary-foreground: 240 15% 4%;
-    --sidebar-accent: 240 12% 8%;
-    --sidebar-accent-foreground: 45 20% 95%;
-    --sidebar-border: 240 10% 18%;
-    --sidebar-ring: 280 60% 65%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 40 8% 55%;
+    --sidebar-primary: 42 100% 50%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 6%;
+    --sidebar-accent-foreground: 40 15% 96%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 42 100% 50%;
   }
 }
 
@@ -77,59 +82,105 @@
     @apply bg-primary text-primary-foreground;
   }
 
-  /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 3px;
+    width: 2px;
   }
   ::-webkit-scrollbar-track {
     background: hsl(var(--background));
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--violet));
-    border-radius: 10px;
+    background: hsl(var(--primary));
   }
 }
 
 @layer components {
-  /* Film Grain Overlay */
+  /* Film Grain */
   .film-grain {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 50;
   }
 
-  /* Noir Photo Filter */
-  .noir-photo {
-    filter: grayscale(100%) contrast(110%) brightness(90%);
-    transition: filter 0.5s ease;
+  /* Cinematic Section */
+  .section-cinematic {
+    position: relative;
+    overflow: hidden;
   }
-  .noir-photo:hover {
-    filter: grayscale(0%) contrast(100%) brightness(100%);
-  }
-
-  /* Artistic Photo */
-  .artistic-photo {
-    filter: contrast(105%) saturate(90%);
-    transition: all 0.6s ease;
-  }
-  .artistic-photo:hover {
-    filter: contrast(110%) saturate(100%);
-    transform: scale(1.02);
+  .section-cinematic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
 
-  /* Poetic Text Glow */
-  .text-glow {
-    text-shadow: 0 0 40px hsl(var(--violet) / 0.3);
+  /* Brand Typography */
+  .headline-massive {
+    font-size: clamp(3rem, 12vw, 12rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
   }
 
-  /* Shayari Card */
+  .headline-display {
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+  }
+
+  .headline-section {
+    font-size: clamp(2rem, 5vw, 5rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* Electric Glow Effects */
+  .glow-electric {
+    text-shadow: 
+      0 0 20px hsl(var(--electric) / 0.5),
+      0 0 40px hsl(var(--electric) / 0.3),
+      0 0 80px hsl(var(--electric) / 0.1);
+  }
+
+  .glow-violet {
+    text-shadow: 
+      0 0 20px hsl(var(--violet) / 0.5),
+      0 0 40px hsl(var(--violet) / 0.3);
+  }
+
+  .glow-crimson {
+    text-shadow: 
+      0 0 20px hsl(var(--crimson) / 0.5),
+      0 0 40px hsl(var(--crimson) / 0.3);
+  }
+
+  /* Card Styles */
+  .card-glass {
+    background: hsl(var(--carbon) / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .card-editorial {
+    background: transparent;
+    border-bottom: 1px solid hsl(var(--border));
+    padding-bottom: 2rem;
+  }
+
+  /* Shayari Card Enhanced */
   .shayari-card {
-    background: linear-gradient(135deg, hsl(var(--ink)) 0%, hsl(var(--midnight)) 100%);
+    background: linear-gradient(135deg, hsl(var(--carbon)) 0%, hsl(var(--obsidian)) 100%);
     border: 1px solid hsl(var(--border));
     position: relative;
     overflow: hidden;
@@ -140,20 +191,36 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, hsl(var(--violet)), hsl(var(--amber)), hsl(var(--rose)));
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--violet)), hsl(var(--electric)), transparent);
   }
 
-  /* Floating orbs */
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
-    pointer-events: none;
+  /* Section Divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
   }
 
-  /* Verse container */
+  /* Brand Tag */
+  .brand-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  /* Nike-style Number */
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  /* Poetry Line */
   .verse-line {
     position: relative;
     padding-left: 1.5rem;
@@ -170,29 +237,52 @@
     border-radius: 50%;
   }
 
+  /* Hover Reveal */
+  .hover-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-reveal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: linear-gradient(to top, hsl(var(--primary) / 0.1), transparent);
+    transition: height 0.5s ease;
+  }
+  .hover-reveal:hover::after {
+    height: 100%;
+  }
+
+  /* Marquee */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Artistic Photo */
+  .artistic-photo {
+    filter: contrast(105%) saturate(90%);
+    transition: all 0.6s ease;
+  }
+  .artistic-photo:hover {
+    filter: contrast(110%) saturate(100%);
+    transform: scale(1.02);
+  }
+
   /* Text Balance */
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Artistic underline */
-  .artistic-underline {
-    position: relative;
-    display: inline;
-  }
-  .artistic-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, hsl(var(--violet)), transparent);
-  }
 }
 
 @layer utilities {
-  /* Gradient overlays */
+  /* Gradients */
   .gradient-fade-up {
     background: linear-gradient(to top, hsl(var(--background)), transparent);
   }
@@ -201,20 +291,38 @@
     background: linear-gradient(to bottom, hsl(var(--background)), transparent);
   }
 
-  /* Artistic gradients */
-  .gradient-violet-amber {
-    background: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--amber)));
+  .gradient-radial {
+    background: radial-gradient(circle at center, hsl(var(--carbon)) 0%, hsl(var(--obsidian)) 70%);
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--amber)));
+  .gradient-diagonal {
+    background: linear-gradient(135deg, hsl(var(--violet) / 0.1), hsl(var(--electric) / 0.1));
+  }
+
+  /* Text Gradients */
+  .text-gradient-electric {
+    background: linear-gradient(135deg, hsl(var(--electric)), hsl(var(--gold)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Ink wash effect */
-  .ink-wash {
-    background: radial-gradient(ellipse at center, hsl(var(--ink)) 0%, hsl(var(--midnight)) 70%);
+  .text-gradient-violet {
+    background: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--cyan)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-crimson {
+    background: linear-gradient(135deg, hsl(var(--crimson)), hsl(var(--electric)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Border gradients */
+  .border-gradient {
+    border-image: linear-gradient(90deg, hsl(var(--violet)), hsl(var(--electric))) 1;
   }
 }
