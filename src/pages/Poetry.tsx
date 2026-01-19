@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingOrbs from "@/components/FloatingOrbs";
 import ShayariCard from "@/components/ShayariCard";
 import { shayaris } from "@/data/shayaris";
 
@@ -10,30 +9,29 @@ const Poetry = () => {
   return (
     <>
       <FilmGrain />
-      <FloatingOrbs />
       <Navbar />
 
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="max-w-6xl mx-auto px-6">
+      <main className="min-h-screen pt-32 pb-20">
+        <div className="max-w-3xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
             className="mb-20 text-center"
           >
-            <span className="text-primary text-[10px] tracking-[0.4em] uppercase mb-6 block">
-              The Collection
-            </span>
-            <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-8">
-              Poetry & Shayari
+            <p className="text-muted-foreground text-sm font-light mb-12">
+              Words
+            </p>
+            <h1 className="text-2xl md:text-3xl font-serif text-foreground mb-8">
+              Shayari
             </h1>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-              Words born in the space between heartbeats. Verses that bridge 
-              technology, gaming, and the eternal human experience.
+            <p className="text-muted-foreground/80 font-light max-w-md mx-auto">
+              Some of what I've written. Most is about love, loss, or the 
+              strange space between the two.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-12">
             {shayaris.map((shayari, i) => (
               <ShayariCard key={shayari.id} shayari={shayari} index={i} />
             ))}

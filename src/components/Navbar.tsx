@@ -4,11 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Shayari", path: "/poetry" },
+  { name: "Words", path: "/poetry" },
   { name: "Games", path: "/gaming" },
   { name: "About", path: "/about" },
-  { name: "Connect", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -18,42 +16,30 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
         className="fixed w-full z-40 py-6 px-6 md:px-12"
       >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-3 group z-50"
-          >
-            <div className="w-8 h-8 border border-primary flex items-center justify-center group-hover:bg-primary transition-colors">
-              <span className="font-display text-primary group-hover:text-background transition-colors text-lg">K</span>
-            </div>
-            <span className="hidden sm:block font-sans text-xs tracking-[0.25em] uppercase text-foreground">
-              Krishna Kumar
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          {/* Logo - Minimal */}
+          <Link to="/" className="z-50">
+            <span className="font-serif text-lg text-foreground hover:text-foreground/70 transition-colors">
+              KK
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10 text-[10px] font-sans tracking-[0.2em] uppercase text-muted-foreground">
+          <div className="hidden md:flex items-center gap-10 text-[10px] tracking-[0.2em] uppercase">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative py-2 hover:text-foreground transition-colors duration-300 ${
+                className={`text-muted-foreground hover:text-foreground transition-colors duration-300 ${
                   location.pathname === link.path ? "text-foreground" : ""
                 }`}
               >
                 {link.name}
-                {location.pathname === link.path && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-primary"
-                  />
-                )}
               </Link>
             ))}
           </div>
@@ -64,12 +50,12 @@ const Navbar = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -79,30 +65,21 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-30 bg-background flex flex-col items-center justify-center"
           >
-            {/* Identity Tags */}
-            <div className="absolute top-24 flex gap-6">
-              {["Shayar", "Builder", "Product"].map((tag) => (
-                <span key={tag} className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-10">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`font-display text-5xl tracking-wider transition-colors ${
+                    className={`font-serif text-2xl tracking-wide transition-colors ${
                       location.pathname === link.path
-                        ? "text-primary"
-                        : "text-foreground hover:text-primary"
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.name}
@@ -110,16 +87,6 @@ const Navbar = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Signature */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="absolute bottom-12 font-signature text-4xl text-muted-foreground/50"
-            >
-              KK
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
