@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FadeInSection from "@/components/FadeInSection";
 import NotFound from "@/pages/NotFound";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -21,46 +20,83 @@ const BlogPost = () => {
       <FilmGrain />
       <Navbar />
 
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <Link
-            to="/blog"
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-xs uppercase tracking-widest mb-12"
-          >
-            <ArrowLeft size={16} /> Back to Thoughts
-          </Link>
-
+      <main className="min-h-screen pt-32 pb-20">
+        <div className="max-w-2xl mx-auto px-6">
+          {/* Back Link */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6 block">
-              {post.category}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
-              {post.title}
-            </h1>
-            <p className="text-xs text-muted-foreground/50 mt-6">{post.date}</p>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors text-[10px] uppercase tracking-[0.2em] mb-16"
+            >
+              <ArrowLeft size={12} />
+              Back
+            </Link>
           </motion.div>
 
-          <FadeInSection>
-            <div className="space-y-12">
-              {post.sections.map((section) => (
-                <div key={section.heading}>
-                  <h2 className="text-2xl font-serif text-foreground mb-4">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="mb-16"
+          >
+            <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground/40 mb-6 block">
+              {post.category}
+            </span>
+            <h1 className="text-2xl md:text-3xl font-serif text-foreground mb-6 leading-relaxed">
+              {post.title}
+            </h1>
+            <p className="text-[10px] text-muted-foreground/30 uppercase tracking-[0.2em]">
+              {post.date}
+            </p>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="space-y-12"
+          >
+            {post.sections.map((section, index) => (
+              <div key={index}>
+                {section.heading && (
+                  <h2 className="font-serif text-lg text-foreground mb-6">
                     {section.heading}
                   </h2>
-                  <div className="space-y-4 text-muted-foreground font-light leading-relaxed">
-                    {section.body.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
+                )}
+                <div className="space-y-6">
+                  {section.body.map((paragraph, pIndex) => (
+                    <p
+                      key={pIndex}
+                      className="text-muted-foreground/80 font-light leading-[1.9] text-base"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </FadeInSection>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Footer Navigation */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="mt-24 pt-12 border-t border-border/20"
+          >
+            <Link
+              to="/blog"
+              className="text-muted-foreground/50 hover:text-muted-foreground transition-colors text-[10px] uppercase tracking-[0.2em]"
+            >
+              ← More thoughts
+            </Link>
+          </motion.div>
         </div>
       </main>
 
