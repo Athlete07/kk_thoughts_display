@@ -25,7 +25,7 @@ const Contact = () => {
               I'd like to hear from you.
             </h1>
             <p className="text-muted-foreground/80 font-light max-w-md mx-auto">
-              Whether it's about shayari, cognitive games, or something else 
+              Whether it's about shayari, games, technology, or something else 
               entirely—I read everything.
             </p>
           </motion.div>
@@ -59,12 +59,20 @@ const Contact = () => {
                   LinkedIn
                 </a>
                 <a
+                  href="https://notion.so"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
+                >
+                  Notion
+                </a>
+                <a
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
                 >
-                  Twitter
+                  X
                 </a>
               </div>
             </div>

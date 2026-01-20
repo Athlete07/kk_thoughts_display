@@ -5,22 +5,49 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FadeInSection from "@/components/FadeInSection";
 
-const cognitiveDomains = [
+const experiencePillars = [
   {
-    title: "Speed",
-    description: "The gap between stimulus and response. Training the mind to move before doubt arrives.",
+    title: "Presence",
+    description: "The room fades. The signal is all you feel.",
   },
   {
-    title: "Focus",
-    description: "One thing, held completely. Games that ask for your full presence—nothing less.",
+    title: "Instinct",
+    description: "Decisions land clean and immediate, no hesitation.",
   },
   {
-    title: "Memory",
-    description: "Patterns recognized, connections made. Building the architecture of recall.",
+    title: "Flow",
+    description: "Momentum without friction. The pace stays locked to you.",
   },
   {
-    title: "Logic",
-    description: "Finding paths where none seem to exist. The quiet confidence of strategic thought.",
+    title: "Precision",
+    description: "Every input matters. Tight control, crisp feedback.",
+  },
+  {
+    title: "Real-Time Response",
+    description: "No lag in the loop. Your timing is the game.",
+  },
+];
+
+const designPrinciples = [
+  {
+    title: "Adaptive Pacing",
+    description: "Challenge speed shifts with your rhythm to keep the zone intact.",
+  },
+  {
+    title: "Real-Time AI Pacing",
+    description: "Difficulty tunes in milliseconds to match your run.",
+  },
+  {
+    title: "Precision Mechanics",
+    description: "Split-second timing with instant feedback and clean control.",
+  },
+  {
+    title: "Flow-Focused Design",
+    description: "Short, intense sessions built for full presence.",
+  },
+  {
+    title: "Classic Mechanics",
+    description: "Pattern lanes, signal focus, reflex loops—pure play.",
   },
 ];
 
@@ -28,22 +55,22 @@ const gameLineup = [
   {
     title: "NeuroSprint",
     status: "Prototype",
-    domain: "Speed",
+    domain: "Instinct",
   },
   {
     title: "Echo Maze",
     status: "In Development",
-    domain: "Memory",
+    domain: "Presence",
   },
   {
     title: "Signal Forge",
     status: "Concept",
-    domain: "Logic",
+    domain: "Precision",
   },
   {
     title: "Flowline",
     status: "Prototype",
-    domain: "Focus",
+    domain: "Flow",
   },
 ];
 
@@ -64,7 +91,7 @@ const Gaming = () => {
                 transition={{ duration: 1 }}
                 className="text-muted-foreground text-sm font-light mb-8"
               >
-                What if play was practice?
+                Games
               </motion.p>
 
               <motion.h1
@@ -73,7 +100,7 @@ const Gaming = () => {
                 transition={{ duration: 1, delay: 0.2 }}
                 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground mb-8"
               >
-                Cognitive Games
+                Presence. Instinct. Flow.
               </motion.h1>
 
               <motion.p
@@ -82,37 +109,48 @@ const Gaming = () => {
                 transition={{ duration: 1, delay: 0.4 }}
                 className="text-muted-foreground/80 font-light max-w-lg mx-auto leading-relaxed"
               >
-                I build games at the intersection of speed, focus, memory, and logic. 
-                Not to pass time—to sharpen it.
+                I'm building BoltFocus at boltfocus.io — a fast, game-native arena built for clean reads,
+                instant response, and repeatable runs.
               </motion.p>
+
+              <div className="mt-8 flex items-center justify-center gap-6 text-[11px] tracking-[0.2em] uppercase">
+                <a
+                  href="https://www.boltfocus.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground hover:text-muted-foreground transition-colors duration-500"
+                >
+                  Play at boltfocus.io →
+                </a>
+              </div>
             </FadeInSection>
           </div>
         </section>
 
-        {/* The Four Domains */}
+        {/* Experience Pillars */}
         <section className="py-32 md:py-40">
           <div className="max-w-4xl mx-auto px-6">
             <FadeInSection>
               <div className="text-center mb-20">
                 <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
-                  The Framework
+                  The Experience
                 </span>
                 <p className="text-lg text-muted-foreground font-light max-w-md mx-auto">
-                  Four domains of cognitive training. Each game lives somewhere in this space.
+                  Five pillars that define the feel of every BoltFocus game.
                 </p>
               </div>
             </FadeInSection>
 
             <div className="space-y-px">
-              {cognitiveDomains.map((domain, i) => (
-                <FadeInSection key={domain.title} delay={i * 0.1}>
+              {experiencePillars.map((pillar, i) => (
+                <FadeInSection key={pillar.title} delay={i * 0.1}>
                   <div className="py-10 border-b border-border/30 group">
                     <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
                       <h3 className="font-serif text-xl text-foreground md:w-32 flex-shrink-0">
-                        {domain.title}
+                        {pillar.title}
                       </h3>
                       <p className="text-muted-foreground font-light leading-relaxed flex-1">
-                        {domain.description}
+                        {pillar.description}
                       </p>
                     </div>
                   </div>
@@ -122,27 +160,57 @@ const Gaming = () => {
           </div>
         </section>
 
-        {/* The Why */}
+        {/* The Feel */}
         <section className="py-32 md:py-40 bg-card/30">
           <div className="max-w-3xl mx-auto px-6">
             <FadeInSection>
               <div className="text-center">
                 <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-12">
-                  The Origin
+                  The Feel
                 </span>
                 
                 <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-8">
-                  I've always believed that discipline transfers. The focus demanded 
-                  in one arena sharpens performance in another.
+                  Designed for presence, instinct, and flow. Every detail is tuned for the experience.
                 </p>
                 
                 <p className="text-muted-foreground/60 font-light leading-relaxed">
-                  These games come from that belief—that with deliberate practice, 
-                  the mind can become faster, clearer, sharper. Not as entertainment, 
-                  but as training.
+                  Adaptive pacing, calibrated opponents, and classic mechanics—felt, not explained.
                 </p>
               </div>
             </FadeInSection>
+          </div>
+        </section>
+
+        {/* Why BoltFocus Works */}
+        <section className="py-32 md:py-40">
+          <div className="max-w-4xl mx-auto px-6">
+            <FadeInSection>
+              <div className="text-center mb-16">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                  Why BoltFocus Works
+                </span>
+                <p className="text-lg text-muted-foreground font-light">
+                  Designed for presence, instinct, and flow. Every detail tuned for the experience.
+                </p>
+              </div>
+            </FadeInSection>
+
+            <div className="space-y-px">
+              {designPrinciples.map((principle, i) => (
+                <FadeInSection key={principle.title} delay={i * 0.1}>
+                  <div className="py-10 border-b border-border/30 group">
+                    <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-16">
+                      <h3 className="font-serif text-xl text-foreground md:w-48 flex-shrink-0">
+                        {principle.title}
+                      </h3>
+                      <p className="text-muted-foreground font-light leading-relaxed flex-1">
+                        {principle.description}
+                      </p>
+                    </div>
+                  </div>
+                </FadeInSection>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -152,10 +220,10 @@ const Gaming = () => {
             <FadeInSection>
               <div className="text-center mb-16">
                 <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
-                  Current Work
+                  Current Lineup
                 </span>
                 <p className="text-lg text-muted-foreground font-light">
-                  What I'm building, testing, imagining.
+                  Fast, focused, and ready to drop in.
                 </p>
               </div>
             </FadeInSection>
@@ -182,19 +250,45 @@ const Gaming = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Principles */}
         <section className="py-32 md:py-40 bg-card/30">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
-              <p className="text-muted-foreground font-light mb-10">
-                Interested in cognitive gaming or collaboration?
-              </p>
-              
+              <div className="text-center mb-10">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                  Privacy First
+                </span>
+                <p className="text-muted-foreground font-light">
+                  Your data stays on your device. No accounts, no tracking, no selling.
+                </p>
+              </div>
+
+              <div className="text-center mb-12">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                  Always Free
+                </span>
+                <p className="text-muted-foreground font-light">
+                  No paywalls. No premium tiers. Pure gameplay, always.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-6 text-[11px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-10">
+                <span>No Accounts</span>
+                <span>No Downloads</span>
+                <span>Instant Access</span>
+                <span>Privacy First</span>
+                <span>Always Free</span>
+              </div>
+
+              <div className="text-muted-foreground/70 text-sm mb-8">
+                Trusted by players worldwide.
+              </div>
+
               <Link
                 to="/contact"
                 className="text-[11px] tracking-[0.2em] uppercase text-foreground hover:text-muted-foreground transition-colors duration-500"
               >
-                Let's talk →
+                Play Now →
               </Link>
             </FadeInSection>
           </div>

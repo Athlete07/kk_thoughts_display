@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Words", path: "/poetry" },
-  { name: "Thoughts", path: "/blog" },
   { name: "Games", path: "/gaming" },
+  { name: "Words", path: "/poetry" },
   { name: "About", path: "/about" },
+  { name: "Thoughts", path: "/blog" },
 ];
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
           {/* Logo - Minimal */}
           <Link to="/" className="z-50">
             <span className="font-serif text-lg text-foreground hover:text-foreground/70 transition-colors">
-              KK
+              Krishna Kumar Yadlapalli
             </span>
           </Link>
 
@@ -43,6 +43,12 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <Link
+              to="/contact"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+            >
+              Say Hello
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,6 +93,19 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+              >
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-serif text-2xl tracking-wide text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Say Hello
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
