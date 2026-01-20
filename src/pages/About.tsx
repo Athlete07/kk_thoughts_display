@@ -111,7 +111,7 @@ const About = () => {
               </p>
               
               <Link
-                to="/contact"
+                to="/say-hello"
                 className="text-[11px] tracking-[0.2em] uppercase text-foreground hover:text-muted-foreground transition-colors duration-500"
               >
                 Say hello →

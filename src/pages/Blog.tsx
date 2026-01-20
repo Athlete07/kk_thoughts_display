@@ -43,7 +43,7 @@ const Blog = () => {
                 transition={{ duration: 0.6, delay: index * 0.03 }}
               >
                 <Link
-                  to={`/blog/${post.slug}`}
+                  to={`/thoughts/${post.slug}`}
                   className="group block py-8 border-b border-border/30 last:border-b-0"
                 >
                   <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground/40 mb-4 block">

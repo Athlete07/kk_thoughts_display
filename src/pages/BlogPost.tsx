@@ -29,7 +29,7 @@ const BlogPost = () => {
             transition={{ duration: 0.6 }}
           >
             <Link
-              to="/blog"
+              to="/thoughts"
               className="inline-flex items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors text-[10px] uppercase tracking-[0.2em] mb-16"
             >
               <ArrowLeft size={12} />
@@ -91,7 +91,7 @@ const BlogPost = () => {
             className="mt-24 pt-12 border-t border-border/20"
           >
             <Link
-              to="/blog"
+              to="/thoughts"
               className="text-muted-foreground/50 hover:text-muted-foreground transition-colors text-[10px] uppercase tracking-[0.2em]"
             >
               ← More thoughts

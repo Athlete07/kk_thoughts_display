@@ -51,7 +51,7 @@ const GamingSection = () => {
         <FadeInSection delay={0.4}>
           <div className="text-center mt-16">
             <Link
-              to="/gaming"
+              to="/games"
               className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
             >
               Explore →

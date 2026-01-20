@@ -59,14 +59,14 @@ const HeroSection = () => {
             className="mt-16 flex items-center justify-center gap-12"
           >
             <Link
-              to="/poetry"
+              to="/words"
               className="text-[11px] tracking-[0.2em] uppercase text-foreground/60 hover:text-foreground transition-colors duration-500"
             >
               Read
             </Link>
             <span className="w-px h-3 bg-border" />
             <Link
-              to="/gaming"
+              to="/games"
               className="text-[11px] tracking-[0.2em] uppercase text-foreground/60 hover:text-foreground transition-colors duration-500"
             >
               Play

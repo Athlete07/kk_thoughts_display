@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Games", path: "/gaming" },
-  { name: "Words", path: "/poetry" },
+  { name: "Games", path: "/games" },
+  { name: "Words", path: "/words" },
   { name: "About", path: "/about" },
-  { name: "Thoughts", path: "/blog" },
+  { name: "Thoughts", path: "/thoughts" },
 ];
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/say-hello"
               className="text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Say Hello
@@ -99,7 +99,7 @@ const Navbar = () => {
                 transition={{ delay: navLinks.length * 0.1 }}
               >
                 <Link
-                  to="/contact"
+                  to="/say-hello"
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-serif text-2xl tracking-wide text-muted-foreground hover:text-foreground transition-colors"
                 >

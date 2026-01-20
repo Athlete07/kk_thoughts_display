@@ -23,11 +23,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gaming" element={<Gaming />} />
-          <Route path="/poetry" element={<Poetry />} />
+          <Route path="/thoughts" element={<Blog />} />
+          <Route path="/thoughts/:slug" element={<BlogPost />} />
+          <Route path="/say-hello" element={<Contact />} />
+          <Route path="/games" element={<Gaming />} />
+          <Route path="/words" element={<Poetry />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
