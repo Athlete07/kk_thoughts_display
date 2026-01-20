@@ -23,7 +23,7 @@
     --secondary-foreground: 40 15% 96%;
 
     --muted: 0 0% 12%;
-    --muted-foreground: 40 8% 55%;
+    --muted-foreground: 40 12% 75%;
 
     --accent: 280 80% 60%; /* creative violet #a855f7 */
     --accent-foreground: 0 0% 3%;
@@ -31,8 +31,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 40 15% 96%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 42 100% 50%;
 
     --radius: 0rem;
