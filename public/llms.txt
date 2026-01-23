@@ -1,5 +1,5 @@
 # Krishna Kumar Yadlapalli - Personal Website
-# https://krishnakumar.io
+# https://thekrishnakumar.com
 # Last Updated: 2026-01-23
 
 ## About This Person
@@ -18,7 +18,7 @@ Krishna Kumar Yadlapalli is a multidisciplinary creator based in Bangalore, Indi
 - **Also Known As**: Krishna Kumar
 - **Location**: Bangalore, India
 - **Email**: o0krissh0o@gmail.com
-- **Website**: https://krishnakumar.io
+- **Website**: https://thekrishnakumar.com
 - **Projects**: BoltFocus (https://www.boltfocus.io)
 
 ## Website Sections
@@ -76,4 +76,4 @@ The website includes schema.org structured data for:
 
 For collaborations, questions, or feedback:
 Email: o0krissh0o@gmail.com
-Website: https://krishnakumar.io/say-hello
+Website: https://thekrishnakumar.com/say-hello
