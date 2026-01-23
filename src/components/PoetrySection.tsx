@@ -27,7 +27,7 @@ const PoetrySection = () => {
             <div className="relative max-w-2xl mx-auto">
               <div className="py-12 md:py-16 px-8 md:px-12 border-l border-violet/20">
                 <div className="space-y-6">
-                  {displayShayari.english.split('\n').slice(0, 4).map((line, i) => (
+                  {displayShayari.english.split('\n').map((line, i) => (
                     <motion.p 
                       key={i} 
                       initial={{ opacity: 0, x: -10 }}

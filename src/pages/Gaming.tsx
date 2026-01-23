@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -284,12 +283,14 @@ const Gaming = () => {
                 Trusted by players worldwide.
               </div>
 
-              <Link
-                to="/say-hello"
+              <a
+                href="https://www.boltfocus.io/"
+                target="_blank"
+                rel="noreferrer"
                 className="text-[11px] tracking-[0.2em] uppercase text-foreground hover:text-muted-foreground transition-colors duration-500"
               >
                 Play Now →
-              </Link>
+              </a>
             </FadeInSection>
           </div>
         </section>

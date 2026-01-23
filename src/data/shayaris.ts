@@ -11,12 +11,11 @@ export const shayaris: Shayari[] = [
   {
     id: 1,
     title: "The Weight of Silence",
-    english: `Between what I wanted to say
-and what I finally said,
-entire seasons changed.
-
-Some silences are not peace—
-they are wars we never declared.`,
+    english: `रुको।
+कभी-कभी
+यही
+सबसे साहसी
+कदम होता है।`,
     theme: "solitude",
     featured: true,
   },
