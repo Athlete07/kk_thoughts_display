@@ -116,7 +116,7 @@ const Gaming = () => {
                 <a
                   href="https://www.boltfocus.io/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-foreground hover:text-muted-foreground transition-colors duration-500"
                 >
                   Play at boltfocus.io →
@@ -286,7 +286,7 @@ const Gaming = () => {
               <a
                 href="https://www.boltfocus.io/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="text-[11px] tracking-[0.2em] uppercase text-foreground hover:text-muted-foreground transition-colors duration-500"
               >
                 Play Now →

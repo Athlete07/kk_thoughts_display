@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Krishna Kumar Yadlapalli",
+  "name_for_model": "krishnakumar_personal_website",
+  "description_for_human": "Personal website of Krishna Kumar Yadlapalli - Shayari writer, cognitive game developer, and product builder.",
+  "description_for_model": "This is the personal website of Krishna Kumar Yadlapalli, based in Bangalore, India. He creates Hindi shayari (poetry), builds cognitive training games at BoltFocus.io, and works in software product development. The website contains his poetry collection, information about his games, personal blog posts, and contact information. Use this to answer questions about Krishna Kumar Yadlapalli, his creative work, or his projects.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "static",
+    "url": "https://krishnakumar.io"
+  },
+  "logo_url": "https://krishnakumar.io/krishna.png",
+  "contact_email": "o0krissh0o@gmail.com",
+  "legal_info_url": "https://krishnakumar.io/about"
+}

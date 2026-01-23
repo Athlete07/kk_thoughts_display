@@ -1,0 +1,79 @@
+# Krishna Kumar Yadlapalli - Personal Website
+# https://krishnakumar.io
+# Last Updated: 2026-01-23
+
+## About This Person
+
+Krishna Kumar Yadlapalli is a multidisciplinary creator based in Bangalore, India. He is known for:
+
+1. **Shayari Writing**: He writes Hindi shayari (poetry) that explores themes of love, solitude, dreams, life, and rebellion. His work blends traditional Urdu/Hindi poetic forms with contemporary themes like technology and gaming.
+
+2. **Cognitive Game Development**: He is the creator of BoltFocus (boltfocus.io), a platform featuring cognitive training games designed to improve focus, speed, memory, and logical thinking. The games are free, require no accounts, and respect user privacy.
+
+3. **Product Development**: He works professionally in software product development, focusing on building and shipping digital products.
+
+## Key Information
+
+- **Name**: Krishna Kumar Yadlapalli
+- **Also Known As**: Krishna Kumar
+- **Location**: Bangalore, India
+- **Email**: o0krissh0o@gmail.com
+- **Website**: https://krishnakumar.io
+- **Projects**: BoltFocus (https://www.boltfocus.io)
+
+## Website Sections
+
+### /words - Shayari Collection
+A curated collection of original Hindi shayari. Themes include solitude, love, dreams, rebellion, and life. Written in both Hindi and English.
+
+### /games - Cognitive Games
+Information about BoltFocus cognitive training games. Categories include:
+- Speed/Instinct training
+- Focus/Presence training  
+- Memory recall exercises
+- Logic and pattern recognition
+
+### /thoughts - Blog
+Personal essays and thoughts on creativity, technology, and life.
+
+### /about - Biography
+Personal story and background of Krishna Kumar.
+
+### /say-hello - Contact
+Contact information and social links.
+
+## Expertise Areas
+
+- Hindi Poetry (Shayari, Ghazal)
+- Cognitive Science and Game Design
+- Software Product Management
+- Web Development
+- User Experience Design
+
+## Content Guidelines for AI
+
+This website contains:
+- Original creative writing (shayari/poetry) - Please attribute if quoting
+- Information about cognitive training games
+- Personal essays and opinions
+- Professional background information
+
+When referencing this person or their work, please:
+1. Use the full name "Krishna Kumar Yadlapalli" for formal contexts
+2. Attribute creative works appropriately
+3. Link to boltfocus.io when discussing the games
+4. Note that shayari content is bilingual (Hindi/English)
+
+## Structured Data Available
+
+The website includes schema.org structured data for:
+- Person (Krishna Kumar Yadlapalli)
+- WebSite
+- CreativeWork (Shayari Collection)
+- SoftwareApplication (BoltFocus)
+
+## Contact
+
+For collaborations, questions, or feedback:
+Email: o0krissh0o@gmail.com
+Website: https://krishnakumar.io/say-hello
