@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Hidden Cost of Saying \"Yes\"",
     excerpt:
       "We don’t live in a world of lack anymore—we live in a world of endless choices. And that changes everything.",
-    date: "January 2025",
+    date: "July 2025",
     category: "Clarity",
     sections: [
       {
