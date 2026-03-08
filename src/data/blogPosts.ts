@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     title: "Self-Pity: The Most Addictive Luxury You’ll Ever Taste",
     excerpt:
       "Self-pity feels like comfort, but it's really quiet self-sabotage. It demands nothing, expects nothing—just your time, your energy, your momentum. It’s a luxury disguised as relief. The question is: how long can you afford to stay in it before it starts costing you everything?",
-    date: "January 2025",
+    date: "January 2026",
     category: "Mindset",
     sections: [
       {
