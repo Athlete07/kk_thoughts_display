@@ -361,7 +361,7 @@ export const blogPosts: BlogPost[] = [
     title: "The True Power of Love Is Belief — Not Just Affection",
     excerpt:
       "Love isn’t about being adored — it’s about being seen, backed, and believed in. Real love gives you the courage to believe in yourself.",
-    date: "January 2025",
+    date: "February 2025",
     category: "Relationships",
     sections: [
       {
