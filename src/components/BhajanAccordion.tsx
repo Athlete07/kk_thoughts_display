@@ -109,7 +109,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                   {section.type === "antara" && tekSection && (
                     <div className="border-l-2 border-primary/10 pl-4 mt-4 opacity-50">
                       {tekSection.lines.map((line, li) => (
-                        <p key={li} className="text-[12px] text-foreground/40 font-light">
+                        <p key={li} className="text-[12px] text-foreground/60 font-light">
                           {line}
                         </p>
                       ))}
