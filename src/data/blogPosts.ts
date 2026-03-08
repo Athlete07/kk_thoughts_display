@@ -342,7 +342,7 @@ export const blogPosts: BlogPost[] = [
     title: "Love Is a Choice You Make Every Day — Even When the Feeling Fades",
     excerpt:
       "Falling in love is easy. Staying in love demands something far more deliberate: choosing the person again and again, especially when passion cools.",
-    date: "January 2025",
+    date: "March 2025",
     category: "Relationships",
     sections: [
       {
