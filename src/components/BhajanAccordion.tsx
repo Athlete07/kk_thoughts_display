@@ -76,7 +76,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                     </p>
                   )}
                   {section.type === "samapan" && (
-                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/30 font-light">
+                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/50 font-light">
                       समापन
                     </p>
                   )}
