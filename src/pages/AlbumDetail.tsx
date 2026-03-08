@@ -53,7 +53,7 @@ const AlbumDetail = () => {
               {album.title}
             </h1>
             {album.writer && (
-              <p className="text-muted-foreground/40 text-[11px] tracking-[0.2em] mb-6">
+              <p className="text-muted-foreground/70 text-[11px] tracking-[0.2em] mb-6">
                 रचयिता — <Link to={`/words/${album.slug}/writer`} className="hover:text-muted-foreground transition-colors">{album.writer.penName}</Link>
               </p>
             )}
