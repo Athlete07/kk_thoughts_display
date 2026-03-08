@@ -49,13 +49,13 @@ const Poetry = () => {
                   <div className="relative aspect-square bg-card border border-border/50 flex items-center justify-center overflow-hidden mb-6 transition-all duration-500 group-hover:border-primary/30">
                     <div className="text-center space-y-4 p-8">
                       {album.coverSymbol && (
-                        <p className="text-5xl md:text-6xl text-primary/50 font-serif transition-colors duration-500 group-hover:text-primary/70">
+                        <p className="text-5xl md:text-6xl text-primary font-serif transition-colors duration-500">
                           {album.coverSymbol}
                         </p>
                       )}
                       <div className="w-10 h-px bg-primary/30 mx-auto" />
                       {album.coverSubtext && (
-                        <p className="font-serif text-base text-foreground/70 transition-colors duration-500 group-hover:text-foreground/90">
+                        <p className="font-serif text-base text-foreground transition-colors duration-500">
                           {album.coverSubtext}
                         </p>
                       )}

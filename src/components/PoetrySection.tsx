@@ -10,9 +10,8 @@ const featuredLines = [
 
 const PoetrySection = () => {
   return (
-    <section className="relative py-32 md:py-44">
-      {/* Subtle section divider */}
-      <div className="section-divider mb-32 md:mb-44" />
+    <section className="relative py-20 md:py-28">
+      <div className="section-divider mb-16 md:mb-20" />
 
       <div className="max-w-4xl mx-auto px-6">
         <FadeInSection>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -12,7 +12,14 @@ const navLinks = [
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -20,13 +27,15 @@ const Navbar = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="fixed w-full z-40 py-6 px-6 md:px-12"
+        className={`fixed w-full z-40 py-6 px-6 md:px-12 transition-all duration-500 ${
+          scrolled ? "bg-background/80 backdrop-blur-md" : ""
+        }`}
       >
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          {/* Logo - Minimal */}
           <Link to="/" className="z-50">
             <span className="font-serif text-lg text-foreground hover:text-foreground/70 transition-colors">
-              Krishna Kumar Yadlapalli
+              <span className="hidden md:inline">Krishna Kumar Yadlapalli</span>
+              <span className="md:hidden">Krishna Kumar</span>
             </span>
           </Link>
 

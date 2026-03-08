@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Quiet Edge of “I Have to Win” vs. “I Need to Win",
     excerpt:
       "“I need to win” is fear in disguise. It clings, chases, tightens. “I have to win” is ownership. It’s grounded, focused, and clear. One is pressure. The other is power. Know the difference—it shows up in everything you do.",
-    date: "January 2025",
+    date: "March 2026",
     category: "Mindset",
     sections: [
       {
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     title: "Confidence + Work Ethic: The Combo That Moves You Faster Than Talent Alone",
     excerpt:
       "If you’re already doing the work, don’t lead with doubt. Underconfidence hides your value. Overconfidence, backed by effort, commands attention—and opens doors. Why grind in silence when you can walk in like you belong and prove it?",
-    date: "January 2025",
+    date: "February 2026",
     category: "Performance",
     sections: [
       {
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     title: "Self-Pity: The Most Addictive Luxury You’ll Ever Taste",
     excerpt:
       "Self-pity feels like comfort, but it's really quiet self-sabotage. It demands nothing, expects nothing—just your time, your energy, your momentum. It’s a luxury disguised as relief. The question is: how long can you afford to stay in it before it starts costing you everything?",
-    date: "January 2025",
+    date: "January 2026",
     category: "Mindset",
     sections: [
       {
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     title: "Only the Brave Fall—Because They’re the Ones Who Dared to Stand",
     excerpt:
       "Falling isn’t failure—it’s proof you had the courage to move at full speed while others stayed safe and untested. Only those who stand tall can stumble. The rest are just avoiding the game altogether.",
-    date: "January 2025",
+    date: "December 2025",
     category: "Courage",
     sections: [
       {
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
     title: "Aim Beyond What’s Possible—Because the Universe Rewards Bold Requests",
     excerpt:
       "The size of your ambition signals the strength of your belief. When you aim beyond what's reasonable, you invite possibilities that don't exist inside your comfort zone. Bold effort doesn’t guarantee success—but it does guarantee growth. Ask for more. Reach higher. The universe notices those who dare.",
-    date: "January 2025",
+    date: "November 2025",
     category: "Ambition",
     sections: [
       {
@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     title: "First Principle Thinking: The Mental Muscle That Cuts Through Complexity",
     excerpt:
       "Most people solve problems by analogy—tweaking what's already been done. First Principle Thinking does the opposite. It cuts through noise, assumptions, and inherited wisdom to get to the core truth. From there, real innovation begins. Strip it down. Rebuild from zero. That’s how clarity—and impact—are made.",
-    date: "January 2025",
+    date: "October 2025",
     category: "Thinking",
     sections: [
       {
@@ -149,7 +149,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why People Avoid Decisions—and How Confidence Breaks the Cycle",
     excerpt:
       "Lack of confidence—not complexity—is why we avoid decisions. Waiting for perfect clarity only traps us in hesitation. True confidence comes from deciding boldly and owning the outcome, mistakes and all. What choice are you delaying? It’s time to act and accept full responsibility.",
-    date: "January 2025",
+    date: "September 2025",
     category: "Decision-Making",
     sections: [
       {
@@ -169,7 +169,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Peace in Forgetting: Why Letting Go of the Past Unlocks the Present",
     excerpt:
       "Not everything in your past deserves a permanent place in your mind. Even good memories can trap you in nostalgia; bad ones, in pain. Real presence begins when you stop rehearsing what was and start choosing what matters now. Forgetting isn’t failure—it’s freedom.",
-    date: "January 2025",
+    date: "August 2025",
     category: "Mindset",
     sections: [
       {
@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Hidden Cost of Saying \"Yes\"",
     excerpt:
       "We don’t live in a world of lack anymore—we live in a world of endless choices. And that changes everything.",
-    date: "January 2025",
+    date: "July 2025",
     category: "Clarity",
     sections: [
       {
@@ -214,7 +214,7 @@ export const blogPosts: BlogPost[] = [
     title: "Story: The Startup She Never Joined—But Still Helped Build",
     excerpt:
       "While he built machines no one was ready for, she built him back every time he broke. She wasn’t in his startup—but without her, there wouldn’t have been one. This is a story about the power behind the product: belief.",
-    date: "January 2025",
+    date: "June 2025",
     category: "Story",
     sections: [
       {
@@ -296,7 +296,7 @@ export const blogPosts: BlogPost[] = [
     title: "If You Flinch at a Small Expense, You’re Not as Financially Free as You Think",
     excerpt:
       "If small expenses make you pause, you’re not free—you’re just earning more. Real wealth is when the little costs don’t even register.",
-    date: "January 2025",
+    date: "May 2025",
     category: "Wealth",
     sections: [
       {
@@ -319,7 +319,7 @@ export const blogPosts: BlogPost[] = [
     title: "You Don’t Need More Wins—You Need Better Habits That Actually Stick",
     excerpt:
       "Chasing wins feels good—but building habits is what changes your trajectory.",
-    date: "January 2025",
+    date: "April 2025",
     category: "Performance",
     sections: [
       {
@@ -342,7 +342,7 @@ export const blogPosts: BlogPost[] = [
     title: "Love Is a Choice You Make Every Day — Even When the Feeling Fades",
     excerpt:
       "Falling in love is easy. Staying in love demands something far more deliberate: choosing the person again and again, especially when passion cools.",
-    date: "January 2025",
+    date: "March 2025",
     category: "Relationships",
     sections: [
       {
@@ -361,7 +361,7 @@ export const blogPosts: BlogPost[] = [
     title: "The True Power of Love Is Belief — Not Just Affection",
     excerpt:
       "Love isn’t about being adored — it’s about being seen, backed, and believed in. Real love gives you the courage to believe in yourself.",
-    date: "January 2025",
+    date: "February 2025",
     category: "Relationships",
     sections: [
       {

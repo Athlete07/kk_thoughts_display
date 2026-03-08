@@ -51,7 +51,7 @@ const Contact = () => {
               </p>
               <div className="flex justify-center gap-12">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/krishnakumaryadlapalli"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
@@ -59,15 +59,7 @@ const Contact = () => {
                   LinkedIn
                 </a>
                 <a
-                  href="https://notion.so"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
-                >
-                  Notion
-                </a>
-                <a
-                  href="https://twitter.com"
+                  href="https://x.com/krishnakumar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
