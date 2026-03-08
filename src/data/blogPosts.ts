@@ -296,7 +296,7 @@ export const blogPosts: BlogPost[] = [
     title: "If You Flinch at a Small Expense, You’re Not as Financially Free as You Think",
     excerpt:
       "If small expenses make you pause, you’re not free—you’re just earning more. Real wealth is when the little costs don’t even register.",
-    date: "January 2025",
+    date: "May 2025",
     category: "Wealth",
     sections: [
       {
