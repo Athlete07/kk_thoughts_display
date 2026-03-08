@@ -12,7 +12,7 @@ const PoetrySection = () => {
         <FadeInSection>
           <div className="text-center mb-20">
             <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
-              Words
+              Verses
             </span>
             <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
               Some things are easier felt than explained. 
