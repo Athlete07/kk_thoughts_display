@@ -115,9 +115,9 @@ const AlbumDetail = () => {
                   <p
                     key={i}
                     className={`font-quote italic leading-loose ${
-                      i === 0
-                        ? "text-foreground/60 text-base mb-2"
-                        : "text-muted-foreground/40 text-sm"
+                     i === 0
+                        ? "text-foreground/90 text-base mb-2"
+                        : "text-muted-foreground/70 text-sm"
                     }`}
                   >
                     {line}
