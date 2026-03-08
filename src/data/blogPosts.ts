@@ -319,7 +319,7 @@ export const blogPosts: BlogPost[] = [
     title: "You Don’t Need More Wins—You Need Better Habits That Actually Stick",
     excerpt:
       "Chasing wins feels good—but building habits is what changes your trajectory.",
-    date: "January 2025",
+    date: "April 2025",
     category: "Performance",
     sections: [
       {
