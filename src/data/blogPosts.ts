@@ -214,7 +214,7 @@ export const blogPosts: BlogPost[] = [
     title: "Story: The Startup She Never Joined—But Still Helped Build",
     excerpt:
       "While he built machines no one was ready for, she built him back every time he broke. She wasn’t in his startup—but without her, there wouldn’t have been one. This is a story about the power behind the product: belief.",
-    date: "January 2025",
+    date: "June 2025",
     category: "Story",
     sections: [
       {
