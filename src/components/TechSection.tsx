@@ -6,14 +6,14 @@ const TechSection = () => {
       <div className="max-w-3xl mx-auto px-6">
         <FadeInSection>
           <div className="text-center">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
               By Day
             </span>
             <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-md mx-auto">
               I work on software products—understanding what people need, 
               then shaping ideas into things that ship.
             </p>
-            <p className="text-sm text-muted-foreground/40 mt-8 font-light">
+            <p className="text-sm text-muted-foreground mt-8 font-light">
               The craft of building quietly informs everything else.
             </p>
           </div>

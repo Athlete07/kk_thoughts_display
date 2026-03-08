@@ -14,7 +14,7 @@ const PoetrySection = () => {
       <div className="max-w-4xl mx-auto px-6">
         <FadeInSection>
           <div className="text-center mb-20">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
               Verses
             </span>
             <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
@@ -27,8 +27,8 @@ const PoetrySection = () => {
         {/* Featured Verse from Abhay */}
         <FadeInSection delay={0.2}>
           <div className="relative max-w-2xl mx-auto">
-            <div className="py-12 md:py-16 px-8 md:px-12 border-l border-violet/20">
-              <p className="text-[9px] tracking-[0.3em] uppercase text-primary/40 mb-8 font-light">
+            <div className="py-12 md:py-16 px-8 md:px-12 border-l border-violet/30">
+              <p className="text-xs tracking-[0.3em] uppercase text-primary mb-8 font-light">
                 अभय — हनुमान भक्ति के सात भजन
               </p>
               <div className="space-y-4">
@@ -39,7 +39,7 @@ const PoetrySection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * i, duration: 0.8 }}
-                    className="font-serif text-lg md:text-xl text-foreground/80 leading-relaxed"
+                    className="font-serif text-lg md:text-xl text-foreground leading-relaxed"
                   >
                     {line}
                   </motion.p>

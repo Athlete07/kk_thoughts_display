@@ -15,7 +15,7 @@ const GamingSection = () => {
       <div className="max-w-4xl mx-auto px-6">
         <FadeInSection>
           <div className="text-center mb-20">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
               Games
             </span>
             <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
@@ -25,7 +25,7 @@ const GamingSection = () => {
           </div>
         </FadeInSection>
 
-        {/* Four Domains - Minimal */}
+        {/* Four Domains */}
         <FadeInSection delay={0.2}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/30 max-w-2xl mx-auto">
             {domains.map((domain, i) => (
@@ -40,7 +40,7 @@ const GamingSection = () => {
                 <h3 className="text-sm font-sans tracking-wide text-foreground mb-2">
                   {domain.title}
                 </h3>
-                <p className="text-xs text-muted-foreground/60 font-light">
+                <p className="text-xs text-muted-foreground font-light">
                   {domain.desc}
                 </p>
               </motion.div>
