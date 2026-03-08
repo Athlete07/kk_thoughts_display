@@ -30,7 +30,7 @@ const About = () => {
             </h1>
           </motion.div>
 
-          {/* The Story - Zakir Khan style, conversational */}
+          {/* The Story */}
           <FadeInSection>
             <div className="space-y-8 mb-24">
               <p className="text-muted-foreground font-light leading-relaxed">
@@ -44,7 +44,7 @@ const About = () => {
                 who wanted to say everything in as few words as possible.
               </p>
 
-              <p className="text-foreground/80 font-light leading-relaxed">
+              <p className="text-foreground font-light leading-relaxed">
                 That's still true. I write shayari because brevity forces truth.
               </p>
             </div>
@@ -64,7 +64,7 @@ const About = () => {
                 demand logic. Nothing flashy. Just small, deliberate exercises for the mind.
               </p>
 
-              <p className="text-foreground/80 font-light leading-relaxed">
+              <p className="text-foreground font-light leading-relaxed">
                 It's slow work. But it feels right.
               </p>
             </div>
@@ -79,14 +79,14 @@ const About = () => {
                 it's listening, clarifying, and cutting scope.
               </p>
 
-              <p className="text-muted-foreground/60 font-light leading-relaxed">
+              <p className="text-muted-foreground font-light leading-relaxed">
                 But the craft of shipping—of making something that works, that people use—
                 that bleeds into everything else I do.
               </p>
             </div>
           </FadeInSection>
 
-          {/* Photo - Simple */}
+          {/* Photo */}
           <FadeInSection delay={0.3}>
             <div className="mb-24">
               <div className="aspect-[3/4] max-w-xs mx-auto overflow-hidden">
@@ -97,7 +97,7 @@ const About = () => {
                 />
               </div>
               <p className="text-center mt-6 font-serif text-foreground">Krishna Kumar</p>
-              <p className="text-center mt-2 text-xs text-muted-foreground/50 tracking-widest">
+              <p className="text-center mt-2 text-xs text-muted-foreground tracking-widest">
                 Somewhere, writing or building.
               </p>
             </div>

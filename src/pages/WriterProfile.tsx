@@ -30,7 +30,7 @@ const WriterProfile = () => {
           >
             <Link
               to={`/words/${album.slug}`}
-              className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground/40 hover:text-muted-foreground transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               ← {album.title}
             </Link>
@@ -43,13 +43,13 @@ const WriterProfile = () => {
             transition={{ duration: 1.2 }}
             className="mb-20 text-center"
           >
-            <p className="text-muted-foreground/40 text-[10px] tracking-[0.5em] uppercase mb-8">
+            <p className="text-muted-foreground text-[10px] tracking-[0.5em] uppercase mb-8">
               रचयिता
             </p>
             <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-3">
               {writer.penName}
             </h1>
-            <p className="text-muted-foreground/40 text-[11px] tracking-[0.15em]">
+            <p className="text-muted-foreground text-sm tracking-wide">
               {album.title} · {album.year}
             </p>
           </motion.div>
@@ -61,12 +61,12 @@ const WriterProfile = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="mb-24"
           >
-            <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-10">
+            <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-10 font-medium">
               कुछ बातें जो कहनी थीं
             </p>
             <div className="space-y-6">
               {writer.foreword.split("\n\n").map((paragraph, i) => (
-                <p key={i} className="text-muted-foreground/60 font-light leading-[1.9] text-[15px]">
+                <p key={i} className="text-muted-foreground font-light leading-[1.9] text-base">
                   {paragraph}
                 </p>
               ))}
@@ -78,7 +78,7 @@ const WriterProfile = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.5, delay: 0.6 }}
-            className="w-16 h-px bg-border/30 mx-auto mb-24"
+            className="w-16 h-px bg-border mx-auto mb-24"
           />
 
           {/* Closing Note */}
@@ -88,17 +88,17 @@ const WriterProfile = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="mb-20"
           >
-            <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-10">
+            <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-10 font-medium">
               अंत में
             </p>
-            <div className="border-l border-primary/20 pl-6 space-y-6">
+            <div className="border-l-2 border-primary/40 pl-6 space-y-6">
               {writer.closingNote.split("\n\n").map((paragraph, i) => (
-                <p key={i} className="text-muted-foreground/50 font-light leading-[1.9] text-[15px]">
+                <p key={i} className="text-muted-foreground font-light leading-[1.9] text-base">
                   {paragraph}
                 </p>
               ))}
             </div>
-            <p className="mt-10 text-muted-foreground/40 text-sm">
+            <p className="mt-10 text-foreground text-sm">
               — {writer.penName}
             </p>
           </motion.div>
@@ -112,7 +112,7 @@ const WriterProfile = () => {
           >
             <Link
               to={`/words/${album.slug}`}
-              className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground/30 hover:text-muted-foreground transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-primary hover:text-foreground transition-colors duration-300"
             >
               भजन पढ़ें →
             </Link>

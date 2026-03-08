@@ -26,13 +26,13 @@ const Blog = () => {
             <h1 className="text-2xl md:text-3xl font-serif text-foreground mb-8">
               Notes on living, building, and being.
             </h1>
-            <p className="text-muted-foreground/80 font-light max-w-md mx-auto">
+            <p className="text-muted-foreground font-light max-w-md mx-auto">
               Reflections that have stayed with me. Some personal, some philosophical. 
               Most written in the quiet hours.
             </p>
           </motion.div>
 
-          {/* Post List - Minimal */}
+          {/* Post List */}
           <div className="space-y-0">
             {blogPosts.map((post, index) => (
               <motion.div
@@ -46,13 +46,13 @@ const Blog = () => {
                   to={`/thoughts/${post.slug}`}
                   className="group block py-8 border-b border-border/30 last:border-b-0"
                 >
-                  <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground/40 mb-4 block">
+                  <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4 block">
                     {post.category}
                   </span>
                   <h3 className="font-serif text-lg text-foreground mb-3 group-hover:text-muted-foreground transition-colors duration-300">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground/60 font-light text-sm leading-relaxed line-clamp-2">
+                  <p className="text-muted-foreground font-light text-sm leading-relaxed line-clamp-2">
                     {post.excerpt}
                   </p>
                 </Link>

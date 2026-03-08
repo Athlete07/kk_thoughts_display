@@ -24,7 +24,7 @@ const Contact = () => {
             <h1 className="text-2xl md:text-3xl font-serif text-foreground mb-8">
               I'd like to hear from you.
             </h1>
-            <p className="text-muted-foreground/80 font-light max-w-md mx-auto">
+            <p className="text-muted-foreground font-light max-w-md mx-auto">
               Whether it's about shayari, games, technology, or something else 
               entirely—I read everything.
             </p>
@@ -38,7 +38,7 @@ const Contact = () => {
               >
                 o0krissh0o@gmail.com
               </a>
-              <p className="text-xs text-muted-foreground/50 mt-4">
+              <p className="text-xs text-muted-foreground mt-4">
                 I usually respond within a day or two.
               </p>
             </div>
@@ -46,7 +46,7 @@ const Contact = () => {
 
           <FadeInSection delay={0.2}>
             <div className="pt-16 border-t border-border/30">
-              <p className="text-center text-xs text-muted-foreground/40 tracking-widest uppercase mb-8">
+              <p className="text-center text-xs text-muted-foreground tracking-widest uppercase mb-8">
                 Elsewhere
               </p>
               <div className="flex justify-center gap-12">
@@ -80,7 +80,7 @@ const Contact = () => {
 
           <FadeInSection delay={0.3}>
             <div className="mt-24 text-center">
-              <p className="text-sm text-muted-foreground/50 font-light">
+              <p className="text-sm text-muted-foreground font-light">
                 Based in Bangalore, India.
               </p>
             </div>

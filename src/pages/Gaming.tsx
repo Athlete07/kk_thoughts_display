@@ -5,72 +5,26 @@ import Footer from "@/components/Footer";
 import FadeInSection from "@/components/FadeInSection";
 
 const experiencePillars = [
-  {
-    title: "Presence",
-    description: "The room fades. The signal is all you feel.",
-  },
-  {
-    title: "Instinct",
-    description: "Decisions land clean and immediate, no hesitation.",
-  },
-  {
-    title: "Flow",
-    description: "Momentum without friction. The pace stays locked to you.",
-  },
-  {
-    title: "Precision",
-    description: "Every input matters. Tight control, crisp feedback.",
-  },
-  {
-    title: "Real-Time Response",
-    description: "No lag in the loop. Your timing is the game.",
-  },
+  { title: "Presence", description: "The room fades. The signal is all you feel." },
+  { title: "Instinct", description: "Decisions land clean and immediate, no hesitation." },
+  { title: "Flow", description: "Momentum without friction. The pace stays locked to you." },
+  { title: "Precision", description: "Every input matters. Tight control, crisp feedback." },
+  { title: "Real-Time Response", description: "No lag in the loop. Your timing is the game." },
 ];
 
 const designPrinciples = [
-  {
-    title: "Adaptive Pacing",
-    description: "Challenge speed shifts with your rhythm to keep the zone intact.",
-  },
-  {
-    title: "Real-Time AI Pacing",
-    description: "Difficulty tunes in milliseconds to match your run.",
-  },
-  {
-    title: "Precision Mechanics",
-    description: "Split-second timing with instant feedback and clean control.",
-  },
-  {
-    title: "Flow-Focused Design",
-    description: "Short, intense sessions built for full presence.",
-  },
-  {
-    title: "Classic Mechanics",
-    description: "Pattern lanes, signal focus, reflex loops—pure play.",
-  },
+  { title: "Adaptive Pacing", description: "Challenge speed shifts with your rhythm to keep the zone intact." },
+  { title: "Real-Time AI Pacing", description: "Difficulty tunes in milliseconds to match your run." },
+  { title: "Precision Mechanics", description: "Split-second timing with instant feedback and clean control." },
+  { title: "Flow-Focused Design", description: "Short, intense sessions built for full presence." },
+  { title: "Classic Mechanics", description: "Pattern lanes, signal focus, reflex loops—pure play." },
 ];
 
 const gameLineup = [
-  {
-    title: "NeuroSprint",
-    status: "Prototype",
-    domain: "Instinct",
-  },
-  {
-    title: "Echo Maze",
-    status: "In Development",
-    domain: "Presence",
-  },
-  {
-    title: "Signal Forge",
-    status: "Concept",
-    domain: "Precision",
-  },
-  {
-    title: "Flowline",
-    status: "Prototype",
-    domain: "Flow",
-  },
+  { title: "NeuroSprint", status: "Prototype", domain: "Instinct" },
+  { title: "Echo Maze", status: "In Development", domain: "Presence" },
+  { title: "Signal Forge", status: "Concept", domain: "Precision" },
+  { title: "Flowline", status: "Prototype", domain: "Flow" },
 ];
 
 const Gaming = () => {
@@ -106,7 +60,7 @@ const Gaming = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="text-muted-foreground/80 font-light max-w-lg mx-auto leading-relaxed"
+                className="text-muted-foreground font-light max-w-lg mx-auto leading-relaxed"
               >
                 I'm building BoltFocus at boltfocus.io — a fast, game-native arena built for clean reads,
                 instant response, and repeatable runs.
@@ -131,7 +85,7 @@ const Gaming = () => {
           <div className="max-w-4xl mx-auto px-6">
             <FadeInSection>
               <div className="text-center mb-20">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
                   The Experience
                 </span>
                 <p className="text-lg text-muted-foreground font-light max-w-md mx-auto">
@@ -164,7 +118,7 @@ const Gaming = () => {
           <div className="max-w-3xl mx-auto px-6">
             <FadeInSection>
               <div className="text-center">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-12">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-12">
                   The Feel
                 </span>
                 
@@ -172,7 +126,7 @@ const Gaming = () => {
                   Designed for presence, instinct, and flow. Every detail is tuned for the experience.
                 </p>
                 
-                <p className="text-muted-foreground/60 font-light leading-relaxed">
+                <p className="text-muted-foreground font-light leading-relaxed">
                   Adaptive pacing, calibrated opponents, and classic mechanics—felt, not explained.
                 </p>
               </div>
@@ -185,7 +139,7 @@ const Gaming = () => {
           <div className="max-w-4xl mx-auto px-6">
             <FadeInSection>
               <div className="text-center mb-16">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
                   Why BoltFocus Works
                 </span>
                 <p className="text-lg text-muted-foreground font-light">
@@ -218,7 +172,7 @@ const Gaming = () => {
           <div className="max-w-4xl mx-auto px-6">
             <FadeInSection>
               <div className="text-center mb-16">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
                   Current Lineup
                 </span>
                 <p className="text-lg text-muted-foreground font-light">
@@ -235,11 +189,11 @@ const Gaming = () => {
                       <h3 className="font-serif text-lg text-foreground">
                         {game.title}
                       </h3>
-                      <span className="text-[9px] tracking-[0.15em] uppercase text-muted-foreground/50">
+                      <span className="text-[9px] tracking-[0.15em] uppercase text-muted-foreground">
                         {game.status}
                       </span>
                     </div>
-                    <p className="text-xs text-muted-foreground/60 tracking-wide">
+                    <p className="text-xs text-muted-foreground tracking-wide">
                       {game.domain}
                     </p>
                   </div>
@@ -254,7 +208,7 @@ const Gaming = () => {
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
               <div className="text-center mb-10">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
                   Privacy First
                 </span>
                 <p className="text-muted-foreground font-light">
@@ -263,7 +217,7 @@ const Gaming = () => {
               </div>
 
               <div className="text-center mb-12">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground/60 block mb-6">
+                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
                   Always Free
                 </span>
                 <p className="text-muted-foreground font-light">
@@ -271,7 +225,7 @@ const Gaming = () => {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-6 text-[11px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-10">
+              <div className="flex flex-wrap items-center justify-center gap-6 text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-10">
                 <span>No Accounts</span>
                 <span>No Downloads</span>
                 <span>Instant Access</span>
@@ -279,7 +233,7 @@ const Gaming = () => {
                 <span>Always Free</span>
               </div>
 
-              <div className="text-muted-foreground/70 text-sm mb-8">
+              <div className="text-muted-foreground text-sm mb-8">
                 Trusted by players worldwide.
               </div>
 

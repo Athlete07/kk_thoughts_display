@@ -30,7 +30,7 @@ const HeroSection = () => {
             What if words could move you the way games train your mind?
           </motion.p>
 
-          {/* Name - understated */}
+          {/* Name */}
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -40,15 +40,15 @@ const HeroSection = () => {
             Krishna Kumar
           </motion.h1>
 
-          {/* Essence - one line */}
+          {/* Essence */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.9 }}
-            className="text-muted-foreground/80 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed"
+            className="text-muted-foreground text-sm md:text-base font-light max-w-md mx-auto leading-relaxed"
           >
             Writes shayari. Builds cognitive games.<br />
-            <span className="text-muted-foreground/50">Occasionally ships products.</span>
+            <span className="text-muted-foreground">Occasionally ships products.</span>
           </motion.p>
 
           {/* Minimal Navigation */}
@@ -60,21 +60,21 @@ const HeroSection = () => {
           >
             <Link
               to="/words"
-              className="text-[11px] tracking-[0.2em] uppercase text-foreground/60 hover:text-foreground transition-colors duration-500"
+              className="text-[11px] tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors duration-500"
             >
               Read
             </Link>
             <span className="w-px h-3 bg-border" />
             <Link
               to="/games"
-              className="text-[11px] tracking-[0.2em] uppercase text-foreground/60 hover:text-foreground transition-colors duration-500"
+              className="text-[11px] tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors duration-500"
             >
               Play
             </Link>
             <span className="w-px h-3 bg-border" />
             <Link
               to="/about"
-              className="text-[11px] tracking-[0.2em] uppercase text-foreground/60 hover:text-foreground transition-colors duration-500"
+              className="text-[11px] tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors duration-500"
             >
               Know
             </Link>
