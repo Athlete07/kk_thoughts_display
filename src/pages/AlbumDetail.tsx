@@ -167,11 +167,11 @@ const AlbumDetail = () => {
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-px flex-1 bg-border/15" />
                 <div className="text-center">
-                  <p className="text-[9px] tracking-[0.4em] uppercase text-primary/40">
+                  <p className="text-[9px] tracking-[0.4em] uppercase text-primary/60">
                     {stage.title}
                   </p>
                   {stage.titleEn && (
-                    <p className="text-[8px] tracking-[0.3em] uppercase text-muted-foreground/25 mt-1">
+                    <p className="text-[8px] tracking-[0.3em] uppercase text-muted-foreground/50 mt-1">
                       {stage.titleEn}
                     </p>
                   )}

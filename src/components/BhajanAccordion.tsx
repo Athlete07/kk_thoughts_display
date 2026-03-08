@@ -55,7 +55,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
               {bhajan.preNote && (
                 <div className="space-y-1">
                   {bhajan.preNote.split("\n").map((line, i) => (
-                    <p key={i} className="text-[11px] text-muted-foreground/40 italic">
+                    <p key={i} className="text-[11px] text-muted-foreground/60 italic">
                       {line}
                     </p>
                   ))}
