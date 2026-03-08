@@ -135,12 +135,12 @@ const AlbumDetail = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="max-w-lg mx-auto mb-24"
             >
-              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-8">
+              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/60 mb-8">
                 कुछ बातें जो कहनी थीं
               </p>
-              <div className="border-l border-primary/20 pl-6 space-y-4">
+              <div className="border-l border-primary/30 pl-6 space-y-4">
                 {forewordExcerpt.split("\n\n").map((paragraph, i) => (
-                  <p key={i} className="text-muted-foreground/50 font-light leading-relaxed text-sm">
+                  <p key={i} className="text-muted-foreground/80 font-light leading-relaxed text-sm">
                     {paragraph}
                   </p>
                 ))}
