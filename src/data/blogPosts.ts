@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
     title: "Aim Beyond What’s Possible—Because the Universe Rewards Bold Requests",
     excerpt:
       "The size of your ambition signals the strength of your belief. When you aim beyond what's reasonable, you invite possibilities that don't exist inside your comfort zone. Bold effort doesn’t guarantee success—but it does guarantee growth. Ask for more. Reach higher. The universe notices those who dare.",
-    date: "January 2025",
+    date: "November 2025",
     category: "Ambition",
     sections: [
       {
