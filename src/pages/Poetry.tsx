@@ -19,7 +19,7 @@ const Poetry = () => {
             className="mb-24 text-center"
           >
             <p className="text-muted-foreground/50 text-[10px] tracking-[0.5em] uppercase mb-8">
-              Words · Volume I
+              Verses · Volume I
             </p>
             <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
               Hanuman Bhajan
