@@ -45,7 +45,7 @@ const AlbumDetail = () => {
             className="mb-20 text-center"
           >
             {album.subtitle && (
-              <p className="text-muted-foreground/50 text-[10px] tracking-[0.5em] uppercase mb-8">
+              <p className="text-muted-foreground/70 text-[10px] tracking-[0.5em] uppercase mb-8">
                 {album.subtitle}
               </p>
             )}
