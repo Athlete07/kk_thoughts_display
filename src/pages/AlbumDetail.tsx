@@ -49,7 +49,7 @@ const AlbumDetail = () => {
                 {album.subtitle}
               </p>
             )}
-            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4 font-semibold">
               {album.title}
             </h1>
             {album.writer && (
