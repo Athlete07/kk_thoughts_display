@@ -149,7 +149,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why People Avoid Decisions—and How Confidence Breaks the Cycle",
     excerpt:
       "Lack of confidence—not complexity—is why we avoid decisions. Waiting for perfect clarity only traps us in hesitation. True confidence comes from deciding boldly and owning the outcome, mistakes and all. What choice are you delaying? It’s time to act and accept full responsibility.",
-    date: "January 2025",
+    date: "September 2025",
     category: "Decision-Making",
     sections: [
       {
