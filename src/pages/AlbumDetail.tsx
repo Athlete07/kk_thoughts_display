@@ -57,7 +57,7 @@ const AlbumDetail = () => {
                 रचयिता — <Link to={`/words/${album.slug}/writer`} className="hover:text-muted-foreground transition-colors">{album.writer.penName}</Link>
               </p>
             )}
-            <p className="text-muted-foreground/60 font-light max-w-md mx-auto leading-relaxed text-sm">
+            <p className="text-muted-foreground/80 font-light max-w-md mx-auto leading-relaxed text-sm">
               {album.description}
             </p>
           </motion.div>
