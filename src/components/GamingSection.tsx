@@ -3,44 +3,53 @@ import { Link } from "react-router-dom";
 import FadeInSection from "./FadeInSection";
 
 const domains = [
-  { title: "Speed", desc: "React before thought." },
-  { title: "Focus", desc: "One thing, completely." },
-  { title: "Memory", desc: "Hold, connect, recall." },
-  { title: "Logic", desc: "See the path." },
+  { title: "Speed", desc: "React before thought.", icon: "⚡" },
+  { title: "Focus", desc: "One thing, completely.", icon: "◎" },
+  { title: "Memory", desc: "Hold, connect, recall.", icon: "◈" },
+  { title: "Logic", desc: "See the path.", icon: "△" },
 ];
 
 const GamingSection = () => {
   return (
-    <section className="relative py-32 md:py-40 bg-card/30">
+    <section className="relative py-32 md:py-44">
+      <div className="section-divider mb-32 md:mb-44" />
+
       <div className="max-w-4xl mx-auto px-6">
         <FadeInSection>
           <div className="text-center mb-20">
-            <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-6">
+            <span className="brand-tag text-primary mb-6 block">
+              <span className="w-6 h-px bg-primary inline-block mr-3 align-middle" />
               Games
+              <span className="w-6 h-px bg-primary inline-block ml-3 align-middle" />
             </span>
-            <p className="text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto leading-relaxed">
-              The mind is trainable. I build games at the intersection 
-              of what you feel and how fast you think.
+            <p className="text-xl md:text-2xl text-foreground font-serif max-w-lg mx-auto leading-relaxed mt-6">
+              The mind is trainable
+            </p>
+            <p className="text-base text-muted-foreground font-light max-w-md mx-auto leading-relaxed mt-4">
+              Games at the intersection of what you feel and how fast you think.
             </p>
           </div>
         </FadeInSection>
 
         {/* Four Domains */}
         <FadeInSection delay={0.2}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/30 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto">
             {domains.map((domain, i) => (
               <motion.div
                 key={domain.title}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.8 }}
-                className="bg-background p-8 text-center group"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="card-glass p-8 text-center group hover:border-primary/30 transition-all duration-500"
               >
-                <h3 className="text-sm font-sans tracking-wide text-foreground mb-2">
+                <span className="text-2xl block mb-4 opacity-60 group-hover:opacity-100 transition-opacity">
+                  {domain.icon}
+                </span>
+                <h3 className="text-sm font-medium tracking-wide text-foreground mb-2">
                   {domain.title}
                 </h3>
-                <p className="text-xs text-muted-foreground font-light">
+                <p className="text-xs text-muted-foreground font-light leading-relaxed">
                   {domain.desc}
                 </p>
               </motion.div>
@@ -52,9 +61,10 @@ const GamingSection = () => {
           <div className="text-center mt-16">
             <Link
               to="/games"
-              className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-500"
+              className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-foreground hover:text-primary transition-colors duration-500 font-medium"
             >
-              Explore →
+              Explore
+              <span className="text-primary">→</span>
             </Link>
           </div>
         </FadeInSection>

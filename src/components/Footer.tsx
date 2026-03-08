@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
-
 const Footer = () => {
   return (
-    <footer className="py-16 border-t border-border/30">
+    <footer className="py-16 border-t border-border">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center">
-          <p className="text-[10px] text-muted-foreground/40 tracking-widest">
+          <p className="font-serif text-sm text-muted-foreground tracking-wide">
+            Krishna Kumar Yadlapalli
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
             © 2026
           </p>
         </div>

@@ -3,96 +3,98 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <header className="relative min-h-screen flex items-center justify-center">
-      {/* Minimal ambient light */}
-      <div className="absolute inset-0 overflow-hidden">
+    <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute inset-0">
         <motion.div
-          animate={{ opacity: [0.02, 0.04, 0.02] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-violet/10 blur-[200px]"
+          animate={{ opacity: [0.06, 0.12, 0.06] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/10 blur-[200px]"
+        />
+        <motion.div
+          animate={{ opacity: [0.04, 0.08, 0.04] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[180px]"
         />
       </div>
 
-      <div className="max-w-3xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="text-center"
         >
-          {/* The Question */}
+          {/* Opening line */}
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="text-muted-foreground text-sm md:text-base font-light tracking-wide mb-12"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-muted-foreground text-base md:text-lg font-light tracking-wide mb-10"
           >
             What if words could move you the way games train your mind?
           </motion.p>
 
-          {/* Name */}
+          {/* Name - massive, commanding */}
           <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground tracking-tight mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="headline-display font-serif text-foreground mb-8"
           >
             Krishna Kumar
           </motion.h1>
 
-          {/* Essence */}
+          {/* Tagline */}
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.9 }}
-            className="text-muted-foreground text-sm md:text-base font-light max-w-md mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="text-muted-foreground text-lg md:text-xl font-light max-w-lg mx-auto leading-relaxed"
           >
-            Writes shayari. Builds cognitive games.<br />
-            <span className="text-muted-foreground">Occasionally ships products.</span>
+            Writes shayari. Builds cognitive games.
+            <br />
+            <span className="text-foreground font-normal">Occasionally ships products.</span>
           </motion.p>
 
-          {/* Minimal Navigation */}
+          {/* Navigation CTAs */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.4 }}
-            className="mt-16 flex items-center justify-center gap-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="mt-16 flex items-center justify-center gap-8 md:gap-14"
           >
-            <Link
-              to="/words"
-              className="text-[11px] tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors duration-500"
-            >
-              Read
-            </Link>
-            <span className="w-px h-3 bg-border" />
-            <Link
-              to="/games"
-              className="text-[11px] tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors duration-500"
-            >
-              Play
-            </Link>
-            <span className="w-px h-3 bg-border" />
-            <Link
-              to="/about"
-              className="text-[11px] tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground transition-colors duration-500"
-            >
-              Know
-            </Link>
+            {[
+              { label: "Read", to: "/words" },
+              { label: "Play", to: "/games" },
+              { label: "Know", to: "/about" },
+            ].map((item, i) => (
+              <span key={item.label} className="flex items-center gap-8 md:gap-14">
+                {i > 0 && <span className="w-px h-4 bg-border" />}
+                <Link
+                  to={item.to}
+                  className="text-xs md:text-sm tracking-[0.25em] uppercase text-foreground hover:text-primary transition-colors duration-500 font-medium"
+                >
+                  {item.label}
+                </Link>
+              </span>
+            ))}
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Subtle scroll hint */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        animate={{ opacity: 0.5 }}
+        transition={{ delay: 2.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
       >
+        <span className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground">Scroll</span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-foreground/20 to-transparent"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-8 bg-gradient-to-b from-foreground/30 to-transparent"
         />
       </motion.div>
     </header>
