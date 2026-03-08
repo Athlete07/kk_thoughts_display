@@ -66,7 +66,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                 <div key={si} className="space-y-3">
                   {/* Section label */}
                   {section.type === "tek" && (
-                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/40 font-light">
+                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/60 font-light">
                       टेक
                     </p>
                   )}
