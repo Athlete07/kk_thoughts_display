@@ -91,12 +91,12 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                           key={li}
                           className={`text-sm leading-relaxed ${
                             section.type === "tek"
-                              ? "text-foreground/70 font-medium"
+                              ? "text-foreground/90 font-medium"
                               : isCallResponse && section.type === "antara"
-                              ? "text-primary/50 italic text-[13px]"
+                              ? "text-primary/70 italic text-[13px]"
                               : section.type === "samapan"
-                              ? "text-foreground/60 font-medium"
-                              : "text-muted-foreground/60 font-light"
+                              ? "text-foreground/80 font-medium"
+                              : "text-muted-foreground/80 font-light"
                           }`}
                         >
                           {line}
