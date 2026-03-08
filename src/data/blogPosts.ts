@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Quiet Edge of “I Have to Win” vs. “I Need to Win",
     excerpt:
       "“I need to win” is fear in disguise. It clings, chases, tightens. “I have to win” is ownership. It’s grounded, focused, and clear. One is pressure. The other is power. Know the difference—it shows up in everything you do.",
-    date: "January 2025",
+    date: "March 2026",
     category: "Mindset",
     sections: [
       {
