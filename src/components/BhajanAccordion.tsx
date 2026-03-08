@@ -19,15 +19,15 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
         className="w-full py-6 flex items-start justify-between gap-4 text-left group"
       >
         <div className="flex items-start gap-5">
-          <span className="text-[10px] text-muted-foreground/30 font-light pt-1 w-6 shrink-0">
+          <span className="text-[10px] text-muted-foreground/50 font-light pt-1 w-6 shrink-0">
             {String(bhajan.number).padStart(2, "0")}
           </span>
           <div className="space-y-1.5">
-            <h3 className="font-serif text-base md:text-lg text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+            <h3 className="font-serif text-base md:text-lg text-foreground/90 group-hover:text-foreground transition-colors duration-300">
               {bhajan.title}
             </h3>
             {!isOpen && (
-              <p className="text-[11px] text-muted-foreground/40 font-light italic line-clamp-1">
+              <p className="text-[11px] text-muted-foreground/60 font-light italic line-clamp-1">
                 {tekPreview}
               </p>
             )}
@@ -55,7 +55,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
               {bhajan.preNote && (
                 <div className="space-y-1">
                   {bhajan.preNote.split("\n").map((line, i) => (
-                    <p key={i} className="text-[11px] text-muted-foreground/40 italic">
+                    <p key={i} className="text-[11px] text-muted-foreground/60 italic">
                       {line}
                     </p>
                   ))}
@@ -66,17 +66,17 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                 <div key={si} className="space-y-3">
                   {/* Section label */}
                   {section.type === "tek" && (
-                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/40 font-light">
+                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/60 font-light">
                       टेक
                     </p>
                   )}
                   {section.type === "antara" && section.label && (
-                    <p className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 font-light">
+                    <p className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground/50 font-light">
                       {section.label}
                     </p>
                   )}
                   {section.type === "samapan" && (
-                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/30 font-light">
+                    <p className="text-[9px] tracking-[0.3em] uppercase text-primary/50 font-light">
                       समापन
                     </p>
                   )}
@@ -91,12 +91,12 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                           key={li}
                           className={`text-sm leading-relaxed ${
                             section.type === "tek"
-                              ? "text-foreground/70 font-medium"
+                              ? "text-foreground/90 font-medium"
                               : isCallResponse && section.type === "antara"
-                              ? "text-primary/50 italic text-[13px]"
+                              ? "text-primary/70 italic text-[13px]"
                               : section.type === "samapan"
-                              ? "text-foreground/60 font-medium"
-                              : "text-muted-foreground/60 font-light"
+                              ? "text-foreground/80 font-medium"
+                              : "text-muted-foreground/80 font-light"
                           }`}
                         >
                           {line}
@@ -109,7 +109,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
                   {section.type === "antara" && tekSection && (
                     <div className="border-l-2 border-primary/10 pl-4 mt-4 opacity-50">
                       {tekSection.lines.map((line, li) => (
-                        <p key={li} className="text-[12px] text-foreground/40 font-light">
+                        <p key={li} className="text-[12px] text-foreground/60 font-light">
                           {line}
                         </p>
                       ))}

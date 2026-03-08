@@ -45,19 +45,19 @@ const AlbumDetail = () => {
             className="mb-20 text-center"
           >
             {album.subtitle && (
-              <p className="text-muted-foreground/50 text-[10px] tracking-[0.5em] uppercase mb-8">
+              <p className="text-muted-foreground/70 text-[10px] tracking-[0.5em] uppercase mb-8">
                 {album.subtitle}
               </p>
             )}
-            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4 font-semibold">
               {album.title}
             </h1>
             {album.writer && (
-              <p className="text-muted-foreground/40 text-[11px] tracking-[0.2em] mb-6">
+              <p className="text-muted-foreground/70 text-[11px] tracking-[0.2em] mb-6">
                 रचयिता — <Link to={`/words/${album.slug}/writer`} className="hover:text-muted-foreground transition-colors">{album.writer.penName}</Link>
               </p>
             )}
-            <p className="text-muted-foreground/60 font-light max-w-md mx-auto leading-relaxed text-sm">
+            <p className="text-muted-foreground/80 font-light max-w-md mx-auto leading-relaxed text-sm">
               {album.description}
             </p>
           </motion.div>
@@ -115,9 +115,9 @@ const AlbumDetail = () => {
                   <p
                     key={i}
                     className={`font-quote italic leading-loose ${
-                      i === 0
-                        ? "text-foreground/60 text-base mb-2"
-                        : "text-muted-foreground/40 text-sm"
+                     i === 0
+                        ? "text-foreground/90 text-base mb-2"
+                        : "text-muted-foreground/70 text-sm"
                     }`}
                   >
                     {line}
@@ -135,19 +135,19 @@ const AlbumDetail = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="max-w-lg mx-auto mb-24"
             >
-              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-8">
+              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/60 mb-8">
                 कुछ बातें जो कहनी थीं
               </p>
-              <div className="border-l border-primary/20 pl-6 space-y-4">
+              <div className="border-l border-primary/30 pl-6 space-y-4">
                 {forewordExcerpt.split("\n\n").map((paragraph, i) => (
-                  <p key={i} className="text-muted-foreground/50 font-light leading-relaxed text-sm">
+                  <p key={i} className="text-muted-foreground/80 font-light leading-relaxed text-sm">
                     {paragraph}
                   </p>
                 ))}
               </div>
               <Link
                 to={`/words/${album.slug}/writer`}
-                className="inline-block mt-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/30 hover:text-muted-foreground transition-colors duration-300"
+                className="inline-block mt-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-300"
               >
                 पूरी बात पढ़ें →
               </Link>
@@ -167,11 +167,11 @@ const AlbumDetail = () => {
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-px flex-1 bg-border/15" />
                 <div className="text-center">
-                  <p className="text-[9px] tracking-[0.4em] uppercase text-primary/40">
+                  <p className="text-[9px] tracking-[0.4em] uppercase text-primary/60">
                     {stage.title}
                   </p>
                   {stage.titleEn && (
-                    <p className="text-[8px] tracking-[0.3em] uppercase text-muted-foreground/25 mt-1">
+                    <p className="text-[8px] tracking-[0.3em] uppercase text-muted-foreground/50 mt-1">
                       {stage.titleEn}
                     </p>
                   )}
