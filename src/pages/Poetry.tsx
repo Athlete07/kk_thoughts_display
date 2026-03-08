@@ -55,7 +55,7 @@ const Poetry = () => {
                       )}
                       <div className="w-10 h-px bg-primary/30 mx-auto" />
                       {album.coverSubtext && (
-                        <p className="font-serif text-base text-foreground/70 transition-colors duration-500 group-hover:text-foreground/90">
+                        <p className="font-serif text-base text-foreground transition-colors duration-500">
                           {album.coverSubtext}
                         </p>
                       )}

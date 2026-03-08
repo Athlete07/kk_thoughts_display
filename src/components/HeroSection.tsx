@@ -35,7 +35,7 @@ const HeroSection = () => {
             What if words could move you the way games train your mind?
           </motion.p>
 
-          {/* Name - massive, commanding */}
+          {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,16 +45,16 @@ const HeroSection = () => {
             Krishna Kumar
           </motion.h1>
 
-          {/* Tagline */}
+          {/* Tagline — stronger closing line */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             className="text-muted-foreground text-lg md:text-xl font-light max-w-lg mx-auto leading-relaxed"
           >
-            Writes shayari. Builds cognitive games.
+            Writes bhajans. Builds cognitive games.
             <br />
-            <span className="text-foreground font-normal">Occasionally ships products.</span>
+            <span className="text-foreground font-normal">Ships products that matter.</span>
           </motion.p>
 
           {/* Navigation CTAs */}

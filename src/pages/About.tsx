@@ -92,7 +92,7 @@ const About = () => {
               <div className="aspect-[3/4] max-w-xs mx-auto overflow-hidden">
                 <img 
                   src="/krishna.png" 
-                  className="w-full h-full object-cover grayscale opacity-80" 
+                  className="w-full h-full object-cover grayscale" 
                   alt="Krishna Kumar" 
                 />
               </div>

@@ -11,8 +11,8 @@ const domains = [
 
 const GamingSection = () => {
   return (
-    <section className="relative py-32 md:py-44">
-      <div className="section-divider mb-32 md:mb-44" />
+    <section className="relative py-20 md:py-28">
+      <div className="section-divider mb-16 md:mb-20" />
 
       <div className="max-w-4xl mx-auto px-6">
         <FadeInSection>
@@ -43,7 +43,7 @@ const GamingSection = () => {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="card-glass p-8 text-center group hover:border-primary/30 transition-all duration-500"
               >
-                <span className="text-2xl block mb-4 opacity-60 group-hover:opacity-100 transition-opacity">
+                <span className="text-2xl block mb-4 group-hover:opacity-100 transition-opacity">
                   {domain.icon}
                 </span>
                 <h3 className="text-sm font-medium tracking-wide text-foreground mb-2">

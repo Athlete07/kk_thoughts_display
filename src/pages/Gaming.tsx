@@ -113,27 +113,6 @@ const Gaming = () => {
           </div>
         </section>
 
-        {/* The Feel */}
-        <section className="py-32 md:py-40 bg-card/30">
-          <div className="max-w-3xl mx-auto px-6">
-            <FadeInSection>
-              <div className="text-center">
-                <span className="text-[10px] tracking-[0.4em] uppercase text-muted-foreground block mb-12">
-                  The Feel
-                </span>
-                
-                <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-8">
-                  Designed for presence, instinct, and flow. Every detail is tuned for the experience.
-                </p>
-                
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  Adaptive pacing, calibrated opponents, and classic mechanics—felt, not explained.
-                </p>
-              </div>
-            </FadeInSection>
-          </div>
-        </section>
-
         {/* Why BoltFocus Works */}
         <section className="py-32 md:py-40">
           <div className="max-w-4xl mx-auto px-6">
