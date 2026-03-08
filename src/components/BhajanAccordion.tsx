@@ -19,7 +19,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
         className="w-full py-6 flex items-start justify-between gap-4 text-left group"
       >
         <div className="flex items-start gap-5">
-          <span className="text-[10px] text-muted-foreground/30 font-light pt-1 w-6 shrink-0">
+          <span className="text-[10px] text-muted-foreground/50 font-light pt-1 w-6 shrink-0">
             {String(bhajan.number).padStart(2, "0")}
           </span>
           <div className="space-y-1.5">
