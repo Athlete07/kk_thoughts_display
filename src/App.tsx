@@ -10,6 +10,7 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Gaming from "./pages/Gaming";
 import Poetry from "./pages/Poetry";
+import AlbumDetail from "./pages/AlbumDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
