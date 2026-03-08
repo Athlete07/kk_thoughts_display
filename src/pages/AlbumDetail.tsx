@@ -13,7 +13,7 @@ const AlbumDetail = () => {
 
   if (!album) return <NotFound />;
 
-  const forewordExcerpt = album.writer?.foreword.split("\n\n").slice(0, 2).join("\n\n");
+  
 
   return (
     <>
@@ -130,33 +130,6 @@ const AlbumDetail = () => {
                   </p>
                 ))}
               </div>
-            </motion.div>
-          )}
-
-          {/* Writer's Foreword (excerpt) */}
-          {forewordExcerpt && (
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="max-w-lg mx-auto mb-20"
-            >
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 font-medium">
-                कुछ बातें जो कहनी थीं
-              </p>
-              <div className="border-l-2 border-primary/40 pl-6 space-y-5">
-                {forewordExcerpt.split("\n\n").map((paragraph, i) => (
-                  <p key={i} className="text-muted-foreground leading-relaxed text-base">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              <Link
-                to={`/words/${album.slug}/writer`}
-                className="inline-block mt-6 text-xs tracking-widest uppercase text-primary hover:text-foreground transition-colors duration-300"
-              >
-                पूरी बात पढ़ें →
-              </Link>
             </motion.div>
           )}
 
