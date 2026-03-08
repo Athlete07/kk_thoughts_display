@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     title: "First Principle Thinking: The Mental Muscle That Cuts Through Complexity",
     excerpt:
       "Most people solve problems by analogy—tweaking what's already been done. First Principle Thinking does the opposite. It cuts through noise, assumptions, and inherited wisdom to get to the core truth. From there, real innovation begins. Strip it down. Rebuild from zero. That’s how clarity—and impact—are made.",
-    date: "January 2025",
+    date: "October 2025",
     category: "Thinking",
     sections: [
       {
