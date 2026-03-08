@@ -147,7 +147,7 @@ const AlbumDetail = () => {
               </div>
               <Link
                 to={`/words/${album.slug}/writer`}
-                className="inline-block mt-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/30 hover:text-muted-foreground transition-colors duration-300"
+                className="inline-block mt-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-300"
               >
                 पूरी बात पढ़ें →
               </Link>
