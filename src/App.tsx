@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/say-hello" element={<Contact />} />
           <Route path="/games" element={<Gaming />} />
           <Route path="/words" element={<Poetry />} />
+          <Route path="/words/:slug" element={<AlbumDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
