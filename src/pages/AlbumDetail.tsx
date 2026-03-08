@@ -13,7 +13,7 @@ const AlbumDetail = () => {
 
   if (!album) return <NotFound />;
 
-  const forewordExcerpt = album.writer?.foreword.split("\n\n").slice(0, 2).join("\n\n");
+  
 
   return (
     <>
