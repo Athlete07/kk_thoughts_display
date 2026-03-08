@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import FilmGrain from "@/components/FilmGrain";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BhajanAccordion from "@/components/BhajanAccordion";
 import { getAlbumBySlug } from "@/data/albums";
 import NotFound from "./NotFound";
 
@@ -11,6 +12,8 @@ const AlbumDetail = () => {
   const album = slug ? getAlbumBySlug(slug) : undefined;
 
   if (!album) return <NotFound />;
+
+  const forewordExcerpt = album.writer?.foreword.split("\n\n").slice(0, 2).join("\n\n");
 
   return (
     <>
@@ -39,17 +42,22 @@ const AlbumDetail = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="mb-24 text-center"
+            className="mb-20 text-center"
           >
             {album.subtitle && (
               <p className="text-muted-foreground/50 text-[10px] tracking-[0.5em] uppercase mb-8">
-                Verses · {album.subtitle}
+                {album.subtitle}
               </p>
             )}
-            <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
               {album.title}
             </h1>
-            <p className="text-muted-foreground/70 font-light max-w-md mx-auto leading-relaxed">
+            {album.writer && (
+              <p className="text-muted-foreground/40 text-[11px] tracking-[0.2em] mb-6">
+                रचयिता — <Link to={`/words/${album.slug}/writer`} className="hover:text-muted-foreground transition-colors">{album.writer.penName}</Link>
+              </p>
+            )}
+            <p className="text-muted-foreground/60 font-light max-w-md mx-auto leading-relaxed text-sm">
               {album.description}
             </p>
           </motion.div>
@@ -59,7 +67,7 @@ const AlbumDetail = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3 }}
-            className="relative max-w-md mx-auto mb-20"
+            className="relative max-w-md mx-auto mb-24"
           >
             <div className="aspect-square bg-card border border-border/30 flex items-center justify-center overflow-hidden">
               <div className="text-center space-y-6 p-8">
@@ -89,80 +97,132 @@ const AlbumDetail = () => {
                     {album.coverSubtext}
                   </motion.p>
                 )}
-                {album.status === "coming-soon" && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.8 }}
-                    className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/30"
-                  >
-                    Album Art Coming Soon
-                  </motion.p>
-                )}
               </div>
             </div>
             <div className="absolute -inset-px bg-gradient-to-b from-primary/5 via-transparent to-transparent -z-10 blur-2xl" />
           </motion.div>
 
-          {/* About */}
-          {album.longDescription && (
+          {/* Dedication */}
+          {album.dedication && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="max-w-lg mx-auto mb-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="max-w-lg mx-auto mb-24 text-center"
             >
-              <div className="border-l border-primary/20 pl-6 space-y-4">
-                {album.longDescription.split(". ").reduce((acc: string[], sentence, i, arr) => {
-                  if (i % 2 === 0) {
-                    acc.push(arr.slice(i, i + 2).join(". "));
-                  }
-                  return acc;
-                }, []).map((paragraph, i) => (
-                  <p key={i} className="text-muted-foreground/60 font-light leading-relaxed text-sm">
-                    {paragraph}
+              <div className="py-10 border-t border-b border-border/15">
+                {album.dedication.split("\n").map((line, i) => (
+                  <p
+                    key={i}
+                    className={`font-quote italic leading-loose ${
+                      i === 0
+                        ? "text-foreground/60 text-base mb-2"
+                        : "text-muted-foreground/40 text-sm"
+                    }`}
+                  >
+                    {line}
                   </p>
                 ))}
               </div>
             </motion.div>
           )}
 
-          {/* Tracklist */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="max-w-lg mx-auto mb-20"
-          >
-            <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-8">
-              Tracklist
-            </p>
-            <div className="space-y-0">
-              {album.tracks.map((track, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 + i * 0.1 }}
-                  className="py-4 border-b border-border/20 flex items-center justify-between gap-4"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-[10px] text-muted-foreground/30 font-light w-6">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className={`text-sm font-light ${track.title.includes("arriving") ? "text-muted-foreground/50 italic" : "text-foreground/70"}`}>
-                      {track.title}
-                    </span>
-                  </div>
-                  {track.duration && (
-                    <span className="text-[10px] text-muted-foreground/30">
-                      {track.duration}
-                    </span>
+          {/* Writer's Foreword (excerpt) */}
+          {forewordExcerpt && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="max-w-lg mx-auto mb-24"
+            >
+              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-8">
+                कुछ बातें जो कहनी थीं
+              </p>
+              <div className="border-l border-primary/20 pl-6 space-y-4">
+                {forewordExcerpt.split("\n\n").map((paragraph, i) => (
+                  <p key={i} className="text-muted-foreground/50 font-light leading-relaxed text-sm">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <Link
+                to={`/words/${album.slug}/writer`}
+                className="inline-block mt-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/30 hover:text-muted-foreground transition-colors duration-300"
+              >
+                पूरी बात पढ़ें →
+              </Link>
+            </motion.div>
+          )}
+
+          {/* Stages & Bhajans */}
+          {album.stages?.map((stage, si) => (
+            <motion.div
+              key={si}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 + si * 0.2 }}
+              className="mb-20"
+            >
+              {/* Stage header */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-border/15" />
+                <div className="text-center">
+                  <p className="text-[9px] tracking-[0.4em] uppercase text-primary/40">
+                    {stage.title}
+                  </p>
+                  {stage.titleEn && (
+                    <p className="text-[8px] tracking-[0.3em] uppercase text-muted-foreground/25 mt-1">
+                      {stage.titleEn}
+                    </p>
                   )}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                </div>
+                <div className="h-px flex-1 bg-border/15" />
+              </div>
+
+              {/* Bhajans */}
+              <div>
+                {stage.bhajans.map((bhajan) => (
+                  <BhajanAccordion key={bhajan.number} bhajan={bhajan} />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Tracklist fallback (for albums without stages) */}
+          {!album.stages && album.tracks.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="max-w-lg mx-auto mb-20"
+            >
+              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-8">
+                Tracklist
+              </p>
+              <div className="space-y-0">
+                {album.tracks.map((track, i) => (
+                  <div
+                    key={i}
+                    className="py-4 border-b border-border/20 flex items-center justify-between gap-4"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-[10px] text-muted-foreground/30 font-light w-6">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-sm font-light text-foreground/70">
+                        {track.title}
+                      </span>
+                    </div>
+                    {track.duration && (
+                      <span className="text-[10px] text-muted-foreground/30">
+                        {track.duration}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           {/* Status Badge */}
           {album.status === "coming-soon" && (
@@ -173,26 +233,8 @@ const AlbumDetail = () => {
               className="text-center mb-16"
             >
               <span className="inline-block text-[9px] uppercase tracking-[0.4em] text-primary/50 px-5 py-2.5 border border-primary/15">
-                Launching Soon
+                Coming Soon
               </span>
-            </motion.div>
-          )}
-
-          {/* Teaser Verse */}
-          {album.teaserVerse && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 1.2 }}
-              className="max-w-md mx-auto text-center mb-16"
-            >
-              <div className="py-8">
-                {album.teaserVerse.text.split("\n").map((line, i) => (
-                  <p key={i} className={`font-quote text-lg leading-relaxed italic ${i === 0 ? "text-muted-foreground/50" : "text-muted-foreground/30"}`}>
-                    {i === 0 ? `"${line}` : `${line}"`}
-                  </p>
-                ))}
-              </div>
             </motion.div>
           )}
 
@@ -200,7 +242,7 @@ const AlbumDetail = () => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1.5, delay: 1.4 }}
+            transition={{ duration: 1.5, delay: 1.2 }}
             className="w-12 h-px bg-border/30 mx-auto my-12"
           />
 
@@ -209,7 +251,7 @@ const AlbumDetail = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.6 }}
+              transition={{ duration: 1, delay: 1.4 }}
               className="text-center text-[11px] text-muted-foreground/40 font-light tracking-wide"
             >
               {album.closingNote.split("\n").map((line, i) => (
