@@ -23,7 +23,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
             {String(bhajan.number).padStart(2, "0")}
           </span>
           <div className="space-y-1.5">
-            <h3 className="font-serif text-base md:text-lg text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+            <h3 className="font-serif text-base md:text-lg text-foreground/90 group-hover:text-foreground transition-colors duration-300">
               {bhajan.title}
             </h3>
             {!isOpen && (
