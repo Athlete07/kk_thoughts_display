@@ -15,7 +15,7 @@ const Manifesto = () => {
               By Day
               <span className="w-6 h-px bg-primary inline-block ml-3 align-middle" />
             </span>
-            <p className="text-xl md:text-2xl text-foreground font-serif leading-relaxed max-w-md mx-auto mt-6">
+            <p className="text-2xl md:text-4xl text-foreground font-serif leading-relaxed max-w-md mx-auto mt-6">
               I work on software products
             </p>
             <p className="text-base text-muted-foreground font-light mt-4 max-w-md mx-auto leading-relaxed">
