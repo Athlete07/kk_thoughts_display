@@ -169,7 +169,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Peace in Forgetting: Why Letting Go of the Past Unlocks the Present",
     excerpt:
       "Not everything in your past deserves a permanent place in your mind. Even good memories can trap you in nostalgia; bad ones, in pain. Real presence begins when you stop rehearsing what was and start choosing what matters now. Forgetting isn’t failure—it’s freedom.",
-    date: "January 2025",
+    date: "August 2025",
     category: "Mindset",
     sections: [
       {
