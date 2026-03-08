@@ -20,18 +20,18 @@ const AlbumDetail = () => {
       <FilmGrain />
       <Navbar />
 
-      <main className="min-h-screen pt-32 pb-20">
-        <div className="max-w-3xl mx-auto px-6">
+      <main className="min-h-screen pt-28 pb-24">
+        <div className="max-w-2xl mx-auto px-6 md:px-8">
           {/* Back Link */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="mb-12"
           >
             <Link
               to="/words"
-              className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground/40 hover:text-muted-foreground transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               ← All Verses
             </Link>
@@ -39,25 +39,31 @@ const AlbumDetail = () => {
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2 }}
-            className="mb-20 text-center"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="mb-16 text-center"
           >
             {album.subtitle && (
-              <p className="text-muted-foreground/70 text-[10px] tracking-[0.5em] uppercase mb-8">
+              <p className="text-muted-foreground text-xs tracking-[0.4em] uppercase mb-6">
                 {album.subtitle}
               </p>
             )}
-            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4 font-semibold">
+            <h1 className="text-5xl md:text-6xl font-serif text-foreground mb-5 font-bold leading-tight">
               {album.title}
             </h1>
             {album.writer && (
-              <p className="text-muted-foreground/70 text-[11px] tracking-[0.2em] mb-6">
-                रचयिता — <Link to={`/words/${album.slug}/writer`} className="hover:text-muted-foreground transition-colors">{album.writer.penName}</Link>
+              <p className="text-muted-foreground text-sm tracking-wider mb-6">
+                रचयिता —{" "}
+                <Link
+                  to={`/words/${album.slug}/writer`}
+                  className="text-primary hover:text-foreground transition-colors underline underline-offset-4 decoration-primary/30"
+                >
+                  {album.writer.penName}
+                </Link>
               </p>
             )}
-            <p className="text-muted-foreground/80 font-light max-w-md mx-auto leading-relaxed text-sm">
+            <p className="text-muted-foreground font-light max-w-lg mx-auto leading-relaxed text-base">
               {album.description}
             </p>
           </motion.div>
@@ -66,17 +72,17 @@ const AlbumDetail = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            className="relative max-w-md mx-auto mb-24"
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="relative max-w-sm mx-auto mb-20"
           >
-            <div className="aspect-square bg-card border border-border/30 flex items-center justify-center overflow-hidden">
-              <div className="text-center space-y-6 p-8">
+            <div className="aspect-square bg-card border border-border/40 flex items-center justify-center overflow-hidden rounded-sm">
+              <div className="text-center space-y-5 p-10">
                 {album.coverSymbol && (
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 2, delay: 0.8 }}
-                    className="text-6xl md:text-7xl text-primary/40 font-serif"
+                    transition={{ duration: 2, delay: 0.6 }}
+                    className="text-7xl md:text-8xl text-primary/60 font-serif"
                   >
                     {album.coverSymbol}
                   </motion.p>
@@ -84,15 +90,15 @@ const AlbumDetail = () => {
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
-                  transition={{ duration: 1.5, delay: 1.2 }}
-                  className="w-16 h-px bg-primary/20 mx-auto"
+                  transition={{ duration: 1.5, delay: 1 }}
+                  className="w-16 h-px bg-primary/30 mx-auto"
                 />
                 {album.coverSubtext && (
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.5 }}
-                    className="font-serif text-lg text-foreground/60"
+                    transition={{ duration: 1, delay: 1.3 }}
+                    className="font-serif text-xl text-foreground/80"
                   >
                     {album.coverSubtext}
                   </motion.p>
@@ -107,17 +113,17 @@ const AlbumDetail = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="max-w-lg mx-auto mb-24 text-center"
+              transition={{ duration: 1, delay: 0.3 }}
+              className="max-w-md mx-auto mb-20 text-center"
             >
-              <div className="py-10 border-t border-b border-border/15">
+              <div className="py-10 border-t border-b border-border/30">
                 {album.dedication.split("\n").map((line, i) => (
                   <p
                     key={i}
                     className={`font-quote italic leading-loose ${
-                     i === 0
-                        ? "text-foreground/90 text-base mb-2"
-                        : "text-muted-foreground/70 text-sm"
+                      i === 0
+                        ? "text-foreground text-lg mb-2"
+                        : "text-muted-foreground text-base"
                     }`}
                   >
                     {line}
@@ -130,24 +136,24 @@ const AlbumDetail = () => {
           {/* Writer's Foreword (excerpt) */}
           {forewordExcerpt && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="max-w-lg mx-auto mb-24"
+              transition={{ duration: 1, delay: 0.4 }}
+              className="max-w-lg mx-auto mb-20"
             >
-              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/60 mb-8">
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 font-medium">
                 कुछ बातें जो कहनी थीं
               </p>
-              <div className="border-l border-primary/30 pl-6 space-y-4">
+              <div className="border-l-2 border-primary/40 pl-6 space-y-5">
                 {forewordExcerpt.split("\n\n").map((paragraph, i) => (
-                  <p key={i} className="text-muted-foreground/80 font-light leading-relaxed text-sm">
+                  <p key={i} className="text-muted-foreground leading-relaxed text-base">
                     {paragraph}
                   </p>
                 ))}
               </div>
               <Link
                 to={`/words/${album.slug}/writer`}
-                className="inline-block mt-6 text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-300"
+                className="inline-block mt-6 text-xs tracking-widest uppercase text-primary hover:text-foreground transition-colors duration-300"
               >
                 पूरी बात पढ़ें →
               </Link>
@@ -160,23 +166,23 @@ const AlbumDetail = () => {
               key={si}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 + si * 0.2 }}
-              className="mb-20"
+              transition={{ duration: 1, delay: 0.5 + si * 0.15 }}
+              className="mb-16"
             >
               {/* Stage header */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px flex-1 bg-border/15" />
-                <div className="text-center">
-                  <p className="text-[9px] tracking-[0.4em] uppercase text-primary/60">
+              <div className="flex items-center gap-5 mb-10">
+                <div className="h-px flex-1 bg-border/30" />
+                <div className="text-center px-4">
+                  <p className="text-sm tracking-[0.3em] uppercase text-primary font-medium">
                     {stage.title}
                   </p>
                   {stage.titleEn && (
-                    <p className="text-[8px] tracking-[0.3em] uppercase text-muted-foreground/50 mt-1">
+                    <p className="text-xs tracking-widest uppercase text-muted-foreground mt-1.5">
                       {stage.titleEn}
                     </p>
                   )}
                 </div>
-                <div className="h-px flex-1 bg-border/15" />
+                <div className="h-px flex-1 bg-border/30" />
               </div>
 
               {/* Bhajans */}
@@ -193,28 +199,28 @@ const AlbumDetail = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.7 }}
+              transition={{ duration: 1, delay: 0.6 }}
               className="max-w-lg mx-auto mb-20"
             >
-              <p className="text-[9px] tracking-[0.4em] uppercase text-muted-foreground/40 mb-8">
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8 font-medium">
                 Tracklist
               </p>
               <div className="space-y-0">
                 {album.tracks.map((track, i) => (
                   <div
                     key={i}
-                    className="py-4 border-b border-border/20 flex items-center justify-between gap-4"
+                    className="py-5 border-b border-border/30 flex items-center justify-between gap-4"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="text-[10px] text-muted-foreground/30 font-light w-6">
+                      <span className="text-sm text-muted-foreground font-light w-8">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-sm font-light text-foreground/70">
+                      <span className="text-base text-foreground">
                         {track.title}
                       </span>
                     </div>
                     {track.duration && (
-                      <span className="text-[10px] text-muted-foreground/30">
+                      <span className="text-sm text-muted-foreground">
                         {track.duration}
                       </span>
                     )}
@@ -229,10 +235,10 @@ const AlbumDetail = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
               className="text-center mb-16"
             >
-              <span className="inline-block text-[9px] uppercase tracking-[0.4em] text-primary/50 px-5 py-2.5 border border-primary/15">
+              <span className="inline-block text-xs uppercase tracking-[0.3em] text-primary px-6 py-3 border border-primary/30 font-medium">
                 Coming Soon
               </span>
             </motion.div>
@@ -242,8 +248,8 @@ const AlbumDetail = () => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1.5, delay: 1.2 }}
-            className="w-12 h-px bg-border/30 mx-auto my-12"
+            transition={{ duration: 1.5, delay: 1 }}
+            className="w-16 h-px bg-border/40 mx-auto my-14"
           />
 
           {/* Closing Note */}
@@ -251,8 +257,8 @@ const AlbumDetail = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.4 }}
-              className="text-center text-[11px] text-muted-foreground/40 font-light tracking-wide"
+              transition={{ duration: 1, delay: 1.2 }}
+              className="text-center text-sm text-muted-foreground font-light leading-relaxed"
             >
               {album.closingNote.split("\n").map((line, i) => (
                 <span key={i}>
