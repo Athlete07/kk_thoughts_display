@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     title: "Only the Brave Fall—Because They’re the Ones Who Dared to Stand",
     excerpt:
       "Falling isn’t failure—it’s proof you had the courage to move at full speed while others stayed safe and untested. Only those who stand tall can stumble. The rest are just avoiding the game altogether.",
-    date: "January 2025",
+    date: "December 2025",
     category: "Courage",
     sections: [
       {
