@@ -22,7 +22,7 @@ const GamingSection = () => {
               Games
               <span className="w-6 h-px bg-primary inline-block ml-3 align-middle" />
             </span>
-            <p className="text-xl md:text-2xl text-foreground font-serif max-w-lg mx-auto leading-relaxed mt-6">
+            <p className="text-2xl md:text-4xl text-foreground font-serif max-w-lg mx-auto leading-relaxed mt-6">
               The mind is trainable
             </p>
             <p className="text-base text-muted-foreground font-light max-w-md mx-auto leading-relaxed mt-4">
