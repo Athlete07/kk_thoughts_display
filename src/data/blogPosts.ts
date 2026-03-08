@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     title: "Confidence + Work Ethic: The Combo That Moves You Faster Than Talent Alone",
     excerpt:
       "If you’re already doing the work, don’t lead with doubt. Underconfidence hides your value. Overconfidence, backed by effort, commands attention—and opens doors. Why grind in silence when you can walk in like you belong and prove it?",
-    date: "January 2025",
+    date: "February 2026",
     category: "Performance",
     sections: [
       {
