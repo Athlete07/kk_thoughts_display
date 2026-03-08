@@ -27,7 +27,7 @@ const BhajanAccordion = ({ bhajan }: BhajanAccordionProps) => {
               {bhajan.title}
             </h3>
             {!isOpen && (
-              <p className="text-[11px] text-muted-foreground/40 font-light italic line-clamp-1">
+              <p className="text-[11px] text-muted-foreground/60 font-light italic line-clamp-1">
                 {tekPreview}
               </p>
             )}
