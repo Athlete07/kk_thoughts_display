@@ -25,27 +25,28 @@ const About = () => {
             </p>
             
             <h1 className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed text-center mb-12">
-              I write because some things refuse to stay unspoken. 
-              I build because ideas deserve to become real.
+              Some people build things. Some write verses.
+              <br className="hidden md:block" />
+              I do both — because one without the other feels incomplete.
             </h1>
           </motion.div>
 
-          {/* The Story */}
+          {/* The Verses */}
           <FadeInSection>
             <div className="space-y-8 mb-24">
               <p className="text-muted-foreground font-light leading-relaxed">
-                You know how some people find their voice early? I didn't. For the longest time, 
-                I was just someone who read a lot, thought too much, and said very little.
+                It started with devotion. Not the loud kind — the quiet kind. The kind where
+                you sit with a thought about something larger than yourself, and the only honest
+                response is a verse.
               </p>
-              
+
               <p className="text-muted-foreground font-light leading-relaxed">
-                Then I discovered shayari. And suddenly, all those unsaid things had a home. 
-                The format—compact, rhythmic, honest—felt like it was made for someone 
-                who wanted to say everything in as few words as possible.
+                That's what the bhajans are. Offerings shaped into sound. Each one written slowly,
+                released only when it feels ready. Not content — conviction.
               </p>
 
               <p className="text-foreground font-light leading-relaxed">
-                That's still true. I write shayari because brevity forces truth.
+                I write because some things only make sense when they're sung.
               </p>
             </div>
           </FadeInSection>
@@ -54,18 +55,17 @@ const About = () => {
           <FadeInSection delay={0.1}>
             <div className="space-y-8 mb-24">
               <p className="text-muted-foreground font-light leading-relaxed">
-                The games came later. I started thinking about how we train our minds—not 
-                through lectures or books, but through play. Through repetition that doesn't 
-                feel like work.
+                Then came a different question — how do we sharpen the mind without making it
+                feel like work? Not through lectures. Through play. Through presence, instinct, flow.
               </p>
 
               <p className="text-muted-foreground font-light leading-relaxed">
-                So I started building. Games that ask for focus, reward speed, test memory, 
-                demand logic. Nothing flashy. Just small, deliberate exercises for the mind.
+                That's BoltFocus. Cognitive games built for clean reads, instant response, and
+                repeatable runs. No accounts, no tracking — just you and the signal.
               </p>
 
               <p className="text-foreground font-light leading-relaxed">
-                It's slow work. But it feels right.
+                I build because the best training doesn't announce itself.
               </p>
             </div>
           </FadeInSection>
@@ -74,14 +74,14 @@ const About = () => {
           <FadeInSection delay={0.2}>
             <div className="space-y-8 mb-24">
               <p className="text-muted-foreground font-light leading-relaxed">
-                By day, I work on software products. Figuring out what should exist, 
-                then helping make it real. It's less glamorous than it sounds—mostly 
-                it's listening, clarifying, and cutting scope.
+                By day, I work on software products. Understanding what people need,
+                then shaping ideas into things that ship. It's mostly listening, clarifying,
+                and cutting scope.
               </p>
 
               <p className="text-muted-foreground font-light leading-relaxed">
-                But the craft of shipping—of making something that works, that people use—
-                that bleeds into everything else I do.
+                But the craft of shipping — of making something that works, that people actually
+                use — that bleeds into everything else I do.
               </p>
             </div>
           </FadeInSection>
