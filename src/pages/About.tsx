@@ -24,7 +24,7 @@ const About = () => {
               About
             </p>
             
-            <h1 className="text-2xl md:text-3xl font-serif text-foreground leading-relaxed text-center mb-12">
+            <h1 className="text-2xl md:text-4xl font-serif text-foreground leading-relaxed text-center mb-12">
               I write because some things refuse to stay unspoken. 
               I build because ideas deserve to become real.
             </h1>
