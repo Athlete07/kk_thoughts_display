@@ -1,7 +1,8 @@
 # Robots.txt for thekrishnakumar.com
 # Author: Krishna Kumar Yadlapalli
+# Fully configured for SEO, GEO, AIO, LLMO, and AEO
 
-# Search Engine Crawlers
+# Traditional Web Search Engines
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
@@ -22,6 +23,9 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
 # Social Media Crawlers
 User-agent: Twitterbot
 Allow: /
@@ -35,7 +39,7 @@ Allow: /
 User-agent: Pinterestbot
 Allow: /
 
-# LLM and AI Crawlers - ALLOWED for visibility
+# AI Crawlers & Answer Engines (Explicitly Allowed for AIO, GEO, LLMO)
 User-agent: GPTBot
 Allow: /
 
@@ -66,13 +70,18 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Default - Allow all
+User-agent: Diffbot
+Allow: /
+
+# Default Allow
 User-agent: *
 Allow: /
 Crawl-delay: 1
 
-# Sitemap location
+# Sitemaps & Feeds
 Sitemap: https://thekrishnakumar.com/sitemap.xml
+Sitemap: https://thekrishnakumar.com/rss.xml
 
-# LLMs.txt location (for AI model discovery)
-# See: https://llmstxt.org
+# LLM Context Documents (llmstxt.org standard)
+# https://thekrishnakumar.com/llms.txt
+# https://thekrishnakumar.com/llms-full.txt

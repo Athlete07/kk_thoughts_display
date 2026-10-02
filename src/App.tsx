@@ -8,10 +8,6 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
-import Gaming from "./pages/Gaming";
-import Poetry from "./pages/Poetry";
-import AlbumDetail from "./pages/AlbumDetail";
-import WriterProfile from "./pages/WriterProfile";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -21,19 +17,16 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <Sonner />
+      <Sonner position="bottom-right" />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
           <Route path="/thoughts" element={<Blog />} />
           <Route path="/thoughts/:slug" element={<BlogPost />} />
+          <Route path="/about" element={<About />} />
           <Route path="/say-hello" element={<Contact />} />
-          <Route path="/games" element={<Gaming />} />
-          <Route path="/words" element={<Poetry />} />
-          <Route path="/words/:slug" element={<AlbumDetail />} />
-          <Route path="/words/:slug/writer" element={<WriterProfile />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

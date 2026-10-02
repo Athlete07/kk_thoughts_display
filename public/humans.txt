@@ -1,34 +1,20 @@
 /* TEAM */
 
-Creator & Developer: Krishna Kumar Yadlapalli
-Role: Shayari Writer, Game Developer, Product Builder
+Creator & Writer: Krishna Kumar Yadlapalli
+Role: Product Builder & Essayist
 Location: Bangalore, India
-Email: o0krissh0o@gmail.com
+Email: boltfocus7@gmail.com
 Website: https://thekrishnakumar.com
 Twitter: @krishnakumar
-
-/* THANKS */
-
-Inspiration: The silence that needed a voice
-Tools: React, Vite, Tailwind CSS, Framer Motion
+LinkedIn: https://www.linkedin.com/in/krishnakumaryadlapalli
 
 /* SITE */
 
-Last update: 2026-01-23
-Language: English, Hindi
+Language: English
 Doctype: HTML5
 Standards: Semantic HTML, WCAG 2.1 AA
-Components: React 18, TypeScript, Tailwind CSS
+Stack: React, Vite, TypeScript, Tailwind CSS, Framer Motion
 
-/* PROJECTS */
+/* ETHOS */
 
-BoltFocus: https://www.boltfocus.io
-Cognitive training games for focus, speed, memory, and logic.
-Free, no accounts, privacy-first.
-
-/* PHILOSOPHY */
-
-"Between what I wanted to say and what I finally said, entire seasons changed."
-
-We build because ideas deserve to become real.
-We write because some things refuse to stay unspoken.
+"I don't write to tell anyone how to live. I write to figure out what I actually believe when the noise stops."

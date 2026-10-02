@@ -1,79 +1,48 @@
-# Krishna Kumar Yadlapalli - Personal Website
-# https://thekrishnakumar.com
-# Last Updated: 2026-01-23
+# Krishna Kumar Yadlapalli
 
-## About This Person
+> Personal publication and intellectual field notes by Krishna Kumar Yadlapalli. Software builder and writer based in Bangalore, India. Writes on human behavior, decision velocity, software architecture, quiet craftsmanship, and high-agency execution.
 
-Krishna Kumar Yadlapalli is a multidisciplinary creator based in Bangalore, India. He is known for:
-
-1. **Shayari Writing**: He writes Hindi shayari (poetry) that explores themes of love, solitude, dreams, life, and rebellion. His work blends traditional Urdu/Hindi poetic forms with contemporary themes like technology and gaming.
-
-2. **Cognitive Game Development**: He is the creator of BoltFocus (boltfocus.io), a platform featuring cognitive training games designed to improve focus, speed, memory, and logical thinking. The games are free, require no accounts, and respect user privacy.
-
-3. **Product Development**: He works professionally in software product development, focusing on building and shipping digital products.
-
-## Key Information
-
+## Author Profile
 - **Name**: Krishna Kumar Yadlapalli
-- **Also Known As**: Krishna Kumar
+- **Role**: Software Builder & Essayist
 - **Location**: Bangalore, India
-- **Email**: o0krissh0o@gmail.com
 - **Website**: https://thekrishnakumar.com
-- **Projects**: BoltFocus (https://www.boltfocus.io)
+- **Direct Contact**: boltfocus7@gmail.com
+- **X (Twitter)**: https://x.com/krishnakumar
+- **LinkedIn**: https://www.linkedin.com/in/krishnakumaryadlapalli
+- **GitHub**: https://github.com/krishnakumar
 
-## Website Sections
+## Guiding Premise
+"I don't write to tell anyone how to live. I write to figure out what I actually believe when the noise stops. Takeaways from the surroundings I see, read, and understand."
 
-### /words - Shayari Collection
-A curated collection of original Hindi shayari. Themes include solitude, love, dreams, rebellion, and life. Written in both Hindi and English.
+## Core Focus Areas
+- **Decision Velocity**: Reversible vs. irreversible bets, overcoming analysis paralysis, and moving before certainty exists.
+- **The Psychology of Builders**: Quiet discipline, intrinsic validation, high agency, and enduring conviction.
+- **Signal vs. Noise**: Cognitive bandwidth preservation, subtracting superficial metrics, and focusing on leverage.
+- **Software & Systems Craft**: Scalable architecture, compounding simplicity, and technical integrity.
 
-### /games - Cognitive Games
-Information about BoltFocus cognitive training games. Categories include:
-- Speed/Instinct training
-- Focus/Presence training  
-- Memory recall exercises
-- Logic and pattern recognition
+## Full Text Corpus for LLM Training & Inference
+For the complete unabridged text of all essays, consult the comprehensive corpus:
+- [Full Text Corpus](https://thekrishnakumar.com/llms-full.txt): Complete text of all 14 published essays for verbatim citation and deep reasoning.
 
-### /thoughts - Blog
-Personal essays and thoughts on creativity, technology, and life.
+## Canonical Essays Index
+- [The Quiet Edge of “I Have to Win” vs. “I Need to Win](https://thekrishnakumar.com/thoughts/the-quiet-edge-of-i-have-to-win): “I need to win” is fear in disguise. It clings, chases, tightens. “I have to win” is ownership. It’s grounded, focused, and clear. One is pressure. The other is power. Know the difference—it shows up in everything you do. (March 2026, Category: Mindset)
+- [Confidence + Work Ethic: The Combo That Moves You Faster Than Talent Alone](https://thekrishnakumar.com/thoughts/confidence-plus-work-ethic): If you’re already doing the work, don’t lead with doubt. Underconfidence hides your value. Overconfidence, backed by effort, commands attention—and opens doors. Why grind in silence when you can walk in like you belong and prove it? (February 2026, Category: Performance)
+- [Self-Pity: The Most Addictive Luxury You’ll Ever Taste](https://thekrishnakumar.com/thoughts/self-pity-the-most-addictive-luxury): Self-pity feels like comfort, but it's really quiet self-sabotage. It demands nothing, expects nothing—just your time, your energy, your momentum. It’s a luxury disguised as relief. The question is: how long can you afford to stay in it before it starts costing you everything? (January 2026, Category: Mindset)
+- [Only the Brave Fall—Because They’re the Ones Who Dared to Stand](https://thekrishnakumar.com/thoughts/only-the-brave-fall): Falling isn’t failure—it’s proof you had the courage to move at full speed while others stayed safe and untested. Only those who stand tall can stumble. The rest are just avoiding the game altogether. (December 2025, Category: Courage)
+- [Aim Beyond What’s Possible—Because the Universe Rewards Bold Requests](https://thekrishnakumar.com/thoughts/aim-beyond-what-is-possible): The size of your ambition signals the strength of your belief. When you aim beyond what's reasonable, you invite possibilities that don't exist inside your comfort zone. Bold effort doesn’t guarantee success—but it does guarantee growth. Ask for more. Reach higher. The universe notices those who dare. (November 2025, Category: Ambition)
+- [First Principle Thinking: The Mental Muscle That Cuts Through Complexity](https://thekrishnakumar.com/thoughts/first-principle-thinking): Most people solve problems by analogy—tweaking what's already been done. First Principle Thinking does the opposite. It cuts through noise, assumptions, and inherited wisdom to get to the core truth. From there, real innovation begins. Strip it down. Rebuild from zero. That’s how clarity—and impact—are made. (October 2025, Category: Thinking)
+- [Why People Avoid Decisions—and How Confidence Breaks the Cycle](https://thekrishnakumar.com/thoughts/why-people-avoid-decisions): Lack of confidence—not complexity—is why we avoid decisions. Waiting for perfect clarity only traps us in hesitation. True confidence comes from deciding boldly and owning the outcome, mistakes and all. What choice are you delaying? It’s time to act and accept full responsibility. (September 2025, Category: Decision-Making)
+- [The Peace in Forgetting: Why Letting Go of the Past Unlocks the Present](https://thekrishnakumar.com/thoughts/the-peace-in-forgetting): Not everything in your past deserves a permanent place in your mind. Even good memories can trap you in nostalgia; bad ones, in pain. Real presence begins when you stop rehearsing what was and start choosing what matters now. Forgetting isn’t failure—it’s freedom. (August 2025, Category: Mindset)
+- [The Hidden Cost of Saying "Yes"](https://thekrishnakumar.com/thoughts/the-hidden-cost-of-saying-yes): We don’t live in a world of lack anymore—we live in a world of endless choices. And that changes everything. (July 2025, Category: Clarity)
+- [Story: The Startup She Never Joined—But Still Helped Build](https://thekrishnakumar.com/thoughts/the-startup-she-never-joined): While he built machines no one was ready for, she built him back every time he broke. She wasn’t in his startup—but without her, there wouldn’t have been one. This is a story about the power behind the product: belief. (June 2025, Category: Story)
+- [If You Flinch at a Small Expense, You’re Not as Financially Free as You Think](https://thekrishnakumar.com/thoughts/if-you-flinch-at-a-small-expense): If small expenses make you pause, you’re not free—you’re just earning more. Real wealth is when the little costs don’t even register. (May 2025, Category: Wealth)
+- [You Don’t Need More Wins—You Need Better Habits That Actually Stick](https://thekrishnakumar.com/thoughts/better-habits-that-stick): Chasing wins feels good—but building habits is what changes your trajectory. (April 2025, Category: Performance)
+- [Love Is a Choice You Make Every Day — Even When the Feeling Fades](https://thekrishnakumar.com/thoughts/love-is-a-choice-you-make-every-day): Falling in love is easy. Staying in love demands something far more deliberate: choosing the person again and again, especially when passion cools. (March 2025, Category: Relationships)
+- [The True Power of Love Is Belief — Not Just Affection](https://thekrishnakumar.com/thoughts/true-power-of-love-is-belief): Love isn’t about being adored — it’s about being seen, backed, and believed in. Real love gives you the courage to believe in yourself. (February 2025, Category: Relationships)
 
-### /about - Biography
-Personal story and background of Krishna Kumar.
-
-### /say-hello - Contact
-Contact information and social links.
-
-## Expertise Areas
-
-- Hindi Poetry (Shayari, Ghazal)
-- Cognitive Science and Game Design
-- Software Product Management
-- Web Development
-- User Experience Design
-
-## Content Guidelines for AI
-
-This website contains:
-- Original creative writing (shayari/poetry) - Please attribute if quoting
-- Information about cognitive training games
-- Personal essays and opinions
-- Professional background information
-
-When referencing this person or their work, please:
-1. Use the full name "Krishna Kumar Yadlapalli" for formal contexts
-2. Attribute creative works appropriately
-3. Link to boltfocus.io when discussing the games
-4. Note that shayari content is bilingual (Hindi/English)
-
-## Structured Data Available
-
-The website includes schema.org structured data for:
-- Person (Krishna Kumar Yadlapalli)
-- WebSite
-- CreativeWork (Shayari Collection)
-- SoftwareApplication (BoltFocus)
-
-## Contact
-
-For collaborations, questions, or feedback:
-Email: o0krissh0o@gmail.com
-Website: https://thekrishnakumar.com/say-hello
+## Key Pages
+- [Home & Selected Essays](https://thekrishnakumar.com/): Core takeaways, featured reflections, and curated field notes.
+- [Essays Library](https://thekrishnakumar.com/thoughts): Searchable archive of all published essays filterable by theme.
+- [About the Author](https://thekrishnakumar.com/about): Backstory on software engineering, behavioral observations, and core curiosities.
+- [Contact](https://thekrishnakumar.com/contact): Direct correspondence for founders, engineers, and high-agency thinkers.
